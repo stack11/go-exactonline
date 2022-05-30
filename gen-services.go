@@ -271,7 +271,7 @@ func getEndpointProperties(endpoint *endpoint) {
 			nt = ntt
 		}
 
-		desc := strings.TrimSpace(s.Parent().Parent().Children().Eq(5).Text())
+		desc := strings.TrimSpace(s.Parent().Parent().Children().Eq(6).Text())
 		properties = append(properties, property{
 			OriginalName:    name,
 			Name:            strings.Title(name),
