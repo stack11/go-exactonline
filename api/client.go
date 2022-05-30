@@ -19,14 +19,14 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/mcnijman/go-exactonline/types"
+	"github.com/stack11/go-exactonline/types"
 )
 
 const (
 	contentType    = "application/json"
 	acceptHeader   = "application/json"
 	defaultBaseURL = "https://start.exactonline.nl/"
-	userAgent      = "github.com/mcnijman/go-exactonline"
+	userAgent      = "github.com/stack11/go-exactonline"
 )
 
 // A Client manages communication with the Exact Online API.

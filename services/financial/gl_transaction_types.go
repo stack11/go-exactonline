@@ -8,7 +8,7 @@ package financial
 import (
 	"context"
 
-	"github.com/mcnijman/go-exactonline/api"
+	"github.com/stack11/go-exactonline/api"
 )
 
 // GLTransactionTypesEndpoint is responsible for communicating with

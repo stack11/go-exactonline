@@ -13,7 +13,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/mcnijman/go-exactonline/types"
+	"github.com/stack11/go-exactonline/types"
 )
 
 type data struct {

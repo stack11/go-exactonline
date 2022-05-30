@@ -15,7 +15,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/mcnijman/go-exactonline/api"
+	"github.com/stack11/go-exactonline/api"
 )
 
 func TestNewBudgetService(t *testing.T) {

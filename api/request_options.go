@@ -14,7 +14,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/mcnijman/go-exactonline/types"
+	"github.com/stack11/go-exactonline/types"
 )
 
 // Select allows for limiting the fields returned. The default is all fields (*).

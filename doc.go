@@ -8,7 +8,7 @@ Package exactonline provides a client for using the Exact Online API.
 
 Usage:
 
-	import "github.com/mcnijman/go-exactonline"
+	import "github.com/stack11/go-exactonline"
 
 Note that this library doens't directly handle authentication, see [Authentication](#authentication).
 We first contstruct a client and then access the various API endpoints.

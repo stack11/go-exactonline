@@ -11,7 +11,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/mcnijman/go-exactonline/types"
+	"github.com/stack11/go-exactonline/types"
 )
 
 /* func TestAddListOptionsToRequest(t *testing.T) {

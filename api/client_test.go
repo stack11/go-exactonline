@@ -18,7 +18,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/mcnijman/go-exactonline/types"
+	"github.com/stack11/go-exactonline/types"
 )
 
 // setup sets up a test HTTP server along with a exactonline.Client that is

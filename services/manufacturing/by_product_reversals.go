@@ -8,8 +8,8 @@ package manufacturing
 import (
 	"context"
 
-	"github.com/mcnijman/go-exactonline/api"
-	"github.com/mcnijman/go-exactonline/types"
+	"github.com/stack11/go-exactonline/api"
+	"github.com/stack11/go-exactonline/types"
 )
 
 // ByProductReversalsEndpoint is responsible for communicating with

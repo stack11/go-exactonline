@@ -1,4 +1,4 @@
-module github.com/mcnijman/go-exactonline
+module github.com/stack11/go-exactonline
 
 require (
 	github.com/gofrs/uuid v3.1.0+incompatible

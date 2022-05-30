@@ -8,7 +8,7 @@ package project
 import (
 	"context"
 
-	"github.com/mcnijman/go-exactonline/api"
+	"github.com/stack11/go-exactonline/api"
 )
 
 // ProjectBudgetTypesEndpoint is responsible for communicating with

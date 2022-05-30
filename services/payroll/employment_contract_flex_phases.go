@@ -8,7 +8,7 @@ package payroll
 import (
 	"context"
 
-	"github.com/mcnijman/go-exactonline/api"
+	"github.com/stack11/go-exactonline/api"
 )
 
 // EmploymentContractFlexPhasesEndpoint is responsible for communicating with
