@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -33,20 +33,27 @@ func TestNewManufacturingService(t *testing.T) {
 	want.BillOfMaterialVersions = (*BillOfMaterialVersionsEndpoint)(&want.common)
 	want.ByProductReceipts = (*ByProductReceiptsEndpoint)(&want.common)
 	want.ByProductReversals = (*ByProductReversalsEndpoint)(&want.common)
+	want.ManufacturingSettings = (*ManufacturingSettingsEndpoint)(&want.common)
 	want.MaterialIssues = (*MaterialIssuesEndpoint)(&want.common)
 	want.MaterialReversals = (*MaterialReversalsEndpoint)(&want.common)
 	want.OperationResources = (*OperationResourcesEndpoint)(&want.common)
 	want.Operations = (*OperationsEndpoint)(&want.common)
 	want.ProductionAreas = (*ProductionAreasEndpoint)(&want.common)
+	want.RecentTimeTransactions = (*RecentTimeTransactionsEndpoint)(&want.common)
+	want.ShopOrderMaterialPlanDetails = (*ShopOrderMaterialPlanDetailsEndpoint)(&want.common)
 	want.ShopOrderMaterialPlans = (*ShopOrderMaterialPlansEndpoint)(&want.common)
+	want.ShopOrderPriorities = (*ShopOrderPrioritiesEndpoint)(&want.common)
 	want.ShopOrderReceipts = (*ShopOrderReceiptsEndpoint)(&want.common)
 	want.ShopOrderReversals = (*ShopOrderReversalsEndpoint)(&want.common)
 	want.ShopOrderRoutingStepPlans = (*ShopOrderRoutingStepPlansEndpoint)(&want.common)
+	want.ShopOrderRoutingStepPlansAvailableToWork = (*ShopOrderRoutingStepPlansAvailableToWorkEndpoint)(&want.common)
 	want.ShopOrders = (*ShopOrdersEndpoint)(&want.common)
 	want.StageForDeliveryReceipts = (*StageForDeliveryReceiptsEndpoint)(&want.common)
 	want.StageForDeliveryReversals = (*StageForDeliveryReversalsEndpoint)(&want.common)
+	want.StartedTimedTimeTransactions = (*StartedTimedTimeTransactionsEndpoint)(&want.common)
 	want.SubOrderReceipts = (*SubOrderReceiptsEndpoint)(&want.common)
 	want.SubOrderReversals = (*SubOrderReversalsEndpoint)(&want.common)
+	want.TimedTimeTransactions = (*TimedTimeTransactionsEndpoint)(&want.common)
 	want.TimeTransactions = (*TimeTransactionsEndpoint)(&want.common)
 	want.Workcenters = (*WorkcentersEndpoint)(&want.common)
 

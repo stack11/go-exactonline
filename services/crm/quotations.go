@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -35,6 +35,12 @@ type Quotations struct {
 
 	// AmountDC:
 	AmountDC *float64 `json:"AmountDC,omitempty"`
+
+	// AmountDiscount:
+	AmountDiscount *float64 `json:"AmountDiscount,omitempty"`
+
+	// AmountDiscountExclVat:
+	AmountDiscountExclVat *float64 `json:"AmountDiscountExclVat,omitempty"`
 
 	// AmountFC:
 	AmountFC *float64 `json:"AmountFC,omitempty"`
@@ -90,6 +96,15 @@ type Quotations struct {
 	// DueDate:
 	DueDate *types.Date `json:"DueDate,omitempty"`
 
+	// IncotermAddress:
+	IncotermAddress *string `json:"IncotermAddress,omitempty"`
+
+	// IncotermCode:
+	IncotermCode *string `json:"IncotermCode,omitempty"`
+
+	// IncotermVersion:
+	IncotermVersion *int `json:"IncotermVersion,omitempty"`
+
 	// InvoiceAccount:
 	InvoiceAccount *types.GUID `json:"InvoiceAccount,omitempty"`
 
@@ -135,6 +150,12 @@ type Quotations struct {
 	// OrderAccountName:
 	OrderAccountName *string `json:"OrderAccountName,omitempty"`
 
+	// PaymentCondition:
+	PaymentCondition *string `json:"PaymentCondition,omitempty"`
+
+	// PaymentConditionDescription:
+	PaymentConditionDescription *string `json:"PaymentConditionDescription,omitempty"`
+
 	// Project:
 	Project *types.GUID `json:"Project,omitempty"`
 
@@ -156,11 +177,35 @@ type Quotations struct {
 	// Remarks:
 	Remarks *string `json:"Remarks,omitempty"`
 
+	// SalesChannel:
+	SalesChannel *types.GUID `json:"SalesChannel,omitempty"`
+
+	// SalesChannelCode:
+	SalesChannelCode *string `json:"SalesChannelCode,omitempty"`
+
+	// SalesChannelDescription:
+	SalesChannelDescription *string `json:"SalesChannelDescription,omitempty"`
+
 	// SalesPerson:
 	SalesPerson *types.GUID `json:"SalesPerson,omitempty"`
 
 	// SalesPersonFullName:
 	SalesPersonFullName *string `json:"SalesPersonFullName,omitempty"`
+
+	// SelectionCode:
+	SelectionCode *types.GUID `json:"SelectionCode,omitempty"`
+
+	// SelectionCodeCode:
+	SelectionCodeCode *string `json:"SelectionCodeCode,omitempty"`
+
+	// SelectionCodeDescription:
+	SelectionCodeDescription *string `json:"SelectionCodeDescription,omitempty"`
+
+	// ShippingMethod:
+	ShippingMethod *types.GUID `json:"ShippingMethod,omitempty"`
+
+	// ShippingMethodDescription:
+	ShippingMethodDescription *string `json:"ShippingMethodDescription,omitempty"`
 
 	// Status:
 	Status *int `json:"Status,omitempty"`

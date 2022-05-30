@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,8 +29,12 @@ func TestNewSalesOrderService(t *testing.T) {
 	want := &SalesOrderService{client: c}
 	want.common.client = c
 
+	want.DropShipmentLines = (*DropShipmentLinesEndpoint)(&want.common)
+	want.DropShipments = (*DropShipmentsEndpoint)(&want.common)
 	want.GoodsDeliveries = (*GoodsDeliveriesEndpoint)(&want.common)
 	want.GoodsDeliveryLines = (*GoodsDeliveryLinesEndpoint)(&want.common)
+	want.PlannedSalesReturnLines = (*PlannedSalesReturnLinesEndpoint)(&want.common)
+	want.PlannedSalesReturns = (*PlannedSalesReturnsEndpoint)(&want.common)
 	want.SalesOrderLines = (*SalesOrderLinesEndpoint)(&want.common)
 	want.SalesOrders = (*SalesOrdersEndpoint)(&want.common)
 

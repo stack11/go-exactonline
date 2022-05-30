@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -113,6 +113,12 @@ type FinancialTransactionLines struct {
 	// ExchangeRate:
 	ExchangeRate *float64 `json:"ExchangeRate,omitempty"`
 
+	// ExternalLinkDescription:
+	ExternalLinkDescription *string `json:"ExternalLinkDescription,omitempty"`
+
+	// ExternalLinkReference:
+	ExternalLinkReference *string `json:"ExternalLinkReference,omitempty"`
+
 	// ExtraDutyAmountFC:
 	ExtraDutyAmountFC *float64 `json:"ExtraDutyAmountFC,omitempty"`
 
@@ -196,6 +202,9 @@ type FinancialTransactionLines struct {
 
 	// SerialNumber:
 	SerialNumber *string `json:"SerialNumber,omitempty"`
+
+	// ShopOrder:
+	ShopOrder *types.GUID `json:"ShopOrder,omitempty"`
 
 	// Status:
 	Status *int `json:"Status,omitempty"`

@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -32,43 +32,43 @@ type SubscriptionRestrictionItems struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Created: Creation date
+	// Created: Date and time when the subscription restriction was created
 	Created *types.Date `json:"Created,omitempty"`
 
-	// Creator: User ID of the creator
+	// Creator: ID of user that created the subscription restriction
 	Creator *types.GUID `json:"Creator,omitempty"`
 
-	// CreatorFullName: Name of the creator
+	// CreatorFullName: Full name of user that created the subscription restriction
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
-	// Item: Item linked to the restriction
+	// Item: Id of item linked to the subscription restriction
 	Item *types.GUID `json:"Item,omitempty"`
 
-	// ItemCode: Code of item
+	// ItemCode: Code of item that linked to the subscription restriction
 	ItemCode *string `json:"ItemCode,omitempty"`
 
-	// ItemDescription: Description of item
+	// ItemDescription: Description of item that linked to the subscription restriction
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
-	// Modified: Last modified date
+	// Modified: Last modified date of subscription restriction
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// Modifier: User ID of the last modifier
+	// Modifier: ID of last user that modified the subscription restriction
 	Modifier *types.GUID `json:"Modifier,omitempty"`
 
-	// ModifierFullName: Name of the last modifier
+	// ModifierFullName: Full name of last user that modified the subscription restriction
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// Subscription: Reference to subscription
+	// Subscription: Subscription ID that the restriction is referenced to
 	Subscription *types.GUID `json:"Subscription,omitempty"`
 
-	// SubscriptionDescription: Description of subscription
+	// SubscriptionDescription: Subscription description that the restriction is referenced to
 	SubscriptionDescription *string `json:"SubscriptionDescription,omitempty"`
 
-	// SubscriptionNumber: Number of subscription
+	// SubscriptionNumber: Subscription number that the restriction is referenced to
 	SubscriptionNumber *int `json:"SubscriptionNumber,omitempty"`
 }
 

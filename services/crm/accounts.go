@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -68,6 +68,9 @@ type Accounts struct {
 
 	// BRIN:
 	BRIN *types.GUID `json:"BRIN,omitempty"`
+
+	// BSN:
+	BSN *string `json:"BSN,omitempty"`
 
 	// BusinessType:
 	BusinessType *types.GUID `json:"BusinessType,omitempty"`
@@ -162,11 +165,17 @@ type Accounts struct {
 	// CustomerSince:
 	CustomerSince *types.Date `json:"CustomerSince,omitempty"`
 
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// DatevCreditorCode:
 	DatevCreditorCode *string `json:"DatevCreditorCode,omitempty"`
 
 	// DatevDebtorCode:
 	DatevDebtorCode *string `json:"DatevDebtorCode,omitempty"`
+
+	// DeliveryAdvice:
+	DeliveryAdvice *byte `json:"DeliveryAdvice,omitempty"`
 
 	// DiscountPurchase:
 	DiscountPurchase *float64 `json:"DiscountPurchase,omitempty"`
@@ -189,6 +198,9 @@ type Accounts struct {
 	// EndDate:
 	EndDate *types.Date `json:"EndDate,omitempty"`
 
+	// EORINumber:
+	EORINumber *string `json:"EORINumber,omitempty"`
+
 	// EstablishedDate:
 	EstablishedDate *types.Date `json:"EstablishedDate,omitempty"`
 
@@ -207,11 +219,32 @@ type Accounts struct {
 	// GLAR:
 	GLAR *types.GUID `json:"GLAR,omitempty"`
 
+	// GlnNumber:
+	GlnNumber *string `json:"GlnNumber,omitempty"`
+
 	// HasWithholdingTaxSales:
 	HasWithholdingTaxSales *bool `json:"HasWithholdingTaxSales,omitempty"`
 
 	// IgnoreDatevWarningMessage:
 	IgnoreDatevWarningMessage *bool `json:"IgnoreDatevWarningMessage,omitempty"`
+
+	// IncotermAddressPurchase:
+	IncotermAddressPurchase *string `json:"IncotermAddressPurchase,omitempty"`
+
+	// IncotermAddressSales:
+	IncotermAddressSales *string `json:"IncotermAddressSales,omitempty"`
+
+	// IncotermCodePurchase:
+	IncotermCodePurchase *string `json:"IncotermCodePurchase,omitempty"`
+
+	// IncotermCodeSales:
+	IncotermCodeSales *string `json:"IncotermCodeSales,omitempty"`
+
+	// IncotermVersionPurchase:
+	IncotermVersionPurchase *int `json:"IncotermVersionPurchase,omitempty"`
+
+	// IncotermVersionSales:
+	IncotermVersionSales *int `json:"IncotermVersionSales,omitempty"`
 
 	// IntraStatArea:
 	IntraStatArea *string `json:"IntraStatArea,omitempty"`
@@ -434,6 +467,9 @@ type Accounts struct {
 
 	// ShippingMethod:
 	ShippingMethod *types.GUID `json:"ShippingMethod,omitempty"`
+
+	// ShowRemarkForSales:
+	ShowRemarkForSales *bool `json:"ShowRemarkForSales,omitempty"`
 
 	// StartDate:
 	StartDate *types.Date `json:"StartDate,omitempty"`

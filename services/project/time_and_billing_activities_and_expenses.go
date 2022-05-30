@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -26,13 +26,13 @@ type TimeAndBillingActivitiesAndExpensesEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=ReadProjectTimeAndBillingActivitiesAndExpenses
 type TimeAndBillingActivitiesAndExpenses struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// ID: Primary key
+	// ID: ID of activity or expense
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Description: Description
+	// Description: Description of activity or expense
 	Description *string `json:"Description,omitempty"`
 
-	// ParentDescription: Description of Parent
+	// ParentDescription: Description of its parent
 	ParentDescription *string `json:"ParentDescription,omitempty"`
 }
 

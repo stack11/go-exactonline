@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -71,7 +71,7 @@ type Mailboxes struct {
 	// Publish: Customers can decide if they want this mailbox to be visible by all. i.e. some other customer can see this in address maintenance for digital postbox of type Exact
 	Publish *byte `json:"Publish,omitempty"`
 
-	// Type: Type of mailbox. Exact / Government / Manual
+	// Type: Type of mailbox: 0-Unknown, 1-Exact, 2-Government, 3-Manual input
 	Type *int `json:"Type,omitempty"`
 
 	// ValidFrom: Date that this mailbox became valid

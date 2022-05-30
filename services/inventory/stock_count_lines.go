@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -57,6 +57,9 @@ type StockCountLines struct {
 	// Item: Reference to the item for which the stock is counted
 	Item *types.GUID `json:"Item,omitempty"`
 
+	// ItemBarcode: Item Barcode
+	ItemBarcode *string `json:"ItemBarcode,omitempty"`
+
 	// ItemCode: Item code
 	ItemCode *string `json:"ItemCode,omitempty"`
 
@@ -90,8 +93,23 @@ type StockCountLines struct {
 	// QuantityNew: The new quantity in stock. Use this field to correct the quantity when the items in stock are physically counted.
 	QuantityNew *float64 `json:"QuantityNew,omitempty"`
 
+	// ReasonCode: Reason code for logistics
+	ReasonCode *string `json:"ReasonCode,omitempty"`
+
+	// ReasonCodeDescription: Reason code for logistics description
+	ReasonCodeDescription *string `json:"ReasonCodeDescription,omitempty"`
+
+	// ReasonCodeID: Reason code for logistics id
+	ReasonCodeID *types.GUID `json:"ReasonCodeID,omitempty"`
+
 	// SerialNumbers: The collection of serial numbers that belong to the items included in this stock count
 	SerialNumbers *json.RawMessage `json:"SerialNumbers,omitempty"`
+
+	// Source: Source of stock count entry: 1-Manual entry, 2-Import, 3-Stock count, 4-Web service
+	Source *int `json:"Source,omitempty"`
+
+	// Status: Stock count status: 12-Draft, 21-Processed
+	Status *int `json:"Status,omitempty"`
 
 	// StockCountID: Identifies the stock count. All the lines of a stock count have the same StockCountID
 	StockCountID *types.GUID `json:"StockCountID,omitempty"`
@@ -107,6 +125,9 @@ type StockCountLines struct {
 
 	// StorageLocationDescription: Storage location description
 	StorageLocationDescription *string `json:"StorageLocationDescription,omitempty"`
+
+	// Warehouse: Warehouse
+	Warehouse *types.GUID `json:"Warehouse,omitempty"`
 }
 
 func (e *StockCountLines) GetPrimary() *types.GUID {

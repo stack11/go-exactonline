@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -26,13 +26,13 @@ type TimeAndBillingEntryRecentAccountsEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=ReadProjectTimeAndBillingEntryRecentAccounts
 type TimeAndBillingEntryRecentAccounts struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// AccountId: Primary key
+	// AccountId: Guid ID of the account used for hour entries
 	AccountId *types.GUID `json:"AccountId,omitempty"`
 
 	// AccountName: Name of account
 	AccountName *string `json:"AccountName,omitempty"`
 
-	// DateLastUsed: Date last used
+	// DateLastUsed: The last date that the account has been used for hour entry
 	DateLastUsed *types.Date `json:"DateLastUsed,omitempty"`
 }
 

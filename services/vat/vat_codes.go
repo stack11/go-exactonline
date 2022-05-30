@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -72,40 +72,43 @@ type VATCodes struct {
 	// EUSalesListing: Used in all legislations except France. Indicates if and how transactions using the VAT code appear on the ICT return (EU sales list). L = Listing goods, N = No listing, S = Listing services, T = Triangulation
 	EUSalesListing *string `json:"EUSalesListing,omitempty"`
 
+	// ExcludeVATListing: ExcludeVATListing. Used in Belgium Legislation to indicate whether the entries need to be excluded from the VAT Listing.
+	ExcludeVATListing *byte `json:"ExcludeVATListing,omitempty"`
+
 	// GLDiscountPurchase: Indicates the purchase discount GL account linked to the VAT codes for German legislation
 	GLDiscountPurchase *types.GUID `json:"GLDiscountPurchase,omitempty"`
 
-	// GLDiscountPurchaseCode: Code of GLDiscountPurchase
+	// GLDiscountPurchaseCode: Code of the G/L account used for VAT corrections of settlement discount purchase (Germany only)
 	GLDiscountPurchaseCode *string `json:"GLDiscountPurchaseCode,omitempty"`
 
-	// GLDiscountPurchaseDescription: Description of GLDiscountPurchase
+	// GLDiscountPurchaseDescription: Description of the G/L account used for VAT corrections of settlement discount purchase (Germany only)
 	GLDiscountPurchaseDescription *string `json:"GLDiscountPurchaseDescription,omitempty"`
 
 	// GLDiscountSales: Indicates the sales discount GL account linked to the VAT codes for German legislation
 	GLDiscountSales *types.GUID `json:"GLDiscountSales,omitempty"`
 
-	// GLDiscountSalesCode: Code of GLDiscountSales
+	// GLDiscountSalesCode: Code of the G/L account used for VAT corrections of settlement discount sales (Germany only)
 	GLDiscountSalesCode *string `json:"GLDiscountSalesCode,omitempty"`
 
-	// GLDiscountSalesDescription: Description of GLDiscountSales
+	// GLDiscountSalesDescription: Description of the G/L account used for VAT corrections of settlement discount sales (Germany only)
 	GLDiscountSalesDescription *string `json:"GLDiscountSalesDescription,omitempty"`
 
 	// GLToClaim: G/L account that is used to book the VAT to claim. If you enter purchases with a VAT code, the VAT amount to be claimed is entered to this VAT account. Must be of type VAT
 	GLToClaim *types.GUID `json:"GLToClaim,omitempty"`
 
-	// GLToClaimCode: Code of GLToClaim
+	// GLToClaimCode: Code of the VAT to claim G/L account for the VAT code
 	GLToClaimCode *string `json:"GLToClaimCode,omitempty"`
 
-	// GLToClaimDescription: Description of GLToClaim
+	// GLToClaimDescription: Description of the VAT to claim G/L account for the VAT code
 	GLToClaimDescription *string `json:"GLToClaimDescription,omitempty"`
 
 	// GLToPay: G/L account that is used to book the VAT to pay. If you enter sales with a VAT code, the VAT amount to be paid is entered to this VAT account. Must be of type VAT
 	GLToPay *types.GUID `json:"GLToPay,omitempty"`
 
-	// GLToPayCode: Code of GLToPay
+	// GLToPayCode: Code of the VAT to pay G/L account for the VAT code
 	GLToPayCode *string `json:"GLToPayCode,omitempty"`
 
-	// GLToPayDescription: Description of GLToPay
+	// GLToPayDescription: Description of the VAT to pay G/L account for the VAT code
 	GLToPayDescription *string `json:"GLToPayDescription,omitempty"`
 
 	// IntraStat: Used in all legislations except France. Indicates if intrastat is used
@@ -128,6 +131,9 @@ type VATCodes struct {
 
 	// ModifierFullName: User name of modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
+
+	// OssCountry: OSS country. Available when OneStopShop featureset is enabled in the administration.
+	OssCountry *string `json:"OssCountry,omitempty"`
 
 	// Percentage: Percentage of the VAT code
 	Percentage *float64 `json:"Percentage,omitempty"`

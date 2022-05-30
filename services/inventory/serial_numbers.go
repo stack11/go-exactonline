@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -26,7 +26,7 @@ type SerialNumbersEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=InventorySerialNumbers
 type SerialNumbers struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// ID: Primary key
+	// ID: A guid that is the unique identifier of the serial number
 	ID *types.GUID `json:"ID,omitempty"`
 
 	// Available: Availability of this serial number

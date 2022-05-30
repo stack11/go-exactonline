@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -70,6 +70,9 @@ type EmploymentSalaries struct {
 
 	// EndDate: Salary record end date
 	EndDate *types.Date `json:"EndDate,omitempty"`
+
+	// Frequency: Frequency: 1 - Yearly, 2 - Quarterly, 3 - Monthly, 4 - 4-weekly, 5 - Weekly, 11 - Yearly (Pro forma), 12 - Quarterly (Pro forma), 13 - Monthly (Pro forma), 14 - 4-Weekly (Pro forma), 15 - Weekly (Pro forma)
+	Frequency *int `json:"Frequency,omitempty"`
 
 	// FulltimeAmount: Salary when working fulltime
 	FulltimeAmount *float64 `json:"FulltimeAmount,omitempty"`

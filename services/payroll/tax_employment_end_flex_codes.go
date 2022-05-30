@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,7 +29,7 @@ type TaxEmploymentEndFlexCodes struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Code: Code of flexible employment contract phase
+	// Code: Code of flexible employment end reason
 	Code *string `json:"Code,omitempty"`
 
 	// Created: Creation date
@@ -41,10 +41,10 @@ type TaxEmploymentEndFlexCodes struct {
 	// CreatorFullName: Name of creator
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
-	// Description: Description of flexible employment contract phase
+	// Description: Description of flexible employment end reason
 	Description *string `json:"Description,omitempty"`
 
-	// EndDate: End date of flexible employment contract
+	// EndDate: Date until which the flexible employment end reason is allowed
 	EndDate *types.Date `json:"EndDate,omitempty"`
 
 	// Modified: Last modified date
@@ -56,7 +56,7 @@ type TaxEmploymentEndFlexCodes struct {
 	// ModifierFullName: Name of modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// StartDate: Start date of flexible employment contract phase
+	// StartDate: Date as of which the flexible employment end reason is allowed
 	StartDate *types.Date `json:"StartDate,omitempty"`
 }
 

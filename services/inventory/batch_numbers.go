@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -27,10 +27,10 @@ type BatchNumbersEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=InventoryBatchNumbers
 type BatchNumbers struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// ID: Primary key
+	// ID: A guid that is the unique identifier of the batch number
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// AvailableQuantity: Available quantity of this batch number
+	// AvailableQuantity: Available quantity of this batch number. If available quantity is empty, the batch number is available quantity is 0
 	AvailableQuantity *float64 `json:"AvailableQuantity,omitempty"`
 
 	// BatchNumber: Human readable batch number

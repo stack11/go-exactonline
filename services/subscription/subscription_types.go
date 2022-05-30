@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,31 +29,58 @@ type SubscriptionTypes struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
+	// AutomaticGenerateInvoiceDays: Number of days before or after generating the subscription invoice. Company settings and automatic  // 						generate invoice type need to be enabled before subscription invoice generated automatically
+	AutomaticGenerateInvoiceDays *int `json:"AutomaticGenerateInvoiceDays,omitempty"`
+
+	// AutomaticGenerateInvoiceDescription: Description of the automatic generated invoice
+	AutomaticGenerateInvoiceDescription *string `json:"AutomaticGenerateInvoiceDescription,omitempty"`
+
+	// AutomaticGenerateInvoiceType: Type of automatic generate invoice: 1=Never, 2=Before the subscription period, 3=After the subscription period.  // 						Company settings need to be enabled before subscription invoice generated automatically
+	AutomaticGenerateInvoiceType *int `json:"AutomaticGenerateInvoiceType,omitempty"`
+
+	// AutomaticSendInvoiceDays: Number of days after sending the subscription invoice. Company settings and automatic  // 						sending invoice type need to be enabled before subscription invoice sent automatically
+	AutomaticSendInvoiceDays *int `json:"AutomaticSendInvoiceDays,omitempty"`
+
+	// AutomaticSendInvoiceMethod: Method of automatic send invoice: 1=Send based on account, 2=Send via email, 3=Create documents, 4=Send via digital postbox,  // 						5=Send and track, 6=Send via peppol. Company settings need to be enabled before subscription invoice sent automatically
+	AutomaticSendInvoiceMethod *int `json:"AutomaticSendInvoiceMethod,omitempty"`
+
+	// AutomaticSendInvoiceSender: Sender&#39;s email of automatic send invoice: 1=Company email address, 2=Main user email address.  // 						Company settings need to be enabled before subscription invoice sent automatically
+	AutomaticSendInvoiceSender *int `json:"AutomaticSendInvoiceSender,omitempty"`
+
+	// AutomaticSendInvoiceSenderMailbox: ID of automatic send invoice sender&#39;s mailbox. Company settings need to be enabled before subscription invoice sent automatically
+	AutomaticSendInvoiceSenderMailbox *types.GUID `json:"AutomaticSendInvoiceSenderMailbox,omitempty"`
+
+	// AutomaticSendInvoiceType: Type of automatic send invoice: 1=Never, 2=When available.  // 						Company settings need to be enabled before subscription invoice sent automatically
+	AutomaticSendInvoiceType *int `json:"AutomaticSendInvoiceType,omitempty"`
+
 	// Code: Code
 	Code *string `json:"Code,omitempty"`
 
-	// Created: Creation date
+	// Created: Date and time when the subscription type was created
 	Created *types.Date `json:"Created,omitempty"`
 
-	// Creator: User ID of the creator
+	// Creator: ID of user that created the subscription type
 	Creator *types.GUID `json:"Creator,omitempty"`
 
-	// CreatorFullName: Name of the creator
+	// CreatorFullName: Full name of user that created the subscription type
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
-	// Description: Description
+	// Description: Description of subscription type
 	Description *string `json:"Description,omitempty"`
 
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
-	// Modified: Last modified date
+	// InvoiceCorrectionMethod: Invoice correction method: 1=Ratio based, 2=Zero Invoice, 3=Never invoiced
+	InvoiceCorrectionMethod *int `json:"InvoiceCorrectionMethod,omitempty"`
+
+	// Modified: Last modified date of subscription type
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// Modifier: User ID of the last modifier
+	// Modifier: ID of user that modified the subscription type
 	Modifier *types.GUID `json:"Modifier,omitempty"`
 
-	// ModifierFullName: Name of the last modifier
+	// ModifierFullName: Full name of user that modified the subscription type
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 }
 

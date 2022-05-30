@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -22,7 +22,7 @@ type PaymentsEndpoint service
 // URL: /api/v1/{division}/cashflow/Payments
 // HasWebhook: false
 // IsInBeta: false
-// Methods: GET
+// Methods: GET PUT
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=CashflowPayments
 type Payments struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
@@ -191,7 +191,7 @@ type Payments struct {
 	// RateFC: Exchange rate from payment currency to division currency. AmountFC * RateFC = AmountDC.
 	RateFC *float64 `json:"RateFC,omitempty"`
 
-	// Source: The source of the payment. 1 = manual 2 = reconcile 3 = match 4 = import 5 = process
+	// Source: The source of the payment.
 	Source *int `json:"Source,omitempty"`
 
 	// Status: The status of the payment. 20 = open 30 = selected - payment is selected to be paid 40 = processed - payment has been done 50 = matched - payment is matched with one or more other outstanding items or financial statement lines
@@ -209,7 +209,7 @@ type Payments struct {
 	// TransactionEntryID: Linked transaction. Use this as reference to PurchaseEntries.
 	TransactionEntryID *types.GUID `json:"TransactionEntryID,omitempty"`
 
-	// TransactionID: Linked transaction line. Use this as reference to BankEntryLines and CashEntryLines.
+	// TransactionID: Linked transaction line. Use this as reference to PurchaseEntryLines
 	TransactionID *types.GUID `json:"TransactionID,omitempty"`
 
 	// TransactionIsReversal: Indicates if the linked transaction is a reversal entry.
@@ -264,5 +264,18 @@ func (s *PaymentsEndpoint) Get(ctx context.Context, division int, id *types.GUID
 
 	e := &Payments{}
 	_, _, requestError := s.client.NewRequestAndDo(ctx, "GET", u.String(), nil, e)
+	return e, requestError
+}
+
+// Update the Payments entity in the provided division.
+func (s *PaymentsEndpoint) Update(ctx context.Context, division int, entity *Payments) (*Payments, error) {
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/cashflow/Payments", division) // #nosec
+	u, err := api.AddOdataKeyToURL(b, entity.GetPrimary())
+	if err != nil {
+		return nil, err
+	}
+
+	e := &Payments{}
+	_, _, requestError := s.client.NewRequestAndDo(ctx, "PUT", u.String(), entity, e)
 	return e, requestError
 }

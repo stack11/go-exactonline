@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,7 +29,7 @@ type WarehousesEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=InventoryWarehouses
 type Warehouses struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// ID: Primary key
+	// ID: A guid that is the unique identifier of the warehouse
 	ID *types.GUID `json:"ID,omitempty"`
 
 	// Code: Code of the warehouse

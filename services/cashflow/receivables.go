@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -22,7 +22,7 @@ type ReceivablesEndpoint service
 // URL: /api/v1/{division}/cashflow/Receivables
 // HasWebhook: false
 // IsInBeta: false
-// Methods: GET
+// Methods: GET PUT
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=CashflowReceivables
 type Receivables struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
@@ -182,6 +182,9 @@ type Receivables struct {
 	// ModifierFullName: Name of modifier.
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
+	// OrderNumber: Order number of the linked transaction.
+	OrderNumber *int `json:"OrderNumber,omitempty"`
+
 	// PaymentCondition: Payment condition of the linked transaction.
 	PaymentCondition *string `json:"PaymentCondition,omitempty"`
 
@@ -221,7 +224,7 @@ type Receivables struct {
 	// ReceivableSelectorFullName: Name of the receivable selector.
 	ReceivableSelectorFullName *string `json:"ReceivableSelectorFullName,omitempty"`
 
-	// Source: The source of the receivable. 1 = manual 2 = reconcile 3 = match 4 = import 5 = process
+	// Source: The source of the receivable.
 	Source *int `json:"Source,omitempty"`
 
 	// Status: The status of the receivable. 20 = open 30 = selected - receivable is selected to be collected 40 = processed - collection has been done 50 = matched - receivable is matched with one or more other outstanding items or financial statement lines
@@ -239,7 +242,7 @@ type Receivables struct {
 	// TransactionEntryID: Linked transaction. Use this as reference to SalesEntries.
 	TransactionEntryID *types.GUID `json:"TransactionEntryID,omitempty"`
 
-	// TransactionID: Linked transaction line. Use this as reference to BankEntryLines and CashEntryLines.
+	// TransactionID: Linked transaction line. Use this as reference to SalesEntryLines.
 	TransactionID *types.GUID `json:"TransactionID,omitempty"`
 
 	// TransactionIsReversal: Indicates if the linked transaction is a reversal entry.
@@ -294,5 +297,18 @@ func (s *ReceivablesEndpoint) Get(ctx context.Context, division int, id *types.G
 
 	e := &Receivables{}
 	_, _, requestError := s.client.NewRequestAndDo(ctx, "GET", u.String(), nil, e)
+	return e, requestError
+}
+
+// Update the Receivables entity in the provided division.
+func (s *ReceivablesEndpoint) Update(ctx context.Context, division int, entity *Receivables) (*Receivables, error) {
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/cashflow/Receivables", division) // #nosec
+	u, err := api.AddOdataKeyToURL(b, entity.GetPrimary())
+	if err != nil {
+		return nil, err
+	}
+
+	e := &Receivables{}
+	_, _, requestError := s.client.NewRequestAndDo(ctx, "PUT", u.String(), entity, e)
 	return e, requestError
 }

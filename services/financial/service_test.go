@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -32,19 +32,23 @@ func TestNewFinancialService(t *testing.T) {
 	want.AgingOverview = (*AgingOverviewEndpoint)(&want.common)
 	want.AgingPayablesList = (*AgingPayablesListEndpoint)(&want.common)
 	want.AgingReceivablesList = (*AgingReceivablesListEndpoint)(&want.common)
+	want.DeductibilityPercentages = (*DeductibilityPercentagesEndpoint)(&want.common)
 	want.ExchangeRates = (*ExchangeRatesEndpoint)(&want.common)
 	want.FinancialPeriods = (*FinancialPeriodsEndpoint)(&want.common)
 	want.GLAccountClassificationMappings = (*GLAccountClassificationMappingsEndpoint)(&want.common)
 	want.GLAccounts = (*GLAccountsEndpoint)(&want.common)
 	want.GLClassifications = (*GLClassificationsEndpoint)(&want.common)
 	want.GLSchemes = (*GLSchemesEndpoint)(&want.common)
+	want.GLTransactionSources = (*GLTransactionSourcesEndpoint)(&want.common)
 	want.GLTransactionTypes = (*GLTransactionTypesEndpoint)(&want.common)
 	want.Journals = (*JournalsEndpoint)(&want.common)
 	want.JournalStatusList = (*JournalStatusListEndpoint)(&want.common)
+	want.OfficialReturns = (*OfficialReturnsEndpoint)(&want.common)
 	want.OutstandingInvoicesOverview = (*OutstandingInvoicesOverviewEndpoint)(&want.common)
 	want.PayablesList = (*PayablesListEndpoint)(&want.common)
 	want.ProfitLossOverview = (*ProfitLossOverviewEndpoint)(&want.common)
 	want.ReceivablesList = (*ReceivablesListEndpoint)(&want.common)
+	want.ReceivablesListByAccountAndAgeGroup = (*ReceivablesListByAccountAndAgeGroupEndpoint)(&want.common)
 	want.ReportingBalance = (*ReportingBalanceEndpoint)(&want.common)
 	want.Returns = (*ReturnsEndpoint)(&want.common)
 	want.RevenueList = (*RevenueListEndpoint)(&want.common)

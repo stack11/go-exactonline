@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -176,7 +176,7 @@ type Assets struct {
 	// StartDate: Asset Depreciation StartDate
 	StartDate *types.Date `json:"StartDate,omitempty"`
 
-	// Status: Identifies the status of the Asset. (see AssetStatus table to see the possibilities)
+	// Status: Identifies the status of the Asset. (1 = Active, 2 = Not validated, 3 = Inactive, 4 = Depreciated, 5 = Blocked, 6 = Sold)
 	Status *int `json:"Status,omitempty"`
 
 	// TransactionEntryID: Reference to the transaction lines that make up the financial entry.

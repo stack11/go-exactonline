@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -38,6 +38,21 @@ type PurchaseOrders struct {
 
 	// AmountFC:
 	AmountFC *float64 `json:"AmountFC,omitempty"`
+
+	// ApprovalStatus:
+	ApprovalStatus *int `json:"ApprovalStatus,omitempty"`
+
+	// ApprovalStatusDescription:
+	ApprovalStatusDescription *string `json:"ApprovalStatusDescription,omitempty"`
+
+	// Approved:
+	Approved *types.Date `json:"Approved,omitempty"`
+
+	// Approver:
+	Approver *types.GUID `json:"Approver,omitempty"`
+
+	// ApproverFullName:
+	ApproverFullName *string `json:"ApproverFullName,omitempty"`
 
 	// Created:
 	Created *types.Date `json:"Created,omitempty"`
@@ -87,6 +102,15 @@ type PurchaseOrders struct {
 	// ExchangeRate:
 	ExchangeRate *float64 `json:"ExchangeRate,omitempty"`
 
+	// IncotermAddress:
+	IncotermAddress *string `json:"IncotermAddress,omitempty"`
+
+	// IncotermCode:
+	IncotermCode *string `json:"IncotermCode,omitempty"`
+
+	// IncotermVersion:
+	IncotermVersion *int `json:"IncotermVersion,omitempty"`
+
 	// InvoiceStatus:
 	InvoiceStatus *int `json:"InvoiceStatus,omitempty"`
 
@@ -120,6 +144,9 @@ type PurchaseOrders struct {
 	// PurchaseAgentFullName:
 	PurchaseAgentFullName *string `json:"PurchaseAgentFullName,omitempty"`
 
+	// PurchaseOrderLineCount:
+	PurchaseOrderLineCount *int `json:"PurchaseOrderLineCount,omitempty"`
+
 	// PurchaseOrderLines:
 	PurchaseOrderLines *json.RawMessage `json:"PurchaseOrderLines,omitempty"`
 
@@ -138,8 +165,20 @@ type PurchaseOrders struct {
 	// SalesOrderNumber:
 	SalesOrderNumber *int `json:"SalesOrderNumber,omitempty"`
 
+	// SelectionCode:
+	SelectionCode *types.GUID `json:"SelectionCode,omitempty"`
+
+	// SelectionCodeCode:
+	SelectionCodeCode *string `json:"SelectionCodeCode,omitempty"`
+
+	// SelectionCodeDescription:
+	SelectionCodeDescription *string `json:"SelectionCodeDescription,omitempty"`
+
 	// ShippingMethod:
 	ShippingMethod *types.GUID `json:"ShippingMethod,omitempty"`
+
+	// ShippingMethodCode:
+	ShippingMethodCode *string `json:"ShippingMethodCode,omitempty"`
 
 	// ShippingMethodDescription:
 	ShippingMethodDescription *string `json:"ShippingMethodDescription,omitempty"`

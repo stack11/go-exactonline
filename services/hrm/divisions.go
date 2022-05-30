@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -30,7 +30,10 @@ type Divisions struct {
 	// Code: Primary key
 	Code *int `json:"Code,omitempty"`
 
-	// BlockingStatus: Values: 0 = Not blocked 1 = Backup 2 = Conversion busy 3 = Conversion shadow 4 = Conversion waiting 5 = Copy data waiting 6 = Copy data buzy 100 = Wait for deletion 101 = Deleted 102 = Deletion failed
+	// ArchiveDate: Date on which the division is archived
+	ArchiveDate *types.Date `json:"ArchiveDate,omitempty"`
+
+	// BlockingStatus: Values: 0 = Not blocked, 1 = Backup/restore, 2 = Conversion busy, 3 = Conversion shadow, 4 = Conversion waiting, 5 = Copy data waiting, 6 = Copy data busy
 	BlockingStatus *int `json:"BlockingStatus,omitempty"`
 
 	// Class_01: First division classification. User should have access rights to view division classifications.
@@ -96,6 +99,9 @@ type Divisions struct {
 	// ModifierFullName: Name of the last modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
+	// OBNumber: The soletrader VAT number used for offical returns to tax authority
+	OBNumber *string `json:"OBNumber,omitempty"`
+
 	// SiretNumber: Siret Number of the division (France)
 	SiretNumber *string `json:"SiretNumber,omitempty"`
 
@@ -110,6 +116,9 @@ type Divisions struct {
 
 	// TaxReferenceNumber: Local tax reference number (Germany)
 	TaxReferenceNumber *string `json:"TaxReferenceNumber,omitempty"`
+
+	// TemplateCode: Division template code
+	TemplateCode *string `json:"TemplateCode,omitempty"`
 
 	// VATNumber: VAT number
 	VATNumber *string `json:"VATNumber,omitempty"`

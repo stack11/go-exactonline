@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,10 +29,27 @@ func TestNewBulkService(t *testing.T) {
 	want := &BulkService{client: c}
 	want.common.client = c
 
+	want.CashflowPayments = (*CashflowPaymentsEndpoint)(&want.common)
+	want.CashflowReceivables = (*CashflowReceivablesEndpoint)(&want.common)
+	want.CRMAccounts = (*CRMAccountsEndpoint)(&want.common)
+	want.CRMAddresses = (*CRMAddressesEndpoint)(&want.common)
+	want.CRMContacts = (*CRMContactsEndpoint)(&want.common)
+	want.CRMQuotationLines = (*CRMQuotationLinesEndpoint)(&want.common)
+	want.CRMQuotations = (*CRMQuotationsEndpoint)(&want.common)
 	want.DocumentsDocumentAttachments = (*DocumentsDocumentAttachmentsEndpoint)(&want.common)
 	want.DocumentsDocuments = (*DocumentsDocumentsEndpoint)(&want.common)
+	want.FinancialGLAccounts = (*FinancialGLAccountsEndpoint)(&want.common)
+	want.FinancialGLClassifications = (*FinancialGLClassificationsEndpoint)(&want.common)
 	want.FinancialTransactionLines = (*FinancialTransactionLinesEndpoint)(&want.common)
+	want.LogisticsItems = (*LogisticsItemsEndpoint)(&want.common)
+	want.LogisticsSalesItemPrices = (*LogisticsSalesItemPricesEndpoint)(&want.common)
+	want.ProjectProjectWBS = (*ProjectProjectWBSEndpoint)(&want.common)
+	want.SalesInvoiceSalesInvoiceLines = (*SalesInvoiceSalesInvoiceLinesEndpoint)(&want.common)
+	want.SalesInvoiceSalesInvoices = (*SalesInvoiceSalesInvoicesEndpoint)(&want.common)
+	want.SalesOrderGoodsDeliveries = (*SalesOrderGoodsDeliveriesEndpoint)(&want.common)
+	want.SalesOrderGoodsDeliveryLines = (*SalesOrderGoodsDeliveryLinesEndpoint)(&want.common)
 	want.SalesOrderSalesOrderLines = (*SalesOrderSalesOrderLinesEndpoint)(&want.common)
+	want.SalesOrderSalesOrders = (*SalesOrderSalesOrdersEndpoint)(&want.common)
 
 	if !reflect.DeepEqual(s, want) {
 		t.Error("Clients are supposed to be the same")

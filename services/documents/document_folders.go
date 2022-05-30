@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -61,6 +61,9 @@ type DocumentFolders struct {
 
 	// ParentFolder: Document folder parent folder ID
 	ParentFolder *types.GUID `json:"ParentFolder,omitempty"`
+
+	// Share: Document folder share level
+	Share *int `json:"Share,omitempty"`
 }
 
 func (e *DocumentFolders) GetPrimary() *types.GUID {

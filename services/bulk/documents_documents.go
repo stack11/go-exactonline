@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -86,6 +86,9 @@ type DocumentsDocuments struct {
 	// DocumentViewUrl:
 	DocumentViewUrl *string `json:"DocumentViewUrl,omitempty"`
 
+	// ExpiryDate:
+	ExpiryDate *types.Date `json:"ExpiryDate,omitempty"`
+
 	// FinancialTransactionEntryID:
 	FinancialTransactionEntryID *types.GUID `json:"FinancialTransactionEntryID,omitempty"`
 
@@ -94,6 +97,9 @@ type DocumentsDocuments struct {
 
 	// HID:
 	HID *int `json:"HID,omitempty"`
+
+	// InheritShare:
+	InheritShare *bool `json:"InheritShare,omitempty"`
 
 	// Language:
 	Language *string `json:"Language,omitempty"`
@@ -118,6 +124,9 @@ type DocumentsDocuments struct {
 
 	// ProjectDescription:
 	ProjectDescription *string `json:"ProjectDescription,omitempty"`
+
+	// ProposedEntryStatus:
+	ProposedEntryStatus *int `json:"ProposedEntryStatus,omitempty"`
 
 	// SalesInvoiceNumber:
 	SalesInvoiceNumber *int `json:"SalesInvoiceNumber,omitempty"`

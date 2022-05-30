@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -106,6 +106,9 @@ type Contacts struct {
 
 	// CreatorFullName:
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
+
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
 
 	// Division:
 	Division *int `json:"Division,omitempty"`

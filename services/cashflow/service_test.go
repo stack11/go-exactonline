@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -32,8 +32,6 @@ func TestNewCashflowService(t *testing.T) {
 	want.AllocationRule = (*AllocationRuleEndpoint)(&want.common)
 	want.Banks = (*BanksEndpoint)(&want.common)
 	want.DirectDebitMandates = (*DirectDebitMandatesEndpoint)(&want.common)
-	want.ImportNotificationDetails = (*ImportNotificationDetailsEndpoint)(&want.common)
-	want.ImportNotifications = (*ImportNotificationsEndpoint)(&want.common)
 	want.PaymentConditions = (*PaymentConditionsEndpoint)(&want.common)
 	want.Payments = (*PaymentsEndpoint)(&want.common)
 	want.Receivables = (*ReceivablesEndpoint)(&want.common)

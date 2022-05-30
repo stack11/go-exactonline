@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,8 +29,11 @@ type ItemWarehousesEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=InventoryItemWarehouses
 type ItemWarehouses struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// ID: Primary key
+	// ID: A guid that is the unique identifier of the linkage between item and warehouse
 	ID *types.GUID `json:"ID,omitempty"`
+
+	// CountingCycle: Indicates the number of days for next cycle count.
+	CountingCycle *int `json:"CountingCycle,omitempty"`
 
 	// Created: Creation date
 	Created *types.Date `json:"Created,omitempty"`
@@ -41,7 +44,7 @@ type ItemWarehouses struct {
 	// CreatorFullName: Name of creator
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
-	// CurrentStock: Quantity that is currently on stock, sales/purchase orders excluded
+	// CurrentStock: Quantity that is currently in stock, included the stock committed to sales order
 	CurrentStock *float64 `json:"CurrentStock,omitempty"`
 
 	// DefaultStorageLocation: This is a default storage location
@@ -59,14 +62,26 @@ type ItemWarehouses struct {
 	// Item: Item ID
 	Item *types.GUID `json:"Item,omitempty"`
 
+	// ItemBarcode: Barcode of item
+	ItemBarcode *string `json:"ItemBarcode,omitempty"`
+
 	// ItemCode: Code of item
 	ItemCode *string `json:"ItemCode,omitempty"`
 
 	// ItemDescription: Description of item
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
+	// ItemEndDate: Together with ItemStartDate this determines if the item is active
+	ItemEndDate *types.Date `json:"ItemEndDate,omitempty"`
+
 	// ItemIsFractionAllowedItem: Indicates if fractions (for example 0.35) are allowed for quantities of this item
 	ItemIsFractionAllowedItem *bool `json:"ItemIsFractionAllowedItem,omitempty"`
+
+	// ItemIsStockItem: Indicates if this is a stock item
+	ItemIsStockItem *bool `json:"ItemIsStockItem,omitempty"`
+
+	// ItemStartDate: Together with ItemEndDate this determines if the item is active
+	ItemStartDate *types.Date `json:"ItemStartDate,omitempty"`
 
 	// ItemUnit: The standard unit code of this item
 	ItemUnit *string `json:"ItemUnit,omitempty"`
@@ -74,7 +89,7 @@ type ItemWarehouses struct {
 	// ItemUnitDescription: Description of item&#39;s unit
 	ItemUnitDescription *string `json:"ItemUnitDescription,omitempty"`
 
-	// MaximumStock: Maximum number of stock could enter warehouse
+	// MaximumStock: Maximum quantity of items that you want in warehouse
 	MaximumStock *float64 `json:"MaximumStock,omitempty"`
 
 	// Modified: Last modified date
@@ -85,6 +100,15 @@ type ItemWarehouses struct {
 
 	// ModifierFullName: Name of modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
+
+	// NextCountingCycle: Indicates the date for next cycle count
+	NextCountingCycle *types.Date `json:"NextCountingCycle,omitempty"`
+
+	// OrderPolicy: Order Policy options: 1-Lot for lot, 2-Fixed order quantity, 3-Min / Max, 4-Order
+	OrderPolicy *int `json:"OrderPolicy,omitempty"`
+
+	// Period: Period that work together with replenishment in MRP
+	Period *int `json:"Period,omitempty"`
 
 	// PlannedStockIn: The quantity still open to be received based on i.e. purchase orders and assembly orders.
 	PlannedStockIn *float64 `json:"PlannedStockIn,omitempty"`
@@ -98,13 +122,19 @@ type ItemWarehouses struct {
 	// ProjectedStock: The quantity of stock projected given all planned future stock changes
 	ProjectedStock *float64 `json:"ProjectedStock,omitempty"`
 
-	// ReorderPoint: Reorder point when stock depletes
+	// ReorderPoint: Quantity of items as an indication of when you need to reorder more stock for the warehouse
 	ReorderPoint *float64 `json:"ReorderPoint,omitempty"`
+
+	// ReorderQuantity: Reorder quantity that work together with replenishment in MRP
+	ReorderQuantity *float64 `json:"ReorderQuantity,omitempty"`
+
+	// ReplenishmentType: Replenishment options: 1-Purchase, 2-Assemble, 3-Make, 4-Transfer, 5-No replenishment advice
+	ReplenishmentType *int `json:"ReplenishmentType,omitempty"`
 
 	// ReservedStock: The quantity in a back to back order process which is already received from the purchase order, but not yet delivered for the sales order.
 	ReservedStock *float64 `json:"ReservedStock,omitempty"`
 
-	// SafetyStock: Safety stock
+	// SafetyStock: Minimum quantity of items you must have in stock
 	SafetyStock *float64 `json:"SafetyStock,omitempty"`
 
 	// StorageLocationUrl: URL pointing to details of which storage locations this ItemWarehouse&#39;s stock is located

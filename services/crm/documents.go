@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -35,6 +35,9 @@ type Documents struct {
 
 	// Attachments: Attachments linked to the document. Binaries are not sent in the response.
 	Attachments *json.RawMessage `json:"Attachments,omitempty"`
+
+	// Contact: ID of the related contact of this document
+	Contact *types.GUID `json:"Contact,omitempty"`
 
 	// Created: Creation date
 	Created *types.Date `json:"Created,omitempty"`
@@ -86,6 +89,21 @@ type Documents struct {
 
 	// SendMethod: Send Method
 	SendMethod *int `json:"SendMethod,omitempty"`
+
+	// Share:
+	Share *int `json:"Share,omitempty"`
+
+	// SharePointConnectionStatus: SharePointConnectionStatus of this document
+	SharePointConnectionStatus *int `json:"SharePointConnectionStatus,omitempty"`
+
+	// SharePointID: SharePointID of this document
+	SharePointID *string `json:"SharePointID,omitempty"`
+
+	// Source: Source
+	Source *int `json:"Source,omitempty"`
+
+	// SourceDescription: Translated description of the Source type
+	SourceDescription *string `json:"SourceDescription,omitempty"`
 
 	// Subject: Subject of this document
 	Subject *string `json:"Subject,omitempty"`

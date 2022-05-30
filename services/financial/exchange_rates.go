@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -59,7 +59,7 @@ type ExchangeRates struct {
 	// SourceCurrency: The foreign currency
 	SourceCurrency *string `json:"SourceCurrency,omitempty"`
 
-	// SourceCurrencyDescription: Description of SourceCurrency
+	// SourceCurrencyDescription: Description of the foreign currency
 	SourceCurrencyDescription *string `json:"SourceCurrencyDescription,omitempty"`
 
 	// StartDate: The date as of which the rate is valid. The rate is valid until a next rate is defined
@@ -68,7 +68,7 @@ type ExchangeRates struct {
 	// TargetCurrency: The default currency of the division
 	TargetCurrency *string `json:"TargetCurrency,omitempty"`
 
-	// TargetCurrencyDescription: Description of TargetCurrency
+	// TargetCurrencyDescription: Description of the default currency
 	TargetCurrencyDescription *string `json:"TargetCurrencyDescription,omitempty"`
 }
 

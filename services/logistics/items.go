@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -31,6 +31,9 @@ type Items struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
 	// ID:
 	ID *types.GUID `json:"ID,omitempty"`
+
+	// AverageCost:
+	AverageCost *float64 `json:"AverageCost,omitempty"`
 
 	// Barcode:
 	Barcode *string `json:"Barcode,omitempty"`
@@ -88,6 +91,9 @@ type Items struct {
 
 	// CreatorFullName:
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
+
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
 
 	// Description:
 	Description *string `json:"Description,omitempty"`
@@ -314,8 +320,23 @@ type Items struct {
 	// SecurityLevel:
 	SecurityLevel *int `json:"SecurityLevel,omitempty"`
 
+	// StandardSalesPrice:
+	StandardSalesPrice *float64 `json:"StandardSalesPrice,omitempty"`
+
 	// StartDate:
 	StartDate *types.Date `json:"StartDate,omitempty"`
+
+	// StatisticalCode:
+	StatisticalCode *string `json:"StatisticalCode,omitempty"`
+
+	// StatisticalNetWeight:
+	StatisticalNetWeight *float64 `json:"StatisticalNetWeight,omitempty"`
+
+	// StatisticalUnits:
+	StatisticalUnits *float64 `json:"StatisticalUnits,omitempty"`
+
+	// StatisticalValue:
+	StatisticalValue *float64 `json:"StatisticalValue,omitempty"`
 
 	// Stock:
 	Stock *float64 `json:"Stock,omitempty"`

@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -23,7 +23,7 @@ type GoodsReceiptsEndpoint service
 // URL: /api/v1/{division}/purchaseorder/GoodsReceipts
 // HasWebhook: false
 // IsInBeta: false
-// Methods: GET POST
+// Methods: GET POST PUT
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=PurchaseOrderGoodsReceipts
 type GoodsReceipts struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
@@ -53,6 +53,9 @@ type GoodsReceipts struct {
 
 	// EntryNumber: Entry number of the resulting stock entry
 	EntryNumber *int `json:"EntryNumber,omitempty"`
+
+	// GoodsReceiptLineCount: Total row count of lines
+	GoodsReceiptLineCount *int `json:"GoodsReceiptLineCount,omitempty"`
 
 	// GoodsReceiptLines: Collection of receipt lines
 	GoodsReceiptLines *json.RawMessage `json:"GoodsReceiptLines,omitempty"`
@@ -153,4 +156,17 @@ func (s *GoodsReceiptsEndpoint) Create(ctx context.Context, division int, entity
 		return nil, err
 	}
 	return e, nil
+}
+
+// Update the GoodsReceipts entity in the provided division.
+func (s *GoodsReceiptsEndpoint) Update(ctx context.Context, division int, entity *GoodsReceipts) (*GoodsReceipts, error) {
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/purchaseorder/GoodsReceipts", division) // #nosec
+	u, err := api.AddOdataKeyToURL(b, entity.GetPrimary())
+	if err != nil {
+		return nil, err
+	}
+
+	e := &GoodsReceipts{}
+	_, _, requestError := s.client.NewRequestAndDo(ctx, "PUT", u.String(), entity, e)
+	return e, requestError
 }

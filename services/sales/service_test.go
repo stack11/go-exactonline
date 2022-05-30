@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -30,7 +30,12 @@ func TestNewSalesService(t *testing.T) {
 	want.common.client = c
 
 	want.PriceLists = (*PriceListsEndpoint)(&want.common)
+	want.SalesChannels = (*SalesChannelsEndpoint)(&want.common)
 	want.SalesPriceListDetails = (*SalesPriceListDetailsEndpoint)(&want.common)
+	want.SalesPriceListLinkedAccounts = (*SalesPriceListLinkedAccountsEndpoint)(&want.common)
+	want.SalesPriceListPeriods = (*SalesPriceListPeriodsEndpoint)(&want.common)
+	want.SalesPriceLists = (*SalesPriceListsEndpoint)(&want.common)
+	want.SalesPriceListVolumeDiscounts = (*SalesPriceListVolumeDiscountsEndpoint)(&want.common)
 	want.ShippingMethods = (*ShippingMethodsEndpoint)(&want.common)
 
 	if !reflect.DeepEqual(s, want) {

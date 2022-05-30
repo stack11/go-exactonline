@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -68,7 +68,7 @@ type BillOfMaterialMaterials struct {
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
-	// ItemVersion: Key of item version
+	// ItemVersion: Bill of material version
 	ItemVersion *types.GUID `json:"ItemVersion,omitempty"`
 
 	// LineNumber: Line number
@@ -95,10 +95,10 @@ type BillOfMaterialMaterials struct {
 	// PartItemDescription: Part item description
 	PartItemDescription *string `json:"PartItemDescription,omitempty"`
 
-	// Quantity: Quantity
+	// Quantity: Quantity of the material that ends up in the produced item
 	Quantity *float64 `json:"Quantity,omitempty"`
 
-	// QuantityBatch: Quantity batch
+	// QuantityBatch: Quantity of the material needed to produce the batch including the waste
 	QuantityBatch *float64 `json:"QuantityBatch,omitempty"`
 
 	// Syscreated: Creation date
@@ -115,6 +115,9 @@ type BillOfMaterialMaterials struct {
 
 	// Type: Material type 1 indicates material, 2 indicates byproduct
 	Type *int `json:"Type,omitempty"`
+
+	// WastePercentage: Waste percentage must be null or integer from 1 to 9999 (only available in Manufacturing Premium)
+	WastePercentage *float64 `json:"WastePercentage,omitempty"`
 }
 
 func (e *BillOfMaterialMaterials) GetPrimary() *types.GUID {

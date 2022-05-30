@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -19,12 +19,20 @@ type LogisticsService struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// Endpoints available under this service
-	ItemGroups      *ItemGroupsEndpoint
-	Items           *ItemsEndpoint
-	ItemVersions    *ItemVersionsEndpoint
-	SalesItemPrices *SalesItemPricesEndpoint
-	SupplierItem    *SupplierItemEndpoint
-	Units           *UnitsEndpoint
+	CustomerItems          *CustomerItemsEndpoint
+	Incoterms              *IncotermsEndpoint
+	ItemAssortment         *ItemAssortmentEndpoint
+	ItemAssortmentProperty *ItemAssortmentPropertyEndpoint
+	ItemChargeRelation     *ItemChargeRelationEndpoint
+	ItemGroups             *ItemGroupsEndpoint
+	Items                  *ItemsEndpoint
+	ItemVersions           *ItemVersionsEndpoint
+	ReasonCodes            *ReasonCodesEndpoint
+	ReasonCodesLinkTypes   *ReasonCodesLinkTypesEndpoint
+	SalesItemPrices        *SalesItemPricesEndpoint
+	SelectionCodes         *SelectionCodesEndpoint
+	SupplierItem           *SupplierItemEndpoint
+	Units                  *UnitsEndpoint
 }
 
 // NewLogisticsService creates a new initialized instance of the
@@ -34,10 +42,18 @@ func NewLogisticsService(apiClient *api.Client) *LogisticsService {
 
 	s.common.client = apiClient
 
+	s.CustomerItems = (*CustomerItemsEndpoint)(&s.common)
+	s.Incoterms = (*IncotermsEndpoint)(&s.common)
+	s.ItemAssortment = (*ItemAssortmentEndpoint)(&s.common)
+	s.ItemAssortmentProperty = (*ItemAssortmentPropertyEndpoint)(&s.common)
+	s.ItemChargeRelation = (*ItemChargeRelationEndpoint)(&s.common)
 	s.ItemGroups = (*ItemGroupsEndpoint)(&s.common)
 	s.Items = (*ItemsEndpoint)(&s.common)
 	s.ItemVersions = (*ItemVersionsEndpoint)(&s.common)
+	s.ReasonCodes = (*ReasonCodesEndpoint)(&s.common)
+	s.ReasonCodesLinkTypes = (*ReasonCodesLinkTypesEndpoint)(&s.common)
 	s.SalesItemPrices = (*SalesItemPricesEndpoint)(&s.common)
+	s.SelectionCodes = (*SelectionCodesEndpoint)(&s.common)
 	s.SupplierItem = (*SupplierItemEndpoint)(&s.common)
 	s.Units = (*UnitsEndpoint)(&s.common)
 

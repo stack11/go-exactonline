@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,73 +29,73 @@ type RecentHours struct {
 	// Id: Primary key
 	Id *int `json:"Id,omitempty"`
 
-	// AccountCode: Code of Account
+	// AccountCode: Code of account linked to the project that hours are being entered to
 	AccountCode *string `json:"AccountCode,omitempty"`
 
-	// AccountId: Reference to Account
+	// AccountId: ID of account linked to the project that hours are being entered to
 	AccountId *types.GUID `json:"AccountId,omitempty"`
 
-	// AccountName: Name of Account
+	// AccountName: Name of account linked to the project that hours are being entered to
 	AccountName *string `json:"AccountName,omitempty"`
 
-	// Activity: Reference to Activity
+	// Activity: The activity of the project that the hours are entered to
 	Activity *types.GUID `json:"Activity,omitempty"`
 
-	// ActivityDescription: Description of Activity
+	// ActivityDescription: Name of activity of the project that the hours are entered to
 	ActivityDescription *string `json:"ActivityDescription,omitempty"`
 
-	// Date: Date
+	// Date: Date of hour entry record by week
 	Date *types.Date `json:"Date,omitempty"`
 
-	// EntryId: Entry ID
+	// EntryId: Entry ID of record
 	EntryId *types.GUID `json:"EntryId,omitempty"`
 
 	// HoursApproved: Hours approved
 	HoursApproved *float64 `json:"HoursApproved,omitempty"`
 
-	// HoursApprovedBillable: Billable hours approved
+	// HoursApprovedBillable: Billable hours that is approved
 	HoursApprovedBillable *float64 `json:"HoursApprovedBillable,omitempty"`
 
-	// HoursDraft: Hours draft
+	// HoursDraft: Hours saved as draft
 	HoursDraft *float64 `json:"HoursDraft,omitempty"`
 
-	// HoursDraftBillable: Billable hours draft
+	// HoursDraftBillable: Billable hours saved as draft
 	HoursDraftBillable *float64 `json:"HoursDraftBillable,omitempty"`
 
-	// HoursRejected: Hours rejected
+	// HoursRejected: Hours that are rejected
 	HoursRejected *float64 `json:"HoursRejected,omitempty"`
 
-	// HoursRejectedBillable: Billable hours rejected
+	// HoursRejectedBillable: Billable hours that are rejected
 	HoursRejectedBillable *float64 `json:"HoursRejectedBillable,omitempty"`
 
-	// HoursSubmitted: Hours submitted
+	// HoursSubmitted: Hours that are submitted
 	HoursSubmitted *float64 `json:"HoursSubmitted,omitempty"`
 
-	// HoursSubmittedBillable: Billable hours submitted
+	// HoursSubmittedBillable: Billable hours that are submitted
 	HoursSubmittedBillable *float64 `json:"HoursSubmittedBillable,omitempty"`
 
-	// ItemCode: Code of Item
+	// ItemCode: Code of the item that is used for hours
 	ItemCode *string `json:"ItemCode,omitempty"`
 
-	// ItemDescription: Description of Item
+	// ItemDescription: Description of the item that is used for hours
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
-	// ItemId: Reference to Item
+	// ItemId: ID of the item that is used for hours
 	ItemId *types.GUID `json:"ItemId,omitempty"`
 
-	// Notes: Remarks
+	// Notes: Notes entered regarding the information of the hours entered
 	Notes *string `json:"Notes,omitempty"`
 
-	// ProjectCode: Code of Project
+	// ProjectCode: Code of project that the hours are entered on
 	ProjectCode *string `json:"ProjectCode,omitempty"`
 
-	// ProjectDescription: Description of Project
+	// ProjectDescription: Description of project that the hours are entered on
 	ProjectDescription *string `json:"ProjectDescription,omitempty"`
 
-	// ProjectId: Reference to Project
+	// ProjectId: ID of project that the hours are entered on
 	ProjectId *types.GUID `json:"ProjectId,omitempty"`
 
-	// WeekNumber: Week number
+	// WeekNumber: The week number that the hours are entered on
 	WeekNumber *int `json:"WeekNumber,omitempty"`
 }
 

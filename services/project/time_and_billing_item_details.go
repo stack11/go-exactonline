@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,22 +29,22 @@ type TimeAndBillingItemDetails struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Code: Item code
+	// Code: The code of the item used in time and billing projects
 	Code *string `json:"Code,omitempty"`
 
-	// Description: Description of the item code
+	// Description: The description of the item used in time and billing projects
 	Description *string `json:"Description,omitempty"`
 
-	// IsFractionAllowedItem: Indicates if fractions are allowed for quantities of this item
+	// IsFractionAllowedItem: A boolean field to indicated if this item&#39;s quantity is allowed to be used in fraction&#39;s, which changes the calculation of the total amount invoiced
 	IsFractionAllowedItem *bool `json:"IsFractionAllowedItem,omitempty"`
 
-	// IsSalesItem: Indicates if the item can be sold
+	// IsSalesItem: A boolean field to indicated if this item is enabled to be used in a invoice proposal
 	IsSalesItem *bool `json:"IsSalesItem,omitempty"`
 
-	// SalesCurrency: Sales currency code
+	// SalesCurrency: The code of the sales currency used in this item
 	SalesCurrency *string `json:"SalesCurrency,omitempty"`
 
-	// SalesPrice: Sales price
+	// SalesPrice: Sales price of the item which is used when processing sales invoice
 	SalesPrice *float64 `json:"SalesPrice,omitempty"`
 }
 

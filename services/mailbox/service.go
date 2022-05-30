@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -22,7 +22,6 @@ type MailboxService struct {
 	DefaultMailbox         *DefaultMailboxEndpoint
 	Mailboxes              *MailboxesEndpoint
 	MailMessageAttachments *MailMessageAttachmentsEndpoint
-	MailMessagesReceived   *MailMessagesReceivedEndpoint
 	MailMessagesSent       *MailMessagesSentEndpoint
 	PreferredMailbox       *PreferredMailboxEndpoint
 }
@@ -37,7 +36,6 @@ func NewMailboxService(apiClient *api.Client) *MailboxService {
 	s.DefaultMailbox = (*DefaultMailboxEndpoint)(&s.common)
 	s.Mailboxes = (*MailboxesEndpoint)(&s.common)
 	s.MailMessageAttachments = (*MailMessageAttachmentsEndpoint)(&s.common)
-	s.MailMessagesReceived = (*MailMessagesReceivedEndpoint)(&s.common)
 	s.MailMessagesSent = (*MailMessagesSentEndpoint)(&s.common)
 	s.PreferredMailbox = (*PreferredMailboxEndpoint)(&s.common)
 

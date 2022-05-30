@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -38,28 +38,28 @@ type Journals struct {
 	// AllowVariableExchangeRate: Indicates if the journal allows the exchange rate of the currency of the amounts in the journal entry to be changed
 	AllowVariableExchangeRate *bool `json:"AllowVariableExchangeRate,omitempty"`
 
-	// AllowVAT: Indicates if the journal allows the use of VAT in the financial entry. Especially true for general journals
+	// AllowVAT: Indicates if the journal allows the use of VAT in the financial entry. Applicable only for General Journals
 	AllowVAT *bool `json:"AllowVAT,omitempty"`
 
-	// AutoSave: Indicates if the journal automatically saves the entries when the amount is in balance with the entry lines
+	// AutoSave: Indicates if the journal automatically saves the entries when the amount is in balance with the entry lines. Applicable for all types except cash. In the UI is called &#39;Exit Automatically&#39;
 	AutoSave *bool `json:"AutoSave,omitempty"`
 
-	// Bank: Reference to bank account
+	// Bank: Reference to bank account. Only Bank journal type will have a value
 	Bank *types.GUID `json:"Bank,omitempty"`
 
-	// BankAccountBICCode: BIC code of the bank where the bank account is held
+	// BankAccountBICCode: BIC code of the bank where the bank account is held. Only Bank journal type will have a value
 	BankAccountBICCode *string `json:"BankAccountBICCode,omitempty"`
 
-	// BankAccountCountry: Country of bank account
+	// BankAccountCountry: Country of bank account. Only Bank journal type will have a value
 	BankAccountCountry *string `json:"BankAccountCountry,omitempty"`
 
-	// BankAccountDescription: Description of BankAccount
+	// BankAccountDescription: Description of BankAccount. Only Bank journal type will have a value
 	BankAccountDescription *string `json:"BankAccountDescription,omitempty"`
 
-	// BankAccountIBAN: IBAN of the bank account
+	// BankAccountIBAN: IBAN of the bank account. Only Bank journal type will have a value
 	BankAccountIBAN *string `json:"BankAccountIBAN,omitempty"`
 
-	// BankAccountID: Reference to the Bank Account linked to the Journal
+	// BankAccountID: Reference to the Bank Account linked to the Journal. Only Bank journal type will have a value
 	BankAccountID *types.GUID `json:"BankAccountID,omitempty"`
 
 	// BankAccountIncludingMask: Bank account number. Is mandatory for Journals that have Type = Bank
@@ -71,7 +71,7 @@ type Journals struct {
 	// BankAccountUseSepaDirectDebit: Obsolete. Whether or not use SEPA direct debit for the bank account
 	BankAccountUseSepaDirectDebit *bool `json:"BankAccountUseSepaDirectDebit,omitempty"`
 
-	// BankName: Name of bank account
+	// BankName: Name of bank account. Only Bank journal type will have a value
 	BankName *string `json:"BankName,omitempty"`
 
 	// Code: Primary key
@@ -109,6 +109,9 @@ type Journals struct {
 
 	// GLAccountType: Type of GLAccount
 	GLAccountType *int `json:"GLAccountType,omitempty"`
+
+	// IsBlocked: Indicates whether the journal is blocked or not.
+	IsBlocked *bool `json:"IsBlocked,omitempty"`
 
 	// Modified: Last modified date
 	Modified *types.Date `json:"Modified,omitempty"`

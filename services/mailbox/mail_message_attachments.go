@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -43,6 +43,9 @@ type MailMessageAttachments struct {
 
 	// MailMessageID:
 	MailMessageID *types.GUID `json:"MailMessageID,omitempty"`
+
+	// MailMessageOrigin:
+	MailMessageOrigin *int `json:"MailMessageOrigin,omitempty"`
 
 	// RecipientAccount:
 	RecipientAccount *types.GUID `json:"RecipientAccount,omitempty"`

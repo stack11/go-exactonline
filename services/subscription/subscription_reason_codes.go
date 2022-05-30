@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -26,40 +26,40 @@ type SubscriptionReasonCodesEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=SubscriptionSubscriptionReasonCodes
 type SubscriptionReasonCodes struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// ID: Primary key
+	// ID: The GUID id of the record
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Active: Indicates if the reason code is active
+	// Active: Boolean values to indicate if the reason code is still active
 	Active *bool `json:"Active,omitempty"`
 
-	// Code: Subscription reason code
+	// Code: Code of the reason of cancellation of the subscription
 	Code *string `json:"Code,omitempty"`
 
-	// Created: Creation date
+	// Created: Date and time of the creation of the reason of cancellation of the subscription record
 	Created *types.Date `json:"Created,omitempty"`
 
-	// Creator: User ID of creator
+	// Creator: GUID id of the user that created the reason of cancellation of the subscription
 	Creator *types.GUID `json:"Creator,omitempty"`
 
-	// CreatorFullName: Name of creator
+	// CreatorFullName: Full name of the user that created the reason of cancellation of the subscription
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
-	// Description: Description
+	// Description: The description written for the cancellation of the subscription
 	Description *string `json:"Description,omitempty"`
 
-	// Division: Division code
+	// Division: The division that the record was created in
 	Division *int `json:"Division,omitempty"`
 
-	// Modified: Last modified date
+	// Modified: The date and time the record was modified
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// Modifier: User ID of modifier
+	// Modifier: Guid id of the user that modified the reason of cancellation of the subscription record
 	Modifier *types.GUID `json:"Modifier,omitempty"`
 
-	// ModifierFullName: Name of modifier
+	// ModifierFullName: Full name of the user that modified the reason of cancellation of the subscription record
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// Notes: Remarks
+	// Notes: Remarks written link to the reason of cancellation of the subscription
 	Notes *string `json:"Notes,omitempty"`
 }
 

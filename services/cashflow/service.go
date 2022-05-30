@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -19,14 +19,12 @@ type CashflowService struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// Endpoints available under this service
-	AllocationRule            *AllocationRuleEndpoint
-	Banks                     *BanksEndpoint
-	DirectDebitMandates       *DirectDebitMandatesEndpoint
-	ImportNotificationDetails *ImportNotificationDetailsEndpoint
-	ImportNotifications       *ImportNotificationsEndpoint
-	PaymentConditions         *PaymentConditionsEndpoint
-	Payments                  *PaymentsEndpoint
-	Receivables               *ReceivablesEndpoint
+	AllocationRule      *AllocationRuleEndpoint
+	Banks               *BanksEndpoint
+	DirectDebitMandates *DirectDebitMandatesEndpoint
+	PaymentConditions   *PaymentConditionsEndpoint
+	Payments            *PaymentsEndpoint
+	Receivables         *ReceivablesEndpoint
 }
 
 // NewCashflowService creates a new initialized instance of the
@@ -39,8 +37,6 @@ func NewCashflowService(apiClient *api.Client) *CashflowService {
 	s.AllocationRule = (*AllocationRuleEndpoint)(&s.common)
 	s.Banks = (*BanksEndpoint)(&s.common)
 	s.DirectDebitMandates = (*DirectDebitMandatesEndpoint)(&s.common)
-	s.ImportNotificationDetails = (*ImportNotificationDetailsEndpoint)(&s.common)
-	s.ImportNotifications = (*ImportNotificationsEndpoint)(&s.common)
 	s.PaymentConditions = (*PaymentConditionsEndpoint)(&s.common)
 	s.Payments = (*PaymentsEndpoint)(&s.common)
 	s.Receivables = (*ReceivablesEndpoint)(&s.common)

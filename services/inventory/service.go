@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -31,6 +31,8 @@ type InventoryService struct {
 	StockSerialNumbers            *StockSerialNumbersEndpoint
 	StorageLocations              *StorageLocationsEndpoint
 	Warehouses                    *WarehousesEndpoint
+	WarehouseTransferLines        *WarehouseTransferLinesEndpoint
+	WarehouseTransfers            *WarehouseTransfersEndpoint
 }
 
 // NewInventoryService creates a new initialized instance of the
@@ -52,6 +54,8 @@ func NewInventoryService(apiClient *api.Client) *InventoryService {
 	s.StockSerialNumbers = (*StockSerialNumbersEndpoint)(&s.common)
 	s.StorageLocations = (*StorageLocationsEndpoint)(&s.common)
 	s.Warehouses = (*WarehousesEndpoint)(&s.common)
+	s.WarehouseTransferLines = (*WarehouseTransferLinesEndpoint)(&s.common)
+	s.WarehouseTransfers = (*WarehouseTransfersEndpoint)(&s.common)
 
 	return s
 }

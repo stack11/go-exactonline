@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -30,6 +30,8 @@ type CRMService struct {
 	Documents                  *DocumentsEndpoint
 	DocumentsAttachments       *DocumentsAttachmentsEndpoint
 	HostingOpportunities       *HostingOpportunitiesEndpoint
+	LeadPurposes               *LeadPurposesEndpoint
+	LeadSources                *LeadSourcesEndpoint
 	Opportunities              *OpportunitiesEndpoint
 	OpportunityContacts        *OpportunityContactsEndpoint
 	QuotationLines             *QuotationLinesEndpoint
@@ -55,6 +57,8 @@ func NewCRMService(apiClient *api.Client) *CRMService {
 	s.Documents = (*DocumentsEndpoint)(&s.common)
 	s.DocumentsAttachments = (*DocumentsAttachmentsEndpoint)(&s.common)
 	s.HostingOpportunities = (*HostingOpportunitiesEndpoint)(&s.common)
+	s.LeadPurposes = (*LeadPurposesEndpoint)(&s.common)
+	s.LeadSources = (*LeadSourcesEndpoint)(&s.common)
 	s.Opportunities = (*OpportunitiesEndpoint)(&s.common)
 	s.OpportunityContacts = (*OpportunityContactsEndpoint)(&s.common)
 	s.QuotationLines = (*QuotationLinesEndpoint)(&s.common)

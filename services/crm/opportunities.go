@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -74,6 +74,12 @@ type Opportunities struct {
 	// CloseDate:
 	CloseDate *types.Date `json:"CloseDate,omitempty"`
 
+	// Contact:
+	Contact *types.GUID `json:"Contact,omitempty"`
+
+	// ContactFullName:
+	ContactFullName *string `json:"ContactFullName,omitempty"`
+
 	// Created:
 	Created *types.Date `json:"Created,omitempty"`
 
@@ -85,6 +91,9 @@ type Opportunities struct {
 
 	// Currency:
 	Currency *string `json:"Currency,omitempty"`
+
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
 
 	// Division:
 	Division *int `json:"Division,omitempty"`

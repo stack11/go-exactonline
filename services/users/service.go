@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -21,7 +21,6 @@ type UsersService struct {
 	// Endpoints available under this service
 	UserRoles            *UserRolesEndpoint
 	UserRolesPerDivision *UserRolesPerDivisionEndpoint
-	Users                *UsersEndpoint
 }
 
 // NewUsersService creates a new initialized instance of the
@@ -33,7 +32,6 @@ func NewUsersService(apiClient *api.Client) *UsersService {
 
 	s.UserRoles = (*UserRolesEndpoint)(&s.common)
 	s.UserRolesPerDivision = (*UserRolesPerDivisionEndpoint)(&s.common)
-	s.Users = (*UsersEndpoint)(&s.common)
 
 	return s
 }

@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -25,7 +25,7 @@ func ItemWarehousePlanningDetailsPrimaryPropertySample() *types.GUID {
 }
 
 func ItemWarehousePlanningDetailsEntityWithPopulatedPrimaryProperty() *ItemWarehousePlanningDetails {
-	return &ItemWarehousePlanningDetails{Item: ItemWarehousePlanningDetailsPrimaryPropertySample()}
+	return &ItemWarehousePlanningDetails{ID: ItemWarehousePlanningDetailsPrimaryPropertySample()}
 }
 
 func ItemWarehousePlanningDetailsStringOfPrimaryProperty(v *types.GUID) string {
@@ -39,7 +39,7 @@ func ItemWarehousePlanningDetailsStringJSONOfPrimaryProperty(v *types.GUID) stri
 
 func TestItemWarehousePlanningDetailsEndpoint_GetPrimary(t *testing.T) {
 	var want types.GUID
-	n := &ItemWarehousePlanningDetails{Item: &want}
+	n := &ItemWarehousePlanningDetails{ID: &want}
 
 	if got := n.GetPrimary(); !reflect.DeepEqual(*got, want) {
 		t.Errorf("ItemWarehousePlanningDetailsEndpoint.GetPrimary() failed, got: %v, want: %v", *got, want)
@@ -116,7 +116,7 @@ func TestItemWarehousePlanningDetailsEndpoint_List_all(t *testing.T) {
 		if r.URL.Query().Get("$skiptoken") != "" {
 			fmt.Fprint(w, `{ "d": { "__next": "", "results": []}}`)
 		} else {
-			fmt.Fprint(w, `{ "d": { "__next": "`+u2.String()+`", "results": [{ "Item": `+gs+`}]}}`)
+			fmt.Fprint(w, `{ "d": { "__next": "`+u2.String()+`", "results": [{ "ID": `+gs+`}]}}`)
 		}
 	})
 
@@ -125,7 +125,7 @@ func TestItemWarehousePlanningDetailsEndpoint_List_all(t *testing.T) {
 		t.Errorf("ItemWarehousePlanningDetailsEndpoint.List returned error: %v", err)
 	}
 
-	want := []*ItemWarehousePlanningDetails{{Item: g}}
+	want := []*ItemWarehousePlanningDetails{{ID: g}}
 	if !reflect.DeepEqual(entities, want) {
 		t.Errorf("ItemWarehousePlanningDetailsEndpoint.List returned %+v, want %+v", entities, want)
 	}
@@ -159,7 +159,7 @@ func TestItemWarehousePlanningDetailsEndpoint_List(t *testing.T) {
 	mux.HandleFunc(u.Path, func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
 		testHeader(t, r, "Accept", strings.Join(acceptHeaders, ", "))
-		fmt.Fprint(w, `{ "d": { "__next": "`+u2.String()+`", "results": [{ "Item": `+gs+`}]}}`)
+		fmt.Fprint(w, `{ "d": { "__next": "`+u2.String()+`", "results": [{ "ID": `+gs+`}]}}`)
 	})
 
 	entities, err := s.ItemWarehousePlanningDetails.List(context.Background(), 0, false, opts1)
@@ -167,7 +167,7 @@ func TestItemWarehousePlanningDetailsEndpoint_List(t *testing.T) {
 		t.Errorf("ItemWarehousePlanningDetailsEndpoint.List returned error: %v", err)
 	}
 
-	want := []*ItemWarehousePlanningDetails{{Item: g}}
+	want := []*ItemWarehousePlanningDetails{{ID: g}}
 	if !reflect.DeepEqual(entities, want) {
 		t.Errorf("ItemWarehousePlanningDetailsEndpoint.List returned %+v, want %+v", entities, want)
 	}
@@ -190,7 +190,7 @@ func TestItemWarehousePlanningDetailsEndpoint_Get(t *testing.T) {
 		{
 			"1",
 			args{context.Background(), 0, s1},
-			&ItemWarehousePlanningDetails{Item: s1, MetaData: &api.MetaData{URI: &types.URL{URL: &url.URL{Scheme: "https", Host: "start.exactonline.nl"}}}},
+			&ItemWarehousePlanningDetails{ID: s1, MetaData: &api.MetaData{URI: &types.URL{URL: &url.URL{Scheme: "https", Host: "start.exactonline.nl"}}}},
 			false,
 		},
 	}

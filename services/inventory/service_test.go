@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -41,6 +41,8 @@ func TestNewInventoryService(t *testing.T) {
 	want.StockSerialNumbers = (*StockSerialNumbersEndpoint)(&want.common)
 	want.StorageLocations = (*StorageLocationsEndpoint)(&want.common)
 	want.Warehouses = (*WarehousesEndpoint)(&want.common)
+	want.WarehouseTransferLines = (*WarehouseTransferLinesEndpoint)(&want.common)
+	want.WarehouseTransfers = (*WarehouseTransfersEndpoint)(&want.common)
 
 	if !reflect.DeepEqual(s, want) {
 		t.Error("Clients are supposed to be the same")

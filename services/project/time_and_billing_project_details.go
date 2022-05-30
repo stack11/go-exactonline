@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,19 +29,19 @@ type TimeAndBillingProjectDetails struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Account: The account for this project
+	// Account: The ID of the account that the project is linked to
 	Account *types.GUID `json:"Account,omitempty"`
 
-	// AccountName:
+	// AccountName: The name of the account that the project is linked to
 	AccountName *string `json:"AccountName,omitempty"`
 
-	// Code: Code of project
+	// Code: The code of the account that the project is linked to
 	Code *string `json:"Code,omitempty"`
 
-	// Description: Description of the project
+	// Description: The description of the account that project is linked to
 	Description *string `json:"Description,omitempty"`
 
-	// Type: Reference to ProjectTypes
+	// Type: The project type. E.g: 1 = Campaign, 2 = Fixed Price, 3 = Time and Material, 4 = Non Billable, 5 = Prepaid
 	Type *int `json:"Type,omitempty"`
 }
 

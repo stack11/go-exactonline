@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -26,7 +26,7 @@ type PurchaseInvoiceLinesEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=PurchasePurchaseInvoiceLines
 type PurchaseInvoiceLines struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// ID: A guid that uniqely identifies the invoice line.
+	// ID: A guid that uniquely identifies the purchase invoice line.
 	ID *types.GUID `json:"ID,omitempty"`
 
 	// Amount: In a GET request the line amount is always returned excluding VAT.In a POST request the line amount has to be submitted either including or excluding the VAT amount. This depends on the type (including or excluding) of the VAT code.

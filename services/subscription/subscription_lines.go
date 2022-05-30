@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -38,58 +38,64 @@ type SubscriptionLines struct {
 	// AmountFC: Amount in the currency of the transaction
 	AmountFC *float64 `json:"AmountFC,omitempty"`
 
-	// Costcenter: Cost center
+	// Costcenter: Cost center linked to the subscription line
 	Costcenter *string `json:"Costcenter,omitempty"`
 
-	// Costunit: Cost unit
+	// Costunit: Cost unit linked to the subscription line
 	Costunit *string `json:"Costunit,omitempty"`
 
-	// Description: Description
+	// Description: Description of the subscription line
 	Description *string `json:"Description,omitempty"`
 
-	// Discount: Discount percentage
+	// Discount: Discount percentage of the subscription line
 	Discount *float64 `json:"Discount,omitempty"`
 
-	// Division: Division code
+	// Division: Code of division the subscription line is made
 	Division *int `json:"Division,omitempty"`
 
-	// EntryID: Entry ID
+	// EntryID: Entry ID referencing to the subscription
 	EntryID *types.GUID `json:"EntryID,omitempty"`
 
-	// FromDate: From date
+	// FromDate: The date which the subscription line starts
 	FromDate *types.Date `json:"FromDate,omitempty"`
 
-	// Item: Reference to Item
+	// Item: The item that is used by the subscription line for sales details. Reference to Item
 	Item *types.GUID `json:"Item,omitempty"`
 
-	// ItemDescription: Description of Item
+	// ItemDescription: Description of Item used by the subscription line
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
-	// LineNumber: Line number
+	// LineNumber: Line number of the subscription line per subscription
 	LineNumber *int `json:"LineNumber,omitempty"`
 
-	// LineType: Reference to LineType
+	// LineType: Reference to LineType endpoint
 	LineType *int `json:"LineType,omitempty"`
 
 	// LineTypeDescription: Description of LineType
 	LineTypeDescription *string `json:"LineTypeDescription,omitempty"`
 
+	// Modified: Date and time when the subscription line has been modified
+	Modified *types.Date `json:"Modified,omitempty"`
+
 	// NetPrice: Net price in the currency of the transaction
 	NetPrice *float64 `json:"NetPrice,omitempty"`
 
-	// Notes: Remarks
+	// Notes: To add or retrieve additional information in the subscription line
 	Notes *string `json:"Notes,omitempty"`
 
-	// Quantity: Quantity
+	// Quantity: Quantity of item used in the subscription line
 	Quantity *float64 `json:"Quantity,omitempty"`
 
-	// ToDate: To date
+	// SubscriptionNumber: Subscription number of the subscription line per subscription
+	SubscriptionNumber *int `json:"SubscriptionNumber,omitempty"`
+
+	// ToDate: The date the subscription line ends
 	ToDate *types.Date `json:"ToDate,omitempty"`
 
-	// UnitCode: Unit code
+	// UnitCode: The code of the unit used in the subscription line. E.g: kg, meter
 	UnitCode *string `json:"UnitCode,omitempty"`
 
-	// UnitDescription: Description of Unit
+	// UnitDescription: Description of Unit used in the subscription line
 	UnitDescription *string `json:"UnitDescription,omitempty"`
 
 	// UnitPrice: Unit price in the currency of the transaction (price * unit factor)
@@ -98,10 +104,10 @@ type SubscriptionLines struct {
 	// VATAmountFC: Vat Amount in the currency of the transaction
 	VATAmountFC *float64 `json:"VATAmountFC,omitempty"`
 
-	// VATCode: VATCode
+	// VATCode: VAT code that is used in the subscription line
 	VATCode *string `json:"VATCode,omitempty"`
 
-	// VATCodeDescription: Description of VATCode
+	// VATCodeDescription: Description of VAT code that is used in the subscription line
 	VATCodeDescription *string `json:"VATCodeDescription,omitempty"`
 }
 

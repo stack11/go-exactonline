@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -283,6 +283,55 @@ func TestGeneralJournalEntriesEndpoint_Create(t *testing.T) {
 			}
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("GeneralJournalEntriesEndpoint.Create() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGeneralJournalEntriesEndpoint_Delete(t *testing.T) {
+	acceptHeaders := []string{"application/json"}
+	type args struct {
+		ctx      context.Context
+		division int
+		id       *types.GUID
+	}
+	tests := []struct {
+		name    string
+		args    args
+		wantErr bool
+	}{
+		{
+			"1",
+			args{context.Background(), 0, GeneralJournalEntriesPrimaryPropertySample()},
+			false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			s, mux, _, teardown := setup()
+			defer teardown()
+
+			b, e := s.client.ResolvePathWithDivision("/api/v1/{division}/generaljournalentry/GeneralJournalEntries", 0)
+			if e != nil {
+				t.Errorf("s.client.ResolvePathWithDivision in GeneralJournalEntriesEndpoint.Delete() returned error: %v, with url /api/v1/{division}/generaljournalentry/GeneralJournalEntries", e)
+			}
+
+			u, e2 := api.AddOdataKeyToURL(b, tt.args.id)
+			if e2 != nil {
+				t.Errorf("api.AddOdataKeyToURL in GeneralJournalEntriesEndpoint.Delete() returned error: %v", e2)
+			}
+
+			mux.HandleFunc(u.Path, func(w http.ResponseWriter, r *http.Request) {
+				testMethod(t, r, "DELETE")
+				testHeader(t, r, "Accept", strings.Join(acceptHeaders, ", "))
+				testBody(t, r, "")
+				w.WriteHeader(http.StatusNoContent)
+			})
+
+			err := s.GeneralJournalEntries.Delete(tt.args.ctx, tt.args.division, tt.args.id)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("GeneralJournalEntriesEndpoint.Delete() error = %v, wantErr %v", err, tt.wantErr)
+				return
 			}
 		})
 	}

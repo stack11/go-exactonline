@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,7 +29,7 @@ type Currencies struct {
 	// Code: Primary key
 	Code *string `json:"Code,omitempty"`
 
-	// AmountPrecision: Amount precision
+	// AmountPrecision: Defines the number of decimals of the exchange rate used to calculate the amount in domestic currency from the amount in foreign currency
 	AmountPrecision *float64 `json:"AmountPrecision,omitempty"`
 
 	// Created: Creation date
@@ -41,7 +41,7 @@ type Currencies struct {
 	// Modified: Last modified date
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// PricePrecision: Price precision
+	// PricePrecision: Defines the number of decimals used to calculate the item price in created invoices
 	PricePrecision *float64 `json:"PricePrecision,omitempty"`
 }
 

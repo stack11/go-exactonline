@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -32,14 +32,26 @@ type ItemWarehouseStorageLocations struct {
 	// IsFractionAllowedItem: Does the item allow partial quantities (1.75 meters)
 	IsFractionAllowedItem *byte `json:"IsFractionAllowedItem,omitempty"`
 
+	// IsStockItem: Indicates if this is a stock item
+	IsStockItem *byte `json:"IsStockItem,omitempty"`
+
 	// Item: Item
 	Item *types.GUID `json:"Item,omitempty"`
+
+	// ItemBarcode: Barcode of the item of this stock quantity
+	ItemBarcode *string `json:"ItemBarcode,omitempty"`
 
 	// ItemCode: Code of the item of this stock quantity
 	ItemCode *string `json:"ItemCode,omitempty"`
 
 	// ItemDescription: Description of the item of this stock quantity
 	ItemDescription *string `json:"ItemDescription,omitempty"`
+
+	// ItemEndDate: Together with ItemStartDate this determines if the item is active
+	ItemEndDate *types.Date `json:"ItemEndDate,omitempty"`
+
+	// ItemStartDate: Together with ItemEndDate this determines if the item is active
+	ItemStartDate *types.Date `json:"ItemStartDate,omitempty"`
 
 	// ItemUnit: Unit of the item
 	ItemUnit *string `json:"ItemUnit,omitempty"`

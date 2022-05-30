@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -35,16 +35,16 @@ type InvoiceTerms struct {
 	// Amount: Amount in the currency of the transaction
 	Amount *float64 `json:"Amount,omitempty"`
 
-	// Created: Creation date
+	// Created: Date and time when the invoice term was created
 	Created *types.Date `json:"Created,omitempty"`
 
-	// Creator: User ID of creator
+	// Creator: ID of user that created the invoice term
 	Creator *types.GUID `json:"Creator,omitempty"`
 
-	// CreatorFullName: Name of creator
+	// CreatorFullName: Full name of user that created the record
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
-	// Deliverable: WBS&#39;s deliverable linked to invoice term
+	// Deliverable: WBS&#39;s deliverable linked to the invoice term
 	Deliverable *string `json:"Deliverable,omitempty"`
 
 	// Description: Description of invoice term
@@ -53,50 +53,53 @@ type InvoiceTerms struct {
 	// Division: Division number
 	Division *int `json:"Division,omitempty"`
 
-	// ExecutionFromDate: Execution date: From
+	// ExecutionFromDate: Execution date: From of invoice term
 	ExecutionFromDate *types.Date `json:"ExecutionFromDate,omitempty"`
 
-	// ExecutionToDate: Execution date: To
+	// ExecutionToDate: Execution date: To of invoice term
 	ExecutionToDate *types.Date `json:"ExecutionToDate,omitempty"`
 
-	// InvoiceDate: Invoice date
+	// InvoiceDate: Invoice date of invoice term
 	InvoiceDate *types.Date `json:"InvoiceDate,omitempty"`
 
-	// Item: Reference to item
+	// Item: Item that linked to the invoice term
 	Item *types.GUID `json:"Item,omitempty"`
 
-	// ItemDescription: Description of item
+	// ItemDescription: Description of item that linked to the invoice term
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
-	// Modified: Last modified date
+	// Modified: Last modified date of invoice term
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// Modifier: User ID of modifier
+	// Modifier: ID of user that modified the record
 	Modifier *types.GUID `json:"Modifier,omitempty"`
 
-	// ModifierFullName: Name of modifier
+	// ModifierFullName: Full name of user that modified the record
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// Notes: Notes
+	// Notes: Notes linked to the invoice term for providing additional information
 	Notes *string `json:"Notes,omitempty"`
 
 	// Percentage: Percentage of amount per project&#39;s budgeted amount
 	Percentage *float64 `json:"Percentage,omitempty"`
 
-	// Project: Reference to project
+	// Project: ID of project that linked to the invoice term
 	Project *types.GUID `json:"Project,omitempty"`
 
-	// ProjectDescription: Description of project
+	// ProjectDescription: Project description that linked to the invoice term
 	ProjectDescription *string `json:"ProjectDescription,omitempty"`
 
-	// VATCode: Reference to VATCode
+	// VATCode: VAT code that used in the invoice term
 	VATCode *string `json:"VATCode,omitempty"`
 
-	// VATCodeDescription: Description of VATCode
+	// VATCodeDescription: Description of VAT code that used in the invoice term
 	VATCodeDescription *string `json:"VATCodeDescription,omitempty"`
 
-	// VATPercentage: VATCode percentage
+	// VATPercentage: Percentage of VAT code that used in the invoice term
 	VATPercentage *float64 `json:"VATPercentage,omitempty"`
+
+	// WBS: ID of WBS that linked to the invoice term
+	WBS *types.GUID `json:"WBS,omitempty"`
 }
 
 func (e *InvoiceTerms) GetPrimary() *types.GUID {

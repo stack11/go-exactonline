@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -117,6 +117,15 @@ type SalesOrders struct {
 	// DocumentSubject:
 	DocumentSubject *string `json:"DocumentSubject,omitempty"`
 
+	// IncotermAddress:
+	IncotermAddress *string `json:"IncotermAddress,omitempty"`
+
+	// IncotermCode:
+	IncotermCode *string `json:"IncotermCode,omitempty"`
+
+	// IncotermVersion:
+	IncotermVersion *int `json:"IncotermVersion,omitempty"`
+
 	// InvoiceStatus:
 	InvoiceStatus *int `json:"InvoiceStatus,omitempty"`
 
@@ -174,6 +183,15 @@ type SalesOrders struct {
 	// Remarks:
 	Remarks *string `json:"Remarks,omitempty"`
 
+	// SalesChannel:
+	SalesChannel *types.GUID `json:"SalesChannel,omitempty"`
+
+	// SalesChannelCode:
+	SalesChannelCode *string `json:"SalesChannelCode,omitempty"`
+
+	// SalesChannelDescription:
+	SalesChannelDescription *string `json:"SalesChannelDescription,omitempty"`
+
 	// SalesOrderLines:
 	SalesOrderLines *json.RawMessage `json:"SalesOrderLines,omitempty"`
 
@@ -182,6 +200,15 @@ type SalesOrders struct {
 
 	// SalespersonFullName:
 	SalespersonFullName *string `json:"SalespersonFullName,omitempty"`
+
+	// SelectionCode:
+	SelectionCode *types.GUID `json:"SelectionCode,omitempty"`
+
+	// SelectionCodeCode:
+	SelectionCodeCode *string `json:"SelectionCodeCode,omitempty"`
+
+	// SelectionCodeDescription:
+	SelectionCodeDescription *string `json:"SelectionCodeDescription,omitempty"`
 
 	// ShippingMethod:
 	ShippingMethod *types.GUID `json:"ShippingMethod,omitempty"`

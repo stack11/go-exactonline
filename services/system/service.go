@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -20,6 +20,7 @@ type SystemService struct {
 
 	// Endpoints available under this service
 	AccountantInfo               *AccountantInfoEndpoint
+	AllDivisions                 *AllDivisionsEndpoint
 	AvailableFeatures            *AvailableFeaturesEndpoint
 	Divisions                    *DivisionsEndpoint
 	GetMostRecentlyUsedDivisions *GetMostRecentlyUsedDivisionsEndpoint
@@ -34,6 +35,7 @@ func NewSystemService(apiClient *api.Client) *SystemService {
 	s.common.client = apiClient
 
 	s.AccountantInfo = (*AccountantInfoEndpoint)(&s.common)
+	s.AllDivisions = (*AllDivisionsEndpoint)(&s.common)
 	s.AvailableFeatures = (*AvailableFeaturesEndpoint)(&s.common)
 	s.Divisions = (*DivisionsEndpoint)(&s.common)
 	s.GetMostRecentlyUsedDivisions = (*GetMostRecentlyUsedDivisionsEndpoint)(&s.common)

@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,31 +29,31 @@ type TimeCorrectionsEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=ProjectTimeCorrections
 type TimeCorrections struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// ID: Id
+	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Created: Creation date
+	// Created: Date and time when the time correction was created
 	Created *types.Date `json:"Created,omitempty"`
 
-	// Creator: User ID of creator
+	// Creator: ID of user that created the time correction
 	Creator *types.GUID `json:"Creator,omitempty"`
 
-	// CreatorFullName: Name of creator
+	// CreatorFullName: Full name of user that created the time correction
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
-	// Modified: Last modified date
+	// Modified: Last modified date of time correction
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// Modifier: User ID of modifier
+	// Modifier: ID of user that modified the time correction
 	Modifier *types.GUID `json:"Modifier,omitempty"`
 
-	// ModifierFullName: Name of modifier
+	// ModifierFullName: Full name of user that modified the time correction
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// Notes: Notes
+	// Notes: Notes of time correction for providing additional information
 	Notes *string `json:"Notes,omitempty"`
 
 	// OriginalEntryId: Reference to the time entry that this corrects for

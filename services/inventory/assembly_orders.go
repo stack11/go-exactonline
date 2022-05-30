@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -27,7 +27,7 @@ type AssemblyOrdersEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=InventoryAssemblyOrders
 type AssemblyOrders struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// ID: Primary key
+	// ID: A guid that is the unique identifier of the assembly order
 	ID *types.GUID `json:"ID,omitempty"`
 
 	// AssemblyDate: Planned date for assembly of the item
@@ -42,13 +42,13 @@ type AssemblyOrders struct {
 	// FinishedQuantity: Quantity of items that have actually been assembled
 	FinishedQuantity *float64 `json:"FinishedQuantity,omitempty"`
 
-	// Item: Reference to item
+	// Item: Reference to assembled item
 	Item *types.GUID `json:"Item,omitempty"`
 
-	// ItemCode: Item code
+	// ItemCode: Assembled item code
 	ItemCode *string `json:"ItemCode,omitempty"`
 
-	// ItemDescription: Description of item
+	// ItemDescription: Description of assembled item
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
 	// Notes: Notes of the assembly order

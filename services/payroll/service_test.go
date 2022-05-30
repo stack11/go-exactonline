@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -31,12 +31,14 @@ func TestNewPayrollService(t *testing.T) {
 
 	want.ActiveEmployments = (*ActiveEmploymentsEndpoint)(&want.common)
 	want.Employees = (*EmployeesEndpoint)(&want.common)
+	want.EmploymentConditionGroups = (*EmploymentConditionGroupsEndpoint)(&want.common)
 	want.EmploymentContractFlexPhases = (*EmploymentContractFlexPhasesEndpoint)(&want.common)
 	want.EmploymentContracts = (*EmploymentContractsEndpoint)(&want.common)
 	want.EmploymentEndReasons = (*EmploymentEndReasonsEndpoint)(&want.common)
 	want.EmploymentOrganizations = (*EmploymentOrganizationsEndpoint)(&want.common)
 	want.Employments = (*EmploymentsEndpoint)(&want.common)
 	want.EmploymentSalaries = (*EmploymentSalariesEndpoint)(&want.common)
+	want.EmploymentTaxAuthoritiesGeneral = (*EmploymentTaxAuthoritiesGeneralEndpoint)(&want.common)
 	want.TaxEmploymentEndFlexCodes = (*TaxEmploymentEndFlexCodesEndpoint)(&want.common)
 
 	if !reflect.DeepEqual(s, want) {

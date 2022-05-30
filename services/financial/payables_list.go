@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -41,7 +41,7 @@ type PayablesList struct {
 	// Amount: Amount
 	Amount *float64 `json:"Amount,omitempty"`
 
-	// AmountInTransit: Amount in transit
+	// AmountInTransit: Amount in transit - The amount that you have requested your bank to pay
 	AmountInTransit *float64 `json:"AmountInTransit,omitempty"`
 
 	// ApprovalStatus: Approval status: // 						null - Invoice was entered before approval functionality was activated (treated as Approved for payments) // 						1 - N/A (used for non-electronic payment methods) // 						2 - Awaiting review // 						3 - Awaiting approval // 						4 - Approved
@@ -56,16 +56,16 @@ type PayablesList struct {
 	// DueDate: Date the invoice is due (This due date is not the discount due date)
 	DueDate *types.Date `json:"DueDate,omitempty"`
 
-	// EntryNumber: Entry number
+	// EntryNumber: The entry number of this payment term corresponding purchase/cashflow entry
 	EntryNumber *int `json:"EntryNumber,omitempty"`
 
 	// Id: Obsolete
 	Id *types.GUID `json:"Id,omitempty"`
 
-	// InvoiceDate: Invoice date
+	// InvoiceDate: The date of the invoice or the date when money is paid to the supplier
 	InvoiceDate *types.Date `json:"InvoiceDate,omitempty"`
 
-	// InvoiceNumber: Invoice number. The value is 0 when the invoice number of the linked transaction is empty.
+	// InvoiceNumber: For purchase entry, it would be the entrynumber. For the cashflow entry, it will be entrynumber of an invoice which this payment is for
 	InvoiceNumber *int `json:"InvoiceNumber,omitempty"`
 
 	// JournalCode: Code of Journal
@@ -74,7 +74,7 @@ type PayablesList struct {
 	// JournalDescription: Description of Journal
 	JournalDescription *string `json:"JournalDescription,omitempty"`
 
-	// YourRef: Your reference
+	// YourRef: Purchase invoice Your Reference number. Will be null if it is a cashflow entry
 	YourRef *string `json:"YourRef,omitempty"`
 }
 

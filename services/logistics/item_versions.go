@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -85,6 +85,9 @@ type ItemVersions struct {
 
 	// TypeDescription: Description of Type
 	TypeDescription *string `json:"TypeDescription,omitempty"`
+
+	// VersionDate: Version date
+	VersionDate *types.Date `json:"VersionDate,omitempty"`
 
 	// VersionNumber: Version Number
 	VersionNumber *int `json:"VersionNumber,omitempty"`

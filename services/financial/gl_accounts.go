@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -7,6 +7,7 @@ package financial
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -71,8 +72,14 @@ type GLAccounts struct {
 	// CreatorFullName:
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// DeductibilityPercentages:
+	DeductibilityPercentages *json.RawMessage `json:"DeductibilityPercentages,omitempty"`
+
 	// Description:
 	Description *string `json:"Description,omitempty"`
+
+	// DescriptionTermID:
+	DescriptionTermID *int `json:"DescriptionTermID,omitempty"`
 
 	// Division:
 	Division *int `json:"Division,omitempty"`

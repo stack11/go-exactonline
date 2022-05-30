@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -28,16 +28,16 @@ type ProfitLossOverview struct {
 	// CurrentYear: Primary key, Current year
 	CurrentYear *int `json:"CurrentYear,omitempty"`
 
-	// CostsCurrentPeriod: Costs in current period
+	// CostsCurrentPeriod: Total cost for the current year and period
 	CostsCurrentPeriod *float64 `json:"CostsCurrentPeriod,omitempty"`
 
-	// CostsCurrentYear: Costs in current year
+	// CostsCurrentYear: Total cost for the current year
 	CostsCurrentYear *float64 `json:"CostsCurrentYear,omitempty"`
 
-	// CostsPreviousYear: Costs in previous year
+	// CostsPreviousYear: Total cost for the previous year
 	CostsPreviousYear *float64 `json:"CostsPreviousYear,omitempty"`
 
-	// CostsPreviousYearPeriod: Costs in period of previous year
+	// CostsPreviousYearPeriod: Total cost for the previous year and period
 	CostsPreviousYearPeriod *float64 `json:"CostsPreviousYearPeriod,omitempty"`
 
 	// CurrencyCode: Currency code
@@ -52,28 +52,28 @@ type ProfitLossOverview struct {
 	// PreviousYearPeriod: Period in previous year
 	PreviousYearPeriod *int `json:"PreviousYearPeriod,omitempty"`
 
-	// ResultCurrentPeriod: Results of current period
+	// ResultCurrentPeriod: Results of current year and period
 	ResultCurrentPeriod *float64 `json:"ResultCurrentPeriod,omitempty"`
 
-	// ResultCurrentYear:
+	// ResultCurrentYear: Results of current year
 	ResultCurrentYear *float64 `json:"ResultCurrentYear,omitempty"`
 
-	// ResultPreviousYear:
+	// ResultPreviousYear: Results of previous year
 	ResultPreviousYear *float64 `json:"ResultPreviousYear,omitempty"`
 
-	// ResultPreviousYearPeriod: Results of period in previous year
+	// ResultPreviousYearPeriod: Results of previous year and period
 	ResultPreviousYearPeriod *float64 `json:"ResultPreviousYearPeriod,omitempty"`
 
-	// RevenueCurrentPeriod: Revenue in current period
+	// RevenueCurrentPeriod: Total revenue for the current year and period
 	RevenueCurrentPeriod *float64 `json:"RevenueCurrentPeriod,omitempty"`
 
-	// RevenueCurrentYear: Revenue in current year
+	// RevenueCurrentYear: Total revenue for the current year
 	RevenueCurrentYear *float64 `json:"RevenueCurrentYear,omitempty"`
 
-	// RevenuePreviousYear: Revenue in previous year
+	// RevenuePreviousYear: Total revenue for the previous year
 	RevenuePreviousYear *float64 `json:"RevenuePreviousYear,omitempty"`
 
-	// RevenuePreviousYearPeriod: Revenue in period of previous year
+	// RevenuePreviousYearPeriod: Total revenue for the previous year and period
 	RevenuePreviousYearPeriod *float64 `json:"RevenuePreviousYearPeriod,omitempty"`
 }
 

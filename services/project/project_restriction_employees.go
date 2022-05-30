@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -32,43 +32,43 @@ type ProjectRestrictionEmployees struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Created: Date created
+	// Created: Date and time when the project restriction was created
 	Created *types.Date `json:"Created,omitempty"`
 
-	// Creator: Creator user ID
+	// Creator: ID of user that created the project restriction
 	Creator *types.GUID `json:"Creator,omitempty"`
 
-	// CreatorFullName: Creator name
+	// CreatorFullName: Full name of user that created the project restriction
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
-	// Division: Division code
+	// Division: Division of project and project restriction
 	Division *int `json:"Division,omitempty"`
 
-	// Employee: Employee linked to the restriction
+	// Employee: The guid ID of the employee restricted to the project for hour entry
 	Employee *types.GUID `json:"Employee,omitempty"`
 
-	// EmployeeFullName: Name of employee
+	// EmployeeFullName: The full name in string of the employee restricted to the project for hour entry
 	EmployeeFullName *string `json:"EmployeeFullName,omitempty"`
 
-	// EmployeeHID: Readable ID of the employee
+	// EmployeeHID: The HID of the employee restricted to the project for hour entry
 	EmployeeHID *int `json:"EmployeeHID,omitempty"`
 
-	// Modified: Date modified
+	// Modified: Last date when the project restriction was modified
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// Modifier: Modifier user ID
+	// Modifier: ID of user that modified the project restriction
 	Modifier *types.GUID `json:"Modifier,omitempty"`
 
-	// ModifierFullName: Modifier name
+	// ModifierFullName: Full name of user that modified the project restriction
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// Project: Project linked to the restriction
+	// Project: Project ID that the restriction is referenced to
 	Project *types.GUID `json:"Project,omitempty"`
 
-	// ProjectCode: Project code
+	// ProjectCode: Project code that the restriction is referenced to
 	ProjectCode *string `json:"ProjectCode,omitempty"`
 
-	// ProjectDescription: Project description
+	// ProjectDescription: Project description that the restriction is referenced to
 	ProjectDescription *string `json:"ProjectDescription,omitempty"`
 }
 

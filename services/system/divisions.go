@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -39,13 +39,16 @@ type Divisions struct {
 	// AddressLine3: Address line 3
 	AddressLine3 *string `json:"AddressLine3,omitempty"`
 
-	// BlockingStatus: Values: 0 = Not blocked, 1 = Backup, 2 = Conversion busy, 3 = Conversion shadow, 4 = Conversion waiting, 5 = Copy data waiting, 6 = Copy data buzy, 100 = Wait for deletion, 101 = Deleted, 102 = Deletion failed
+	// ArchiveDate: Date on which the division is archived
+	ArchiveDate *types.Date `json:"ArchiveDate,omitempty"`
+
+	// BlockingStatus: Values: 0 = Not blocked, 1 = Backup/restore, 2 = Conversion busy, 3 = Conversion shadow, 4 = Conversion waiting, 5 = Copy data waiting, 6 = Copy data busy
 	BlockingStatus *int `json:"BlockingStatus,omitempty"`
 
-	// BusinessTypeCode: Business Type Code
+	// BusinessTypeCode: Business type code
 	BusinessTypeCode *string `json:"BusinessTypeCode,omitempty"`
 
-	// BusinessTypeDescription: Business Type Description
+	// BusinessTypeDescription: Business type description
 	BusinessTypeDescription *string `json:"BusinessTypeDescription,omitempty"`
 
 	// ChamberOfCommerceEstablishment: Chamber of commerce establishment
@@ -72,10 +75,10 @@ type Divisions struct {
 	// Class_05: Fifth division classification. User should have access rights to view division classifications.
 	Class_05 *json.RawMessage `json:"Class_05,omitempty"`
 
-	// CompanySizeCode: Company Size Code
+	// CompanySizeCode: Company size code
 	CompanySizeCode *string `json:"CompanySizeCode,omitempty"`
 
-	// CompanySizeDescription: Company Size Description
+	// CompanySizeDescription: Company size description
 	CompanySizeDescription *string `json:"CompanySizeDescription,omitempty"`
 
 	// Country: Country of the division. Is used for determination of legislation
@@ -114,6 +117,9 @@ type Divisions struct {
 	// Description: Description
 	Description *string `json:"Description,omitempty"`
 
+	// DivisionMoveDate: Date when the division was moved. Please resync all data when this value changes because value of Timestamp is regenerated.
+	DivisionMoveDate *types.Date `json:"DivisionMoveDate,omitempty"`
+
 	// Email: Email address
 	Email *string `json:"Email,omitempty"`
 
@@ -123,8 +129,14 @@ type Divisions struct {
 	// Hid: Company number that is assigned by the customer
 	Hid *int64 `json:"Hid,string,omitempty"`
 
+	// IsDossierDivision: True if the division is a dossier division
+	IsDossierDivision *bool `json:"IsDossierDivision,omitempty"`
+
 	// IsMainDivision: True if the division is the main division
 	IsMainDivision *bool `json:"IsMainDivision,omitempty"`
+
+	// IsPracticeDivision: True if the division is a practice division
+	IsPracticeDivision *bool `json:"IsPracticeDivision,omitempty"`
 
 	// Legislation: Legislation
 	Legislation *string `json:"Legislation,omitempty"`
@@ -138,22 +150,25 @@ type Divisions struct {
 	// ModifierFullName: Name of the last modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
+	// OBNumber: The soletrader VAT number used for offical returns to tax authority
+	OBNumber *string `json:"OBNumber,omitempty"`
+
 	// Phone: Phone number
 	Phone *string `json:"Phone,omitempty"`
 
 	// Postcode: Postcode
 	Postcode *string `json:"Postcode,omitempty"`
 
-	// SbiCode: SBI Code
+	// SbiCode: SBI code
 	SbiCode *string `json:"SbiCode,omitempty"`
 
-	// SbiDescription: SBI Description
+	// SbiDescription: SBI description
 	SbiDescription *string `json:"SbiDescription,omitempty"`
 
-	// SectorCode: Sector Code
+	// SectorCode: Sector code
 	SectorCode *string `json:"SectorCode,omitempty"`
 
-	// SectorDescription: Sector Description
+	// SectorDescription: Sector description
 	SectorDescription *string `json:"SectorDescription,omitempty"`
 
 	// ShareCapital: the part of the capital of a company that comes from the issue of shares (France)
@@ -171,10 +186,10 @@ type Divisions struct {
 	// Status: Follow the Division Status 0 for Inactive, 1 for Active and 2 for Archived Divisions
 	Status *int `json:"Status,omitempty"`
 
-	// SubsectorCode: Subsector Code
+	// SubsectorCode: Subsector code
 	SubsectorCode *string `json:"SubsectorCode,omitempty"`
 
-	// SubsectorDescription: Subsector Description
+	// SubsectorDescription: Subsector description
 	SubsectorDescription *string `json:"SubsectorDescription,omitempty"`
 
 	// TaxOfficeNumber: Number of your local tax authority (Germany)
@@ -182,6 +197,9 @@ type Divisions struct {
 
 	// TaxReferenceNumber: Local tax reference number (Germany)
 	TaxReferenceNumber *string `json:"TaxReferenceNumber,omitempty"`
+
+	// TemplateCode: Division template code
+	TemplateCode *string `json:"TemplateCode,omitempty"`
 
 	// VATNumber: The number under which the account is known at the Value Added Tax collection agency
 	VATNumber *string `json:"VATNumber,omitempty"`

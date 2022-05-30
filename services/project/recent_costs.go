@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,76 +29,76 @@ type RecentCosts struct {
 	// Id: Primary key
 	Id *int `json:"Id,omitempty"`
 
-	// AccountCode: Code of Account
+	// AccountCode: Code of account linked to the project that hours are being entered to
 	AccountCode *string `json:"AccountCode,omitempty"`
 
-	// AccountId: Reference to Account
+	// AccountId: ID of account linked to the project that hours are being entered to
 	AccountId *types.GUID `json:"AccountId,omitempty"`
 
-	// AccountName: Name of Account
+	// AccountName: Name of account linked to the project that hours are being entered to
 	AccountName *string `json:"AccountName,omitempty"`
 
-	// AmountApproved: Amount approved
+	// AmountApproved: The total amount of (Quantity * Sales price of cost item) that has been approved
 	AmountApproved *float64 `json:"AmountApproved,omitempty"`
 
-	// AmountDraft: Amount draft
+	// AmountDraft: The total amount of (Quantity * Sales price of cost item) that has been saved as draft
 	AmountDraft *float64 `json:"AmountDraft,omitempty"`
 
-	// AmountRejected: Amount rejected
+	// AmountRejected: The total amount of (Quantity * Sales price of cost item) that has been rejected
 	AmountRejected *float64 `json:"AmountRejected,omitempty"`
 
-	// AmountSubmitted: Amount submitted
+	// AmountSubmitted: The total amount of (Quantity * Sales price of cost item) that has been submitted
 	AmountSubmitted *float64 `json:"AmountSubmitted,omitempty"`
 
-	// CurrencyCode: Code of Currency
+	// CurrencyCode: Code of sales currency which is used in the cost item
 	CurrencyCode *string `json:"CurrencyCode,omitempty"`
 
-	// Date: Date
+	// Date: Date of entry
 	Date *types.Date `json:"Date,omitempty"`
 
-	// EntryId: Entry ID
+	// EntryId: Entry ID of record
 	EntryId *types.GUID `json:"EntryId,omitempty"`
 
-	// Expense: Reference to Expense
+	// Expense: The ID of the Expense that is linked to the project
 	Expense *types.GUID `json:"Expense,omitempty"`
 
-	// ExpenseDescription: Description of Expense
+	// ExpenseDescription: The description of the Expense that is linked to the project
 	ExpenseDescription *string `json:"ExpenseDescription,omitempty"`
 
-	// ItemCode: Code of Item
+	// ItemCode: Code of the item used for cost entry
 	ItemCode *string `json:"ItemCode,omitempty"`
 
-	// ItemDescription: Description of Item
+	// ItemDescription: Description of the item used for cost entry
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
-	// ItemId: Reference to Item
+	// ItemId: ID of the item used for cost entry
 	ItemId *types.GUID `json:"ItemId,omitempty"`
 
-	// Notes: Remarks
+	// Notes: Notes entered regarding the information of the cost entered
 	Notes *string `json:"Notes,omitempty"`
 
-	// ProjectCode: Code of Project
+	// ProjectCode: Code of project that the costs are entered on
 	ProjectCode *string `json:"ProjectCode,omitempty"`
 
-	// ProjectDescription: Description of Project
+	// ProjectDescription: Description of project that the costs are entered on
 	ProjectDescription *string `json:"ProjectDescription,omitempty"`
 
-	// ProjectId: Reference to Project
+	// ProjectId: ID of project that the costs are entered on
 	ProjectId *types.GUID `json:"ProjectId,omitempty"`
 
-	// QuantityApproved: Quantity approved
+	// QuantityApproved: Quantity of items that is used in cost entry that are approved
 	QuantityApproved *float64 `json:"QuantityApproved,omitempty"`
 
-	// QuantityDraft: Quantity draft
+	// QuantityDraft: Quantity of items that is used in cost entry that are saved as draft
 	QuantityDraft *float64 `json:"QuantityDraft,omitempty"`
 
-	// QuantityRejected: Quantity rejected
+	// QuantityRejected: Quantity of items that is used in cost entry that are rejected
 	QuantityRejected *float64 `json:"QuantityRejected,omitempty"`
 
-	// QuantitySubmitted: Quantity submitted
+	// QuantitySubmitted: Quantity of items that is used in cost entry that are submitted
 	QuantitySubmitted *float64 `json:"QuantitySubmitted,omitempty"`
 
-	// WeekNumber: Week number
+	// WeekNumber: The week number that the cost entries have been entered on
 	WeekNumber *int `json:"WeekNumber,omitempty"`
 }
 

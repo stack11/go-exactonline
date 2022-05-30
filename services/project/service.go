@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -20,12 +20,17 @@ type ProjectService struct {
 
 	// Endpoints available under this service
 	CostTransactions                               *CostTransactionsEndpoint
+	EmployeeRestrictionItems                       *EmployeeRestrictionItemsEndpoint
+	EmploymentInternalRates                        *EmploymentInternalRatesEndpoint
 	HourCostTypes                                  *HourCostTypesEndpoint
 	InvoiceTerms                                   *InvoiceTermsEndpoint
+	ProjectAccountMutations                        *ProjectAccountMutationsEndpoint
 	ProjectBudgetTypes                             *ProjectBudgetTypesEndpoint
+	ProjectClassifications                         *ProjectClassificationsEndpoint
 	ProjectHourBudgets                             *ProjectHourBudgetsEndpoint
 	ProjectPlanning                                *ProjectPlanningEndpoint
 	ProjectPlanningRecurring                       *ProjectPlanningRecurringEndpoint
+	ProjectRestrictionEmployeeItems                *ProjectRestrictionEmployeeItemsEndpoint
 	ProjectRestrictionEmployees                    *ProjectRestrictionEmployeesEndpoint
 	ProjectRestrictionItems                        *ProjectRestrictionItemsEndpoint
 	ProjectRestrictionRebillings                   *ProjectRestrictionRebillingsEndpoint
@@ -44,6 +49,9 @@ type ProjectService struct {
 	TimeAndBillingProjectDetails                   *TimeAndBillingProjectDetailsEndpoint
 	TimeCorrections                                *TimeCorrectionsEndpoint
 	TimeTransactions                               *TimeTransactionsEndpoint
+	WBSActivities                                  *WBSActivitiesEndpoint
+	WBSDeliverables                                *WBSDeliverablesEndpoint
+	WBSExpenses                                    *WBSExpensesEndpoint
 }
 
 // NewProjectService creates a new initialized instance of the
@@ -54,12 +62,17 @@ func NewProjectService(apiClient *api.Client) *ProjectService {
 	s.common.client = apiClient
 
 	s.CostTransactions = (*CostTransactionsEndpoint)(&s.common)
+	s.EmployeeRestrictionItems = (*EmployeeRestrictionItemsEndpoint)(&s.common)
+	s.EmploymentInternalRates = (*EmploymentInternalRatesEndpoint)(&s.common)
 	s.HourCostTypes = (*HourCostTypesEndpoint)(&s.common)
 	s.InvoiceTerms = (*InvoiceTermsEndpoint)(&s.common)
+	s.ProjectAccountMutations = (*ProjectAccountMutationsEndpoint)(&s.common)
 	s.ProjectBudgetTypes = (*ProjectBudgetTypesEndpoint)(&s.common)
+	s.ProjectClassifications = (*ProjectClassificationsEndpoint)(&s.common)
 	s.ProjectHourBudgets = (*ProjectHourBudgetsEndpoint)(&s.common)
 	s.ProjectPlanning = (*ProjectPlanningEndpoint)(&s.common)
 	s.ProjectPlanningRecurring = (*ProjectPlanningRecurringEndpoint)(&s.common)
+	s.ProjectRestrictionEmployeeItems = (*ProjectRestrictionEmployeeItemsEndpoint)(&s.common)
 	s.ProjectRestrictionEmployees = (*ProjectRestrictionEmployeesEndpoint)(&s.common)
 	s.ProjectRestrictionItems = (*ProjectRestrictionItemsEndpoint)(&s.common)
 	s.ProjectRestrictionRebillings = (*ProjectRestrictionRebillingsEndpoint)(&s.common)
@@ -78,6 +91,9 @@ func NewProjectService(apiClient *api.Client) *ProjectService {
 	s.TimeAndBillingProjectDetails = (*TimeAndBillingProjectDetailsEndpoint)(&s.common)
 	s.TimeCorrections = (*TimeCorrectionsEndpoint)(&s.common)
 	s.TimeTransactions = (*TimeTransactionsEndpoint)(&s.common)
+	s.WBSActivities = (*WBSActivitiesEndpoint)(&s.common)
+	s.WBSDeliverables = (*WBSDeliverablesEndpoint)(&s.common)
+	s.WBSExpenses = (*WBSExpensesEndpoint)(&s.common)
 
 	return s
 }

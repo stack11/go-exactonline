@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -19,10 +19,27 @@ type BulkService struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// Endpoints available under this service
-	DocumentsDocumentAttachments *DocumentsDocumentAttachmentsEndpoint
-	DocumentsDocuments           *DocumentsDocumentsEndpoint
-	FinancialTransactionLines    *FinancialTransactionLinesEndpoint
-	SalesOrderSalesOrderLines    *SalesOrderSalesOrderLinesEndpoint
+	CashflowPayments              *CashflowPaymentsEndpoint
+	CashflowReceivables           *CashflowReceivablesEndpoint
+	CRMAccounts                   *CRMAccountsEndpoint
+	CRMAddresses                  *CRMAddressesEndpoint
+	CRMContacts                   *CRMContactsEndpoint
+	CRMQuotationLines             *CRMQuotationLinesEndpoint
+	CRMQuotations                 *CRMQuotationsEndpoint
+	DocumentsDocumentAttachments  *DocumentsDocumentAttachmentsEndpoint
+	DocumentsDocuments            *DocumentsDocumentsEndpoint
+	FinancialGLAccounts           *FinancialGLAccountsEndpoint
+	FinancialGLClassifications    *FinancialGLClassificationsEndpoint
+	FinancialTransactionLines     *FinancialTransactionLinesEndpoint
+	LogisticsItems                *LogisticsItemsEndpoint
+	LogisticsSalesItemPrices      *LogisticsSalesItemPricesEndpoint
+	ProjectProjectWBS             *ProjectProjectWBSEndpoint
+	SalesInvoiceSalesInvoiceLines *SalesInvoiceSalesInvoiceLinesEndpoint
+	SalesInvoiceSalesInvoices     *SalesInvoiceSalesInvoicesEndpoint
+	SalesOrderGoodsDeliveries     *SalesOrderGoodsDeliveriesEndpoint
+	SalesOrderGoodsDeliveryLines  *SalesOrderGoodsDeliveryLinesEndpoint
+	SalesOrderSalesOrderLines     *SalesOrderSalesOrderLinesEndpoint
+	SalesOrderSalesOrders         *SalesOrderSalesOrdersEndpoint
 }
 
 // NewBulkService creates a new initialized instance of the
@@ -32,10 +49,27 @@ func NewBulkService(apiClient *api.Client) *BulkService {
 
 	s.common.client = apiClient
 
+	s.CashflowPayments = (*CashflowPaymentsEndpoint)(&s.common)
+	s.CashflowReceivables = (*CashflowReceivablesEndpoint)(&s.common)
+	s.CRMAccounts = (*CRMAccountsEndpoint)(&s.common)
+	s.CRMAddresses = (*CRMAddressesEndpoint)(&s.common)
+	s.CRMContacts = (*CRMContactsEndpoint)(&s.common)
+	s.CRMQuotationLines = (*CRMQuotationLinesEndpoint)(&s.common)
+	s.CRMQuotations = (*CRMQuotationsEndpoint)(&s.common)
 	s.DocumentsDocumentAttachments = (*DocumentsDocumentAttachmentsEndpoint)(&s.common)
 	s.DocumentsDocuments = (*DocumentsDocumentsEndpoint)(&s.common)
+	s.FinancialGLAccounts = (*FinancialGLAccountsEndpoint)(&s.common)
+	s.FinancialGLClassifications = (*FinancialGLClassificationsEndpoint)(&s.common)
 	s.FinancialTransactionLines = (*FinancialTransactionLinesEndpoint)(&s.common)
+	s.LogisticsItems = (*LogisticsItemsEndpoint)(&s.common)
+	s.LogisticsSalesItemPrices = (*LogisticsSalesItemPricesEndpoint)(&s.common)
+	s.ProjectProjectWBS = (*ProjectProjectWBSEndpoint)(&s.common)
+	s.SalesInvoiceSalesInvoiceLines = (*SalesInvoiceSalesInvoiceLinesEndpoint)(&s.common)
+	s.SalesInvoiceSalesInvoices = (*SalesInvoiceSalesInvoicesEndpoint)(&s.common)
+	s.SalesOrderGoodsDeliveries = (*SalesOrderGoodsDeliveriesEndpoint)(&s.common)
+	s.SalesOrderGoodsDeliveryLines = (*SalesOrderGoodsDeliveryLinesEndpoint)(&s.common)
 	s.SalesOrderSalesOrderLines = (*SalesOrderSalesOrderLinesEndpoint)(&s.common)
+	s.SalesOrderSalesOrders = (*SalesOrderSalesOrdersEndpoint)(&s.common)
 
 	return s
 }

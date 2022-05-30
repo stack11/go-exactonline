@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -62,6 +62,9 @@ type SupplierItem struct {
 	// DropShipment: Indicates that the supplier will deliver the item directly to customer. Values: 0 = No, 1 = Yes, 2 = Optional
 	DropShipment *byte `json:"DropShipment,omitempty"`
 
+	// EndDate: Together with StartDate this determines whether the price is active
+	EndDate *types.Date `json:"EndDate,omitempty"`
+
 	// Item: Item ID
 	Item *types.GUID `json:"Item,omitempty"`
 
@@ -92,7 +95,10 @@ type SupplierItem struct {
 	// PurchaseLeadTime: The number of days between placing an order with a supplier and receiving items from the supplier
 	PurchaseLeadTime *int `json:"PurchaseLeadTime,omitempty"`
 
-	// PurchasePrice: Purchase price
+	// PurchaseLotSize: Lot size of the item for purchase
+	PurchaseLotSize *int `json:"PurchaseLotSize,omitempty"`
+
+	// PurchasePrice: Purchase price. If neither active nor future price exists, it shows 0 when GET
 	PurchasePrice *float64 `json:"PurchasePrice,omitempty"`
 
 	// PurchaseUnit: Unit code
@@ -109,6 +115,9 @@ type SupplierItem struct {
 
 	// PurchaseVATCodeDescription: Description of VAT
 	PurchaseVATCodeDescription *string `json:"PurchaseVATCodeDescription,omitempty"`
+
+	// StartDate: Together with EndDate this determines whether the price is active
+	StartDate *types.Date `json:"StartDate,omitempty"`
 
 	// Supplier: Supplier ID
 	Supplier *types.GUID `json:"Supplier,omitempty"`

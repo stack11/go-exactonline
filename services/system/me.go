@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,8 +29,14 @@ type Me struct {
 	// UserID: Primary key
 	UserID *types.GUID `json:"UserID,omitempty"`
 
+	// AccountingDivision: Accounting division number
+	AccountingDivision *int `json:"AccountingDivision,omitempty"`
+
 	// CurrentDivision: Division number that is currently used in the API. You should use a division number in the url
 	CurrentDivision *int `json:"CurrentDivision,omitempty"`
+
+	// CustomerCode: Account code of the logged in user.
+	CustomerCode *string `json:"CustomerCode,omitempty"`
 
 	// DivisionCustomer: Owner account of the division
 	DivisionCustomer *types.GUID `json:"DivisionCustomer,omitempty"`
@@ -46,6 +52,9 @@ type Me struct {
 
 	// DivisionCustomerVatNumber: Owner account VAT Number of the division
 	DivisionCustomerVatNumber *string `json:"DivisionCustomerVatNumber,omitempty"`
+
+	// DossierDivision: Dossier division number (optional)
+	DossierDivision *int `json:"DossierDivision,omitempty"`
 
 	// Email: Email address of the user
 	Email *string `json:"Email,omitempty"`
@@ -64,6 +73,15 @@ type Me struct {
 
 	// Initials: Initials
 	Initials *string `json:"Initials,omitempty"`
+
+	// IsClientUser: Client user of an accountant: either a portal user or a non-accountant user with his own license (internal use)
+	IsClientUser *bool `json:"IsClientUser,omitempty"`
+
+	// IsMyFirmLiteUser: MyFirm lite user of accountant with limited access and specific start page (internal use)
+	IsMyFirmLiteUser *bool `json:"IsMyFirmLiteUser,omitempty"`
+
+	// IsMyFirmPortalUser: MyFirm user of accountant with limited access and specific start page (internal use)
+	IsMyFirmPortalUser *bool `json:"IsMyFirmPortalUser,omitempty"`
 
 	// Language: Language spoken by this user
 	Language *string `json:"Language,omitempty"`
@@ -101,10 +119,10 @@ type Me struct {
 	// ServerUtcOffset: The time difference with UTC in seconds
 	ServerUtcOffset *float64 `json:"ServerUtcOffset,omitempty"`
 
-	// ThumbnailPicture: Binary thumbnail picture of this user
+	// ThumbnailPicture: Binary thumbnail picture of this user (This property will never return value and will be removed in the near future.)
 	ThumbnailPicture *[]byte `json:"ThumbnailPicture,omitempty"`
 
-	// ThumbnailPictureFormat: File type of the picture
+	// ThumbnailPictureFormat: File type of the picture (This property will never return value and will be removed in the near future.)
 	ThumbnailPictureFormat *string `json:"ThumbnailPictureFormat,omitempty"`
 
 	// Title: Title

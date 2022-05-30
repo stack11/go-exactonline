@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -48,7 +48,7 @@ type PurchaseInvoices struct {
 	// Document: Guid identifying a document that is attached to the invoice.
 	Document *types.GUID `json:"Document,omitempty"`
 
-	// DueDate: The date before which the invoice has to be paid.
+	// DueDate: The date before which the invoice has to be paid. This by default will be set according to the payment condition.
 	DueDate *types.Date `json:"DueDate,omitempty"`
 
 	// EntryNumber: The unique number of the purchase invoice. The entry number is based on a setting in the purchase journal and incremented for each new purchase invoice.

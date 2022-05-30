@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -30,6 +30,7 @@ func TestNewSystemService(t *testing.T) {
 	want.common.client = c
 
 	want.AccountantInfo = (*AccountantInfoEndpoint)(&want.common)
+	want.AllDivisions = (*AllDivisionsEndpoint)(&want.common)
 	want.AvailableFeatures = (*AvailableFeaturesEndpoint)(&want.common)
 	want.Divisions = (*DivisionsEndpoint)(&want.common)
 	want.GetMostRecentlyUsedDivisions = (*GetMostRecentlyUsedDivisionsEndpoint)(&want.common)

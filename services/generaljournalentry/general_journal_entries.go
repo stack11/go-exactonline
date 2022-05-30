@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -8,6 +8,9 @@ package generaljournalentry
 import (
 	"context"
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
 
 	"github.com/stack11/go-exactonline/api"
 	"github.com/stack11/go-exactonline/types"
@@ -23,7 +26,7 @@ type GeneralJournalEntriesEndpoint service
 // URL: /api/v1/{division}/generaljournalentry/GeneralJournalEntries
 // HasWebhook: true
 // IsInBeta: false
-// Methods: GET POST
+// Methods: GET POST DELETE
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=GeneralJournalEntryGeneralJournalEntries
 type GeneralJournalEntries struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
@@ -129,4 +132,25 @@ func (s *GeneralJournalEntriesEndpoint) Create(ctx context.Context, division int
 		return nil, err
 	}
 	return e, nil
+}
+
+// Delete the GeneralJournalEntries entity in the provided division.
+func (s *GeneralJournalEntriesEndpoint) Delete(ctx context.Context, division int, id *types.GUID) error {
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/generaljournalentry/GeneralJournalEntries", division) // #nosec
+	u, err := api.AddOdataKeyToURL(b, id)
+	if err != nil {
+		return err
+	}
+
+	_, r, requestError := s.client.NewRequestAndDo(ctx, "DELETE", u.String(), nil, nil)
+	if requestError != nil {
+		return requestError
+	}
+
+	if r.StatusCode != http.StatusNoContent {
+		body, _ := ioutil.ReadAll(r.Body) // #nosec
+		return fmt.Errorf("Failed with status %v and body %v", r.StatusCode, body)
+	}
+
+	return nil
 }

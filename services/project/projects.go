@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -45,11 +45,17 @@ type Projects struct {
 	// AccountName: Name of Account
 	AccountName *string `json:"AccountName,omitempty"`
 
-	// AllowAdditionalInvoicing: Is additional invoice is allowed for project
+	// AllowAdditionalInvoicing: Indicates if additional invoice is allowed for project
 	AllowAdditionalInvoicing *bool `json:"AllowAdditionalInvoicing,omitempty"`
+
+	// AllowNonMemberEntry: Allow non member to create time or cost entry
+	AllowNonMemberEntry *bool `json:"AllowNonMemberEntry,omitempty"`
 
 	// BlockEntry: Block time and cost entries
 	BlockEntry *bool `json:"BlockEntry,omitempty"`
+
+	// BlockPurchasing: Block purchasing
+	BlockPurchasing *bool `json:"BlockPurchasing,omitempty"`
 
 	// BlockRebilling: Block rebilling
 	BlockRebilling *bool `json:"BlockRebilling,omitempty"`
@@ -99,6 +105,9 @@ type Projects struct {
 	// CustomerPOnumber: Used only for PSA to store the customer&#39;s PO number
 	CustomerPOnumber *string `json:"CustomerPOnumber,omitempty"`
 
+	// CustomField: Custom field endpoint. Provided only for the Exact Online Premium users.
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Description: Description of the project
 	Description *string `json:"Description,omitempty"`
 
@@ -117,10 +126,22 @@ type Projects struct {
 	// FixedPriceItemDescription: Description of FixedPriceItem
 	FixedPriceItemDescription *string `json:"FixedPriceItemDescription,omitempty"`
 
+	// HasWBSLines: Indicates if whether the Project has WBS
+	HasWBSLines *bool `json:"HasWBSLines,omitempty"`
+
+	// IncludeInvoiceSpecification: Include invoice specification. E.g: 1 = Based on account, 2 = Always, 3 = Never
+	IncludeInvoiceSpecification *int `json:"IncludeInvoiceSpecification,omitempty"`
+
+	// IncludeSpecificationInInvoicePdf: Indicates whether to include invoice specification in invoice PDF
+	IncludeSpecificationInInvoicePdf *bool `json:"IncludeSpecificationInInvoicePdf,omitempty"`
+
 	// InternalNotes: Internal notes not to be printed in invoice
 	InternalNotes *string `json:"InternalNotes,omitempty"`
 
-	// InvoiceAsQuoted: Is invoice as quoted
+	// InvoiceAddress: Invoice address
+	InvoiceAddress *types.GUID `json:"InvoiceAddress,omitempty"`
+
+	// InvoiceAsQuoted: Indicates whether the project is invoice as quoted
 	InvoiceAsQuoted *bool `json:"InvoiceAsQuoted,omitempty"`
 
 	// InvoiceTerms: Collection of invoice terms
@@ -180,13 +201,13 @@ type Projects struct {
 	// TimeQuantityToAlert: Alert when exceeding (Hours)
 	TimeQuantityToAlert *float64 `json:"TimeQuantityToAlert,omitempty"`
 
-	// Type: Reference to ProjectTypes
+	// Type: Reference to ProjectTypes. E.g: 1 = Campaign , 2 = Fixed Price, 3 = Time and Material, 4 = Non billable, 5 = Prepaid
 	Type *int `json:"Type,omitempty"`
 
 	// TypeDescription: Description of Type
 	TypeDescription *string `json:"TypeDescription,omitempty"`
 
-	// UseBillingMilestones: Using billing milestones
+	// UseBillingMilestones: Indicates whether the Project is using billing milestones
 	UseBillingMilestones *bool `json:"UseBillingMilestones,omitempty"`
 }
 

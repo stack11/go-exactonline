@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -33,7 +33,7 @@ type ShopOrders struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// CADDrawingURL: URL to CAD Drawing Specified on Manufacturing Bill of Material
+	// CADDrawingURL: URL to CAD Drawing Specified on General tab shoporder
 	CADDrawingURL *string `json:"CADDrawingURL,omitempty"`
 
 	// Costcenter: The cost center linked to the shop order
@@ -63,13 +63,13 @@ type ShopOrders struct {
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
-	// EntryDate: Date on which the shop order was placed
+	// EntryDate: Date on which the shop order was entered, does not need to be the same as syscreated date but is usually the same.
 	EntryDate *types.Date `json:"EntryDate,omitempty"`
 
-	// IsBatch: Does the material plan&#39;s item use batch numbers
+	// IsBatch: Indicates if the item created by this shoporder is a batch item or not
 	IsBatch *byte `json:"IsBatch,omitempty"`
 
-	// IsFractionAllowedItem: Indicates if fractions (for example 0.35) are allowed for quantities of the material plan&#39;s item
+	// IsFractionAllowedItem: Indicates if fractions (for example 0.35) are allowed for quantities of the item created by this shoporder
 	IsFractionAllowedItem *byte `json:"IsFractionAllowedItem,omitempty"`
 
 	// IsInPlanning: Indicator that Shop order is in planning
@@ -84,7 +84,7 @@ type ShopOrders struct {
 	// IsSerial: Does the material plan&#39;s item use serial numbers
 	IsSerial *byte `json:"IsSerial,omitempty"`
 
-	// Item: Reference to the item
+	// Item: Reference to the item created by this shoporder
 	Item *types.GUID `json:"Item,omitempty"`
 
 	// ItemCode: Code of the item created by this shop order
@@ -93,7 +93,7 @@ type ShopOrders struct {
 	// ItemDescription: Description of the item created by this shop order
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
-	// ItemPictureUrl: URL of the item created by this shop order
+	// ItemPictureUrl: URL of the picture linked to the item created by this shop order
 	ItemPictureUrl *string `json:"ItemPictureUrl,omitempty"`
 
 	// ItemVersion: Reference to ItemVersion
@@ -123,7 +123,7 @@ type ShopOrders struct {
 	// PlannedStartDate: Planned start date of this shop order
 	PlannedStartDate *types.Date `json:"PlannedStartDate,omitempty"`
 
-	// ProducedQuantity: Produced quantity
+	// ProducedQuantity: Quantity finished
 	ProducedQuantity *float64 `json:"ProducedQuantity,omitempty"`
 
 	// ProductionLeadDays: Production lead days
@@ -143,6 +143,15 @@ type ShopOrders struct {
 
 	// SalesOrderLines: Collection of Sales order lines
 	SalesOrderLines *json.RawMessage `json:"SalesOrderLines,omitempty"`
+
+	// SelectionCode: ID of selection code. Only supported by the Advanced and Premium editions for Wholesale &amp; Distribution and Manufacturing
+	SelectionCode *types.GUID `json:"SelectionCode,omitempty"`
+
+	// SelectionCodeCode: Code of Selection code
+	SelectionCodeCode *string `json:"SelectionCodeCode,omitempty"`
+
+	// SelectionCodeDescription: Description of Selection code
+	SelectionCodeDescription *string `json:"SelectionCodeDescription,omitempty"`
 
 	// ShopOrderByProductPlanBackflushCount: Number of shop order by-product plans, which are backflushed, for this shop order
 	ShopOrderByProductPlanBackflushCount *int `json:"ShopOrderByProductPlanBackflushCount,omitempty"`
@@ -183,13 +192,13 @@ type ShopOrders struct {
 	// ShopOrderRoutingStepPlans: Collection of Shop order Routing step plans
 	ShopOrderRoutingStepPlans *json.RawMessage `json:"ShopOrderRoutingStepPlans,omitempty"`
 
-	// Status: Indicates the type of Shop Order: 10 Open, 20 In process, 30 Finished, 40 Completed
+	// Status: Indicates the status of  the Shop Order: 10 Open, 20 In process, 30 Finished, 40 Completed
 	Status *int `json:"Status,omitempty"`
 
 	// SubShopOrderCount: The count of material lines of this shop order, which have been linked to a sub order
 	SubShopOrderCount *int `json:"SubShopOrderCount,omitempty"`
 
-	// Type: Overall status of the line: 9040 Regular
+	// Type: Type of shoporder: always 9040 Regular
 	Type *int `json:"Type,omitempty"`
 
 	// Unit: Unit of the item created by this shop order

@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -32,7 +32,6 @@ func TestNewMailboxService(t *testing.T) {
 	want.DefaultMailbox = (*DefaultMailboxEndpoint)(&want.common)
 	want.Mailboxes = (*MailboxesEndpoint)(&want.common)
 	want.MailMessageAttachments = (*MailMessageAttachmentsEndpoint)(&want.common)
-	want.MailMessagesReceived = (*MailMessagesReceivedEndpoint)(&want.common)
 	want.MailMessagesSent = (*MailMessagesSentEndpoint)(&want.common)
 	want.PreferredMailbox = (*PreferredMailboxEndpoint)(&want.common)
 

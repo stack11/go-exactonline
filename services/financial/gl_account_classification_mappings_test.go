@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -92,18 +92,18 @@ func TestGLAccountClassificationMappingsEndpoint_List_all(t *testing.T) {
 
 	opts1 := api.NewListOptions()
 	opts1.Select.Add("*")
-	u, e := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", 0)
+	u, e := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", 0)
 	if e != nil {
-		t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.List returned error: %v, with url /api/v1/beta/{division}/financial/GLAccountClassificationMappings?$select=*", e)
+		t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.List returned error: %v, with url /api/v1/{division}/financial/GLAccountClassificationMappings?$select=*", e)
 	}
 	api.AddListOptionsToURL(u, opts1)
 
 	opts2 := api.NewListOptions()
 	opts2.Select.Add("*")
 	opts2.SkipToken.Set(types.NewGUID())
-	u2, e2 := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", 0)
+	u2, e2 := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", 0)
 	if e2 != nil {
-		t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.List returned error: %v, with url /api/v1/beta/{division}/financial/GLAccountClassificationMappings?$skiptoken=foo", e2)
+		t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.List returned error: %v, with url /api/v1/{division}/financial/GLAccountClassificationMappings?$skiptoken=foo", e2)
 	}
 	api.AddListOptionsToURL(u2, opts2)
 
@@ -139,18 +139,18 @@ func TestGLAccountClassificationMappingsEndpoint_List(t *testing.T) {
 
 	opts1 := api.NewListOptions()
 	opts1.Select.Add("*")
-	u, e := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", 0)
+	u, e := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", 0)
 	if e != nil {
-		t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.List returned error: %v, with url /api/v1/beta/{division}/financial/GLAccountClassificationMappings", e)
+		t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.List returned error: %v, with url /api/v1/{division}/financial/GLAccountClassificationMappings", e)
 	}
 	api.AddListOptionsToURL(u, opts1)
 
 	opts2 := api.NewListOptions()
 	opts2.Select.Add("*")
 	opts2.SkipToken.Set(types.NewGUID())
-	u2, e2 := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", 0)
+	u2, e2 := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", 0)
 	if e2 != nil {
-		t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.List returned error: %v, with url /api/v1/beta/{division}/financial/GLAccountClassificationMappings", e2)
+		t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.List returned error: %v, with url /api/v1/{division}/financial/GLAccountClassificationMappings", e2)
 	}
 	api.AddListOptionsToURL(u2, opts2)
 
@@ -199,9 +199,9 @@ func TestGLAccountClassificationMappingsEndpoint_Get(t *testing.T) {
 			s, mux, _, teardown := setup()
 			defer teardown()
 
-			b, e := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", 0)
+			b, e := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", 0)
 			if e != nil {
-				t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.Delete() returned error: %v, with url /api/v1/beta/{division}/financial/GLAccountClassificationMappings", e)
+				t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.Delete() returned error: %v, with url /api/v1/{division}/financial/GLAccountClassificationMappings", e)
 			}
 
 			u, e2 := api.AddOdataKeyToURL(b, tt.args.id)
@@ -263,9 +263,9 @@ func TestGLAccountClassificationMappingsEndpoint_Create(t *testing.T) {
 			s, mux, _, teardown := setup()
 			defer teardown()
 
-			u, e := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", 0)
+			u, e := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", 0)
 			if e != nil {
-				t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.Create returned error: %v, with url /api/v1/beta/{division}/financial/GLAccountClassificationMappings", e)
+				t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.Create returned error: %v, with url /api/v1/{division}/financial/GLAccountClassificationMappings", e)
 			}
 
 			mux.HandleFunc(u.Path, func(w http.ResponseWriter, r *http.Request) {
@@ -314,9 +314,9 @@ func TestGLAccountClassificationMappingsEndpoint_Update(t *testing.T) {
 			s, mux, _, teardown := setup()
 			defer teardown()
 
-			b, e := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", 0)
+			b, e := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", 0)
 			if e != nil {
-				t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.Update returned error: %v, with url /api/v1/beta/{division}/financial/GLAccountClassificationMappings", e)
+				t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.Update returned error: %v, with url /api/v1/{division}/financial/GLAccountClassificationMappings", e)
 			}
 
 			u, e2 := api.AddOdataKeyToURL(b, tt.args.entity.GetPrimary())
@@ -368,9 +368,9 @@ func TestGLAccountClassificationMappingsEndpoint_Delete(t *testing.T) {
 			s, mux, _, teardown := setup()
 			defer teardown()
 
-			b, e := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", 0)
+			b, e := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", 0)
 			if e != nil {
-				t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.Delete() returned error: %v, with url /api/v1/beta/{division}/financial/GLAccountClassificationMappings", e)
+				t.Errorf("s.client.ResolvePathWithDivision in GLAccountClassificationMappingsEndpoint.Delete() returned error: %v, with url /api/v1/{division}/financial/GLAccountClassificationMappings", e)
 			}
 
 			u, e2 := api.AddOdataKeyToURL(b, tt.args.id)

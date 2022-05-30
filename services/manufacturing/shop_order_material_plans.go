@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -59,10 +59,10 @@ type ShopOrderMaterialPlans struct {
 	// Item: Reference to Items table
 	Item *types.GUID `json:"Item,omitempty"`
 
-	// ItemCode: Item Code
+	// ItemCode: Item Code (material)
 	ItemCode *string `json:"ItemCode,omitempty"`
 
-	// ItemDescription: Description of Item
+	// ItemDescription: Description of Item (material)
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
 	// ItemPictureUrl: URL of the material item&#39;s picture
@@ -92,10 +92,10 @@ type ShopOrderMaterialPlans struct {
 	// PlannedPriceFC: Planned price of the material
 	PlannedPriceFC *float64 `json:"PlannedPriceFC,omitempty"`
 
-	// PlannedQuantity: Intended quantity
+	// PlannedQuantity: Intended total planned quantity of the material including waste
 	PlannedQuantity *float64 `json:"PlannedQuantity,omitempty"`
 
-	// PlannedQuantityFactor: Intended quantity unit factor
+	// PlannedQuantityFactor: Intended quantity of the material per unit excluding waste
 	PlannedQuantityFactor *float64 `json:"PlannedQuantityFactor,omitempty"`
 
 	// ShopOrder: Reference to ShopOrders table
@@ -115,6 +115,9 @@ type ShopOrderMaterialPlans struct {
 
 	// UnitDescription: Unit description
 	UnitDescription *string `json:"UnitDescription,omitempty"`
+
+	// WastePercentage: Waste percentage must be null or integer from 1 to 9999 (only available in Manufacturing Premium)
+	WastePercentage *float64 `json:"WastePercentage,omitempty"`
 }
 
 func (e *ShopOrderMaterialPlans) GetPrimary() *types.GUID {

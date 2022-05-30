@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -32,22 +32,22 @@ type ProjectHourBudgets struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Budget: Number of hours
+	// Budget: Number of hours to be budgeted to a project
 	Budget *float64 `json:"Budget,omitempty"`
 
-	// Created: Creation date
+	// Created: Date and time when the project hour budget was created
 	Created *types.Date `json:"Created,omitempty"`
 
-	// Creator: User ID of creator
+	// Creator: ID of user that created the project hour budget
 	Creator *types.GUID `json:"Creator,omitempty"`
 
-	// CreatorFullName: Name of creator
+	// CreatorFullName: Full name of user that created the project hour budget
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
 	// Division: Division number
 	Division *int `json:"Division,omitempty"`
 
-	// Item: Hour type of budget
+	// Item: ID of hour type of budget
 	Item *types.GUID `json:"Item,omitempty"`
 
 	// ItemCode: Code of hour type
@@ -56,22 +56,22 @@ type ProjectHourBudgets struct {
 	// ItemDescription: Description of hour type
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
-	// Modified: Last modified date
+	// Modified: Last modified date of project hour budget
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// Modifier: User ID of modifier
+	// Modifier: ID of last user that modified the project hour budget
 	Modifier *types.GUID `json:"Modifier,omitempty"`
 
-	// ModifierFullName: Name of modifier
+	// ModifierFullName: Full name of last user that modified the project hour budget
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// Project: Reference to project
+	// Project: Project ID that the budgeted hours is referenced to
 	Project *types.GUID `json:"Project,omitempty"`
 
-	// ProjectCode: Code of project
+	// ProjectCode: Project code that the budgeted hours is referenced to
 	ProjectCode *string `json:"ProjectCode,omitempty"`
 
-	// ProjectDescription: Description of project
+	// ProjectDescription: Project description that the budgeted hours is referenced to
 	ProjectDescription *string `json:"ProjectDescription,omitempty"`
 }
 

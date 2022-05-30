@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -50,7 +50,7 @@ type AbsenceRegistrationTransactions struct {
 	// ExpectedEndDate: Expected end date of absence
 	ExpectedEndDate *types.Date `json:"ExpectedEndDate,omitempty"`
 
-	// Hours: Total number of absence hours
+	// Hours: Differentiation of absence hours of the absence registration transaction between previous and current status
 	Hours *float64 `json:"Hours,omitempty"`
 
 	// HoursFirstDay: Hours of absence on the first day

@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -80,8 +80,17 @@ type PurchaseOrderLines struct {
 	// InvoicedQuantity:
 	InvoicedQuantity *float64 `json:"InvoicedQuantity,omitempty"`
 
+	// IsBatchNumberItem:
+	IsBatchNumberItem *byte `json:"IsBatchNumberItem,omitempty"`
+
+	// IsSerialNumberItem:
+	IsSerialNumberItem *byte `json:"IsSerialNumberItem,omitempty"`
+
 	// Item:
 	Item *types.GUID `json:"Item,omitempty"`
+
+	// ItemBarcode:
+	ItemBarcode *string `json:"ItemBarcode,omitempty"`
 
 	// ItemCode:
 	ItemCode *string `json:"ItemCode,omitempty"`

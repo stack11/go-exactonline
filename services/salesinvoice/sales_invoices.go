@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -105,6 +105,15 @@ type SalesInvoices struct {
 	// GAccountAmountFC:
 	GAccountAmountFC *float64 `json:"GAccountAmountFC,omitempty"`
 
+	// IncotermAddress:
+	IncotermAddress *string `json:"IncotermAddress,omitempty"`
+
+	// IncotermCode:
+	IncotermCode *string `json:"IncotermCode,omitempty"`
+
+	// IncotermVersion:
+	IncotermVersion *int `json:"IncotermVersion,omitempty"`
+
 	// InvoiceDate:
 	InvoiceDate *types.Date `json:"InvoiceDate,omitempty"`
 
@@ -171,6 +180,15 @@ type SalesInvoices struct {
 	// Remarks:
 	Remarks *string `json:"Remarks,omitempty"`
 
+	// SalesChannel:
+	SalesChannel *types.GUID `json:"SalesChannel,omitempty"`
+
+	// SalesChannelCode:
+	SalesChannelCode *string `json:"SalesChannelCode,omitempty"`
+
+	// SalesChannelDescription:
+	SalesChannelDescription *string `json:"SalesChannelDescription,omitempty"`
+
 	// SalesInvoiceLines:
 	SalesInvoiceLines *json.RawMessage `json:"SalesInvoiceLines,omitempty"`
 
@@ -179,6 +197,15 @@ type SalesInvoices struct {
 
 	// SalespersonFullName:
 	SalespersonFullName *string `json:"SalespersonFullName,omitempty"`
+
+	// SelectionCode:
+	SelectionCode *types.GUID `json:"SelectionCode,omitempty"`
+
+	// SelectionCodeCode:
+	SelectionCodeCode *string `json:"SelectionCodeCode,omitempty"`
+
+	// SelectionCodeDescription:
+	SelectionCodeDescription *string `json:"SelectionCodeDescription,omitempty"`
 
 	// StarterSalesInvoiceStatus:
 	StarterSalesInvoiceStatus *int `json:"StarterSalesInvoiceStatus,omitempty"`
@@ -212,6 +239,9 @@ type SalesInvoices struct {
 
 	// VATAmountFC:
 	VATAmountFC *float64 `json:"VATAmountFC,omitempty"`
+
+	// Warehouse:
+	Warehouse *types.GUID `json:"Warehouse,omitempty"`
 
 	// WithholdingTaxAmountFC:
 	WithholdingTaxAmountFC *float64 `json:"WithholdingTaxAmountFC,omitempty"`

@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -283,6 +283,63 @@ func TestGoodsReceiptsEndpoint_Create(t *testing.T) {
 			}
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("GoodsReceiptsEndpoint.Create() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestGoodsReceiptsEndpoint_Update(t *testing.T) {
+	acceptHeaders := []string{"application/json"}
+	type args struct {
+		ctx      context.Context
+		division int
+		entity   *GoodsReceipts
+	}
+	s1 := GoodsReceiptsPrimaryPropertySample()
+	tests := []struct {
+		name    string
+		args    args
+		want    *GoodsReceipts
+		wantErr bool
+	}{
+		{
+			"1",
+			args{context.Background(), 0, &GoodsReceipts{ID: s1, MetaData: &api.MetaData{URI: &types.URL{URL: &url.URL{Scheme: "https", Host: "start.exactonline.nl"}}}}},
+			&GoodsReceipts{ID: s1, MetaData: &api.MetaData{URI: &types.URL{URL: &url.URL{Scheme: "https", Host: "start.exactonline.nl"}}}},
+			false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			s, mux, _, teardown := setup()
+			defer teardown()
+
+			b, e := s.client.ResolvePathWithDivision("/api/v1/{division}/purchaseorder/GoodsReceipts", 0)
+			if e != nil {
+				t.Errorf("s.client.ResolvePathWithDivision in GoodsReceiptsEndpoint.Update returned error: %v, with url /api/v1/{division}/purchaseorder/GoodsReceipts", e)
+			}
+
+			u, e2 := api.AddOdataKeyToURL(b, tt.args.entity.GetPrimary())
+			if e2 != nil {
+				t.Errorf("api.AddOdataKeyToURL in GoodsReceiptsEndpoint.Update returned error: %v", e2)
+			}
+
+			mux.HandleFunc(u.Path, func(w http.ResponseWriter, r *http.Request) {
+				testMethod(t, r, "PUT")
+				testHeader(t, r, "Accept", strings.Join(acceptHeaders, ", "))
+				testHeader(t, r, "Content-Type", strings.Join(acceptHeaders, ", "))
+				b, _ := json.Marshal(tt.args.entity)
+				testBody(t, r, string(b)+"\n")
+				fmt.Fprint(w, `{"d":`+string(b)+`}`)
+			})
+
+			got, err := s.GoodsReceipts.Update(tt.args.ctx, tt.args.division, tt.args.entity)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("GoodsReceiptsEndpoint.Update() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GoodsReceiptsEndpoint.Update() = %v, want %v", *got, *tt.want)
 			}
 		})
 	}

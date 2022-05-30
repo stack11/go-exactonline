@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -28,10 +28,10 @@ type GLTransactionTypes struct {
 	// ID:
 	ID *int `json:"ID,omitempty"`
 
-	// Description:
+	// Description: Find more information here
 	Description *string `json:"Description,omitempty"`
 
-	// DescriptionSuffix:
+	// DescriptionSuffix: Find more information here
 	DescriptionSuffix *string `json:"DescriptionSuffix,omitempty"`
 }
 

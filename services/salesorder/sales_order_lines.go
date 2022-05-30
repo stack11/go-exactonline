@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -53,8 +53,14 @@ type SalesOrderLines struct {
 	// CostUnitDescription:
 	CostUnitDescription *string `json:"CostUnitDescription,omitempty"`
 
+	// CustomerItemCode:
+	CustomerItemCode *string `json:"CustomerItemCode,omitempty"`
+
 	// DeliveryDate:
 	DeliveryDate *types.Date `json:"DeliveryDate,omitempty"`
+
+	// DeliveryStatus:
+	DeliveryStatus *int `json:"DeliveryStatus,omitempty"`
 
 	// Description:
 	Description *string `json:"Description,omitempty"`
@@ -64,6 +70,9 @@ type SalesOrderLines struct {
 
 	// Division:
 	Division *int `json:"Division,omitempty"`
+
+	// InvoiceStatus:
+	InvoiceStatus *int `json:"InvoiceStatus,omitempty"`
 
 	// Item:
 	Item *types.GUID `json:"Item,omitempty"`
@@ -97,6 +106,9 @@ type SalesOrderLines struct {
 
 	// OrderNumber:
 	OrderNumber *int `json:"OrderNumber,omitempty"`
+
+	// OrderStatus:
+	OrderStatus *int `json:"OrderStatus,omitempty"`
 
 	// Pricelist:
 	Pricelist *types.GUID `json:"Pricelist,omitempty"`

@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -76,6 +76,9 @@ type ShopOrderReceipts struct {
 
 	// Quantity: Quantity of this ShopOrderReceipt
 	Quantity *float64 `json:"Quantity,omitempty"`
+
+	// ReceiptNumber: Number to identify the shop order stock receipts of a finished item
+	ReceiptNumber *int `json:"ReceiptNumber,omitempty"`
 
 	// RelatedStockTransaction: If this transaction was part of a SubOrderReceipt, this ID is the related MaterialIssue.StockTransactionID.
 	RelatedStockTransaction *types.GUID `json:"RelatedStockTransaction,omitempty"`

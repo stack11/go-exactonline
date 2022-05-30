@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -30,12 +30,17 @@ func TestNewProjectService(t *testing.T) {
 	want.common.client = c
 
 	want.CostTransactions = (*CostTransactionsEndpoint)(&want.common)
+	want.EmployeeRestrictionItems = (*EmployeeRestrictionItemsEndpoint)(&want.common)
+	want.EmploymentInternalRates = (*EmploymentInternalRatesEndpoint)(&want.common)
 	want.HourCostTypes = (*HourCostTypesEndpoint)(&want.common)
 	want.InvoiceTerms = (*InvoiceTermsEndpoint)(&want.common)
+	want.ProjectAccountMutations = (*ProjectAccountMutationsEndpoint)(&want.common)
 	want.ProjectBudgetTypes = (*ProjectBudgetTypesEndpoint)(&want.common)
+	want.ProjectClassifications = (*ProjectClassificationsEndpoint)(&want.common)
 	want.ProjectHourBudgets = (*ProjectHourBudgetsEndpoint)(&want.common)
 	want.ProjectPlanning = (*ProjectPlanningEndpoint)(&want.common)
 	want.ProjectPlanningRecurring = (*ProjectPlanningRecurringEndpoint)(&want.common)
+	want.ProjectRestrictionEmployeeItems = (*ProjectRestrictionEmployeeItemsEndpoint)(&want.common)
 	want.ProjectRestrictionEmployees = (*ProjectRestrictionEmployeesEndpoint)(&want.common)
 	want.ProjectRestrictionItems = (*ProjectRestrictionItemsEndpoint)(&want.common)
 	want.ProjectRestrictionRebillings = (*ProjectRestrictionRebillingsEndpoint)(&want.common)
@@ -54,6 +59,9 @@ func TestNewProjectService(t *testing.T) {
 	want.TimeAndBillingProjectDetails = (*TimeAndBillingProjectDetailsEndpoint)(&want.common)
 	want.TimeCorrections = (*TimeCorrectionsEndpoint)(&want.common)
 	want.TimeTransactions = (*TimeTransactionsEndpoint)(&want.common)
+	want.WBSActivities = (*WBSActivitiesEndpoint)(&want.common)
+	want.WBSDeliverables = (*WBSDeliverablesEndpoint)(&want.common)
+	want.WBSExpenses = (*WBSExpensesEndpoint)(&want.common)
 
 	if !reflect.DeepEqual(s, want) {
 		t.Error("Clients are supposed to be the same")

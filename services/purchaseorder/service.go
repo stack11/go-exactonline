@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -19,10 +19,12 @@ type PurchaseOrderService struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// Endpoints available under this service
-	GoodsReceiptLines  *GoodsReceiptLinesEndpoint
-	GoodsReceipts      *GoodsReceiptsEndpoint
-	PurchaseOrderLines *PurchaseOrderLinesEndpoint
-	PurchaseOrders     *PurchaseOrdersEndpoint
+	GoodsReceiptLines   *GoodsReceiptLinesEndpoint
+	GoodsReceipts       *GoodsReceiptsEndpoint
+	PurchaseOrderLines  *PurchaseOrderLinesEndpoint
+	PurchaseOrders      *PurchaseOrdersEndpoint
+	PurchaseReturnLines *PurchaseReturnLinesEndpoint
+	PurchaseReturns     *PurchaseReturnsEndpoint
 }
 
 // NewPurchaseOrderService creates a new initialized instance of the
@@ -36,6 +38,8 @@ func NewPurchaseOrderService(apiClient *api.Client) *PurchaseOrderService {
 	s.GoodsReceipts = (*GoodsReceiptsEndpoint)(&s.common)
 	s.PurchaseOrderLines = (*PurchaseOrderLinesEndpoint)(&s.common)
 	s.PurchaseOrders = (*PurchaseOrdersEndpoint)(&s.common)
+	s.PurchaseReturnLines = (*PurchaseReturnLinesEndpoint)(&s.common)
+	s.PurchaseReturns = (*PurchaseReturnsEndpoint)(&s.common)
 
 	return s
 }

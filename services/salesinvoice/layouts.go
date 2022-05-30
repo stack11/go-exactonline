@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -53,7 +53,7 @@ type Layouts struct {
 	// Subject: Layout name
 	Subject *string `json:"Subject,omitempty"`
 
-	// Type: Type: 1=Layout, 2=E-mail text layout, 3=Word template
+	// Type: Type: 1=Layout, 2=E-mail text layout
 	Type *int `json:"Type,omitempty"`
 }
 

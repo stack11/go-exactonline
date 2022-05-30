@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -22,9 +22,9 @@ type GLAccountClassificationMappingsEndpoint service
 // GLAccountClassificationMappings:
 // Service: Financial
 // Entity: GLAccountClassificationMappings
-// URL: /api/v1/beta/{division}/financial/GLAccountClassificationMappings
+// URL: /api/v1/{division}/financial/GLAccountClassificationMappings
 // HasWebhook: false
-// IsInBeta: true
+// IsInBeta: false
 // Methods: GET POST PUT DELETE
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=FinancialGLAccountClassificationMappings
 type GLAccountClassificationMappings struct {
@@ -75,7 +75,7 @@ func (s *GLAccountClassificationMappingsEndpoint) UserHasRights(ctx context.Cont
 // If all is true, all the paginated results are fetched; if false, list the first page.
 func (s *GLAccountClassificationMappingsEndpoint) List(ctx context.Context, division int, all bool, o *api.ListOptions) ([]*GLAccountClassificationMappings, error) {
 	var entities []*GLAccountClassificationMappings
-	u, _ := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", division) // #nosec
+	u, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", division) // #nosec
 	api.AddListOptionsToURL(u, o)
 
 	if all {
@@ -88,7 +88,7 @@ func (s *GLAccountClassificationMappingsEndpoint) List(ctx context.Context, divi
 
 // Get the GLAccountClassificationMappings entitiy in the provided division.
 func (s *GLAccountClassificationMappingsEndpoint) Get(ctx context.Context, division int, id *types.GUID) (*GLAccountClassificationMappings, error) {
-	b, _ := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", division) // #nosec
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", division) // #nosec
 	u, err := api.AddOdataKeyToURL(b, id)
 	if err != nil {
 		return nil, err
@@ -106,7 +106,7 @@ func (s *GLAccountClassificationMappingsEndpoint) New() *GLAccountClassification
 
 // Create the GLAccountClassificationMappings entity in the provided division.
 func (s *GLAccountClassificationMappingsEndpoint) Create(ctx context.Context, division int, entity *GLAccountClassificationMappings) (*GLAccountClassificationMappings, error) {
-	u, _ := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", division) // #nosec
+	u, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", division) // #nosec
 	e := &GLAccountClassificationMappings{}
 	_, _, err := s.client.NewRequestAndDo(ctx, "POST", u.String(), entity, e)
 	if err != nil {
@@ -117,7 +117,7 @@ func (s *GLAccountClassificationMappingsEndpoint) Create(ctx context.Context, di
 
 // Update the GLAccountClassificationMappings entity in the provided division.
 func (s *GLAccountClassificationMappingsEndpoint) Update(ctx context.Context, division int, entity *GLAccountClassificationMappings) (*GLAccountClassificationMappings, error) {
-	b, _ := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", division) // #nosec
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", division) // #nosec
 	u, err := api.AddOdataKeyToURL(b, entity.GetPrimary())
 	if err != nil {
 		return nil, err
@@ -130,7 +130,7 @@ func (s *GLAccountClassificationMappingsEndpoint) Update(ctx context.Context, di
 
 // Delete the GLAccountClassificationMappings entity in the provided division.
 func (s *GLAccountClassificationMappingsEndpoint) Delete(ctx context.Context, division int, id *types.GUID) error {
-	b, _ := s.client.ResolvePathWithDivision("/api/v1/beta/{division}/financial/GLAccountClassificationMappings", division) // #nosec
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/financial/GLAccountClassificationMappings", division) // #nosec
 	u, err := api.AddOdataKeyToURL(b, id)
 	if err != nil {
 		return err

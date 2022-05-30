@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -19,25 +19,29 @@ type FinancialService struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// Endpoints available under this service
-	AgingOverview                   *AgingOverviewEndpoint
-	AgingPayablesList               *AgingPayablesListEndpoint
-	AgingReceivablesList            *AgingReceivablesListEndpoint
-	ExchangeRates                   *ExchangeRatesEndpoint
-	FinancialPeriods                *FinancialPeriodsEndpoint
-	GLAccountClassificationMappings *GLAccountClassificationMappingsEndpoint
-	GLAccounts                      *GLAccountsEndpoint
-	GLClassifications               *GLClassificationsEndpoint
-	GLSchemes                       *GLSchemesEndpoint
-	GLTransactionTypes              *GLTransactionTypesEndpoint
-	Journals                        *JournalsEndpoint
-	JournalStatusList               *JournalStatusListEndpoint
-	OutstandingInvoicesOverview     *OutstandingInvoicesOverviewEndpoint
-	PayablesList                    *PayablesListEndpoint
-	ProfitLossOverview              *ProfitLossOverviewEndpoint
-	ReceivablesList                 *ReceivablesListEndpoint
-	ReportingBalance                *ReportingBalanceEndpoint
-	Returns                         *ReturnsEndpoint
-	RevenueList                     *RevenueListEndpoint
+	AgingOverview                       *AgingOverviewEndpoint
+	AgingPayablesList                   *AgingPayablesListEndpoint
+	AgingReceivablesList                *AgingReceivablesListEndpoint
+	DeductibilityPercentages            *DeductibilityPercentagesEndpoint
+	ExchangeRates                       *ExchangeRatesEndpoint
+	FinancialPeriods                    *FinancialPeriodsEndpoint
+	GLAccountClassificationMappings     *GLAccountClassificationMappingsEndpoint
+	GLAccounts                          *GLAccountsEndpoint
+	GLClassifications                   *GLClassificationsEndpoint
+	GLSchemes                           *GLSchemesEndpoint
+	GLTransactionSources                *GLTransactionSourcesEndpoint
+	GLTransactionTypes                  *GLTransactionTypesEndpoint
+	Journals                            *JournalsEndpoint
+	JournalStatusList                   *JournalStatusListEndpoint
+	OfficialReturns                     *OfficialReturnsEndpoint
+	OutstandingInvoicesOverview         *OutstandingInvoicesOverviewEndpoint
+	PayablesList                        *PayablesListEndpoint
+	ProfitLossOverview                  *ProfitLossOverviewEndpoint
+	ReceivablesList                     *ReceivablesListEndpoint
+	ReceivablesListByAccountAndAgeGroup *ReceivablesListByAccountAndAgeGroupEndpoint
+	ReportingBalance                    *ReportingBalanceEndpoint
+	Returns                             *ReturnsEndpoint
+	RevenueList                         *RevenueListEndpoint
 }
 
 // NewFinancialService creates a new initialized instance of the
@@ -50,19 +54,23 @@ func NewFinancialService(apiClient *api.Client) *FinancialService {
 	s.AgingOverview = (*AgingOverviewEndpoint)(&s.common)
 	s.AgingPayablesList = (*AgingPayablesListEndpoint)(&s.common)
 	s.AgingReceivablesList = (*AgingReceivablesListEndpoint)(&s.common)
+	s.DeductibilityPercentages = (*DeductibilityPercentagesEndpoint)(&s.common)
 	s.ExchangeRates = (*ExchangeRatesEndpoint)(&s.common)
 	s.FinancialPeriods = (*FinancialPeriodsEndpoint)(&s.common)
 	s.GLAccountClassificationMappings = (*GLAccountClassificationMappingsEndpoint)(&s.common)
 	s.GLAccounts = (*GLAccountsEndpoint)(&s.common)
 	s.GLClassifications = (*GLClassificationsEndpoint)(&s.common)
 	s.GLSchemes = (*GLSchemesEndpoint)(&s.common)
+	s.GLTransactionSources = (*GLTransactionSourcesEndpoint)(&s.common)
 	s.GLTransactionTypes = (*GLTransactionTypesEndpoint)(&s.common)
 	s.Journals = (*JournalsEndpoint)(&s.common)
 	s.JournalStatusList = (*JournalStatusListEndpoint)(&s.common)
+	s.OfficialReturns = (*OfficialReturnsEndpoint)(&s.common)
 	s.OutstandingInvoicesOverview = (*OutstandingInvoicesOverviewEndpoint)(&s.common)
 	s.PayablesList = (*PayablesListEndpoint)(&s.common)
 	s.ProfitLossOverview = (*ProfitLossOverviewEndpoint)(&s.common)
 	s.ReceivablesList = (*ReceivablesListEndpoint)(&s.common)
+	s.ReceivablesListByAccountAndAgeGroup = (*ReceivablesListByAccountAndAgeGroupEndpoint)(&s.common)
 	s.ReportingBalance = (*ReportingBalanceEndpoint)(&s.common)
 	s.Returns = (*ReturnsEndpoint)(&s.common)
 	s.RevenueList = (*RevenueListEndpoint)(&s.common)

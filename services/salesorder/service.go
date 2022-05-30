@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -19,10 +19,14 @@ type SalesOrderService struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// Endpoints available under this service
-	GoodsDeliveries    *GoodsDeliveriesEndpoint
-	GoodsDeliveryLines *GoodsDeliveryLinesEndpoint
-	SalesOrderLines    *SalesOrderLinesEndpoint
-	SalesOrders        *SalesOrdersEndpoint
+	DropShipmentLines       *DropShipmentLinesEndpoint
+	DropShipments           *DropShipmentsEndpoint
+	GoodsDeliveries         *GoodsDeliveriesEndpoint
+	GoodsDeliveryLines      *GoodsDeliveryLinesEndpoint
+	PlannedSalesReturnLines *PlannedSalesReturnLinesEndpoint
+	PlannedSalesReturns     *PlannedSalesReturnsEndpoint
+	SalesOrderLines         *SalesOrderLinesEndpoint
+	SalesOrders             *SalesOrdersEndpoint
 }
 
 // NewSalesOrderService creates a new initialized instance of the
@@ -32,8 +36,12 @@ func NewSalesOrderService(apiClient *api.Client) *SalesOrderService {
 
 	s.common.client = apiClient
 
+	s.DropShipmentLines = (*DropShipmentLinesEndpoint)(&s.common)
+	s.DropShipments = (*DropShipmentsEndpoint)(&s.common)
 	s.GoodsDeliveries = (*GoodsDeliveriesEndpoint)(&s.common)
 	s.GoodsDeliveryLines = (*GoodsDeliveryLinesEndpoint)(&s.common)
+	s.PlannedSalesReturnLines = (*PlannedSalesReturnLinesEndpoint)(&s.common)
+	s.PlannedSalesReturns = (*PlannedSalesReturnsEndpoint)(&s.common)
 	s.SalesOrderLines = (*SalesOrderLinesEndpoint)(&s.common)
 	s.SalesOrders = (*SalesOrdersEndpoint)(&s.common)
 

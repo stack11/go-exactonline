@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -24,7 +24,6 @@ type FinancialTransactionService struct {
 	CashEntries      *CashEntriesEndpoint
 	CashEntryLines   *CashEntryLinesEndpoint
 	TransactionLines *TransactionLinesEndpoint
-	Transactions     *TransactionsEndpoint
 }
 
 // NewFinancialTransactionService creates a new initialized instance of the
@@ -39,7 +38,6 @@ func NewFinancialTransactionService(apiClient *api.Client) *FinancialTransaction
 	s.CashEntries = (*CashEntriesEndpoint)(&s.common)
 	s.CashEntryLines = (*CashEntryLinesEndpoint)(&s.common)
 	s.TransactionLines = (*TransactionLinesEndpoint)(&s.common)
-	s.Transactions = (*TransactionsEndpoint)(&s.common)
 
 	return s
 }

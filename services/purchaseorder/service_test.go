@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -33,6 +33,8 @@ func TestNewPurchaseOrderService(t *testing.T) {
 	want.GoodsReceipts = (*GoodsReceiptsEndpoint)(&want.common)
 	want.PurchaseOrderLines = (*PurchaseOrderLinesEndpoint)(&want.common)
 	want.PurchaseOrders = (*PurchaseOrdersEndpoint)(&want.common)
+	want.PurchaseReturnLines = (*PurchaseReturnLinesEndpoint)(&want.common)
+	want.PurchaseReturns = (*PurchaseReturnsEndpoint)(&want.common)
 
 	if !reflect.DeepEqual(s, want) {
 		t.Error("Clients are supposed to be the same")

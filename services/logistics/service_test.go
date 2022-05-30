@@ -1,4 +1,4 @@
-// Copyright 2018 The go-exactonline AUTHORS. All rights reserved.
+// Copyright 2022 The go-exactonline AUTHORS. All rights reserved.
 //
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
@@ -29,10 +29,18 @@ func TestNewLogisticsService(t *testing.T) {
 	want := &LogisticsService{client: c}
 	want.common.client = c
 
+	want.CustomerItems = (*CustomerItemsEndpoint)(&want.common)
+	want.Incoterms = (*IncotermsEndpoint)(&want.common)
+	want.ItemAssortment = (*ItemAssortmentEndpoint)(&want.common)
+	want.ItemAssortmentProperty = (*ItemAssortmentPropertyEndpoint)(&want.common)
+	want.ItemChargeRelation = (*ItemChargeRelationEndpoint)(&want.common)
 	want.ItemGroups = (*ItemGroupsEndpoint)(&want.common)
 	want.Items = (*ItemsEndpoint)(&want.common)
 	want.ItemVersions = (*ItemVersionsEndpoint)(&want.common)
+	want.ReasonCodes = (*ReasonCodesEndpoint)(&want.common)
+	want.ReasonCodesLinkTypes = (*ReasonCodesLinkTypesEndpoint)(&want.common)
 	want.SalesItemPrices = (*SalesItemPricesEndpoint)(&want.common)
+	want.SelectionCodes = (*SelectionCodesEndpoint)(&want.common)
 	want.SupplierItem = (*SupplierItemEndpoint)(&want.common)
 	want.Units = (*UnitsEndpoint)(&want.common)
 
