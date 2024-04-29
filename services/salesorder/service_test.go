@@ -36,6 +36,7 @@ func TestNewSalesOrderService(t *testing.T) {
 	want.PlannedSalesReturnLines = (*PlannedSalesReturnLinesEndpoint)(&want.common)
 	want.PlannedSalesReturns = (*PlannedSalesReturnsEndpoint)(&want.common)
 	want.SalesOrderLines = (*SalesOrderLinesEndpoint)(&want.common)
+	want.SalesOrderOrderChargeLines = (*SalesOrderOrderChargeLinesEndpoint)(&want.common)
 	want.SalesOrders = (*SalesOrdersEndpoint)(&want.common)
 
 	if !reflect.DeepEqual(s, want) {

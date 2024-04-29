@@ -31,6 +31,7 @@ func TestNewSalesInvoiceService(t *testing.T) {
 
 	want.Layouts = (*LayoutsEndpoint)(&want.common)
 	want.SalesInvoiceLines = (*SalesInvoiceLinesEndpoint)(&want.common)
+	want.SalesInvoiceOrderChargeLines = (*SalesInvoiceOrderChargeLinesEndpoint)(&want.common)
 	want.SalesInvoices = (*SalesInvoicesEndpoint)(&want.common)
 
 	if !reflect.DeepEqual(s, want) {

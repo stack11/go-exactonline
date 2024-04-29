@@ -55,6 +55,9 @@ type WebhookSubscriptions struct {
 
 	// Topic: Webhook subscription topic, e.g.: FinancialTransactions, Items, StockPositions
 	Topic *string `json:"Topic,omitempty"`
+
+	// UserID: Subscribing User ID
+	UserID *types.GUID `json:"UserID,omitempty"`
 }
 
 func (e *WebhookSubscriptions) GetPrimary() *types.GUID {

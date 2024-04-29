@@ -68,8 +68,11 @@ type EmploymentContracts struct {
 	// Employment: Employment ID
 	Employment *types.GUID `json:"Employment,omitempty"`
 
-	// EmploymentHID: Numeric ID of the employment
+	// EmploymentHID: Obsolete
 	EmploymentHID *int `json:"EmploymentHID,omitempty"`
+
+	// EmploymentNumber: Employment number
+	EmploymentNumber *int `json:"EmploymentNumber,omitempty"`
 
 	// EndDate: End date of employment contract
 	EndDate *types.Date `json:"EndDate,omitempty"`
@@ -83,7 +86,7 @@ type EmploymentContracts struct {
 	// ModifierFullName: Name of modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// Notes: Notes of employment contract
+	// Notes: Obsolete
 	Notes *string `json:"Notes,omitempty"`
 
 	// ProbationEndDate: Employment probation end date

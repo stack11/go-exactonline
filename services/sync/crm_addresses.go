@@ -71,6 +71,9 @@ type CRMAddresses struct {
 	// CreatorFullName: Name of creator
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// CustomField: Custom field endpoint. Provided only for the Exact Online Premium users.
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
@@ -140,7 +143,7 @@ type CRMAddresses struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Mailbox: Mailbox
+	// Mailbox: MailboxTake notes: The &#39;Mailbox&#39; functionality required the Mailbox feature set in the licence.
 	Mailbox *string `json:"Mailbox,omitempty"`
 
 	// Main: Indicates if the address is the main address for this type
@@ -169,6 +172,9 @@ type CRMAddresses struct {
 
 	// Postcode: Postcode
 	Postcode *string `json:"Postcode,omitempty"`
+
+	// Source: CRM creation source
+	Source *byte `json:"Source,omitempty"`
 
 	// State: State
 	State *string `json:"State,omitempty"`

@@ -32,6 +32,9 @@ type WBSActivities struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
+	// AutoCreateInvoiceTerm: To indicated auto create invoice term when invoice method is Fixed price
+	AutoCreateInvoiceTerm *bool `json:"AutoCreateInvoiceTerm,omitempty"`
+
 	// BlockEntry: To indicated if time and cost entries is blocked
 	BlockEntry *bool `json:"BlockEntry,omitempty"`
 
@@ -59,6 +62,9 @@ type WBSActivities struct {
 	// CreatorFullName: The full name of the user that created the WBS activity
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// CustomField: Custom field endpoint. Provided only for the Exact Online Premium users.
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// DefaultItem: Default Item to used for time entry
 	DefaultItem *types.GUID `json:"DefaultItem,omitempty"`
 
@@ -73,6 +79,9 @@ type WBSActivities struct {
 
 	// EndDate: End date of the WBS activity
 	EndDate *types.Date `json:"EndDate,omitempty"`
+
+	// InvoiceDate: The invoice date of the WBS when auto create invoice term
+	InvoiceDate *types.Date `json:"InvoiceDate,omitempty"`
 
 	// InvoiceMethod: The invoice method of the WBS. E.g: 2 = Fixed price, 3 = Time and Material, 4 = Non billable, 5 = Prepaid
 	InvoiceMethod *int `json:"InvoiceMethod,omitempty"`
@@ -106,6 +115,18 @@ type WBSActivities struct {
 
 	// ProjectDescription: Project description that is linked to WBS activity
 	ProjectDescription *string `json:"ProjectDescription,omitempty"`
+
+	// ProjectTermAction: Project term action
+	ProjectTermAction *int `json:"ProjectTermAction,omitempty"`
+
+	// ReleaseInvoiceTerm: Action to release the invoice term. You can only release a WBS activity&#39;s invoice term once and it cannot be undo
+	ReleaseInvoiceTerm *bool `json:"ReleaseInvoiceTerm,omitempty"`
+
+	// ReleaseInvoiceTermDate: Release invoice term date. The linked invoice term date can be updated by using this property. The update will only happen when releasing a WBS activity&#39;s invoice term
+	ReleaseInvoiceTermDate *types.Date `json:"ReleaseInvoiceTermDate,omitempty"`
+
+	// ReleaseInvoiceTermHasSpecifyDate: Release invoice term has specify date
+	ReleaseInvoiceTermHasSpecifyDate *bool `json:"ReleaseInvoiceTermHasSpecifyDate,omitempty"`
 
 	// SequenceNumber: Sequence number of the WBS activity. Last sequence will be selected if not specified
 	SequenceNumber *int `json:"SequenceNumber,omitempty"`

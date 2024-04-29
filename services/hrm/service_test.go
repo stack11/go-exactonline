@@ -40,6 +40,7 @@ func TestNewHRMService(t *testing.T) {
 	want.Divisions = (*DivisionsEndpoint)(&want.common)
 	want.JobGroups = (*JobGroupsEndpoint)(&want.common)
 	want.JobTitles = (*JobTitlesEndpoint)(&want.common)
+	want.LeaveAbsenceHoursByDay = (*LeaveAbsenceHoursByDayEndpoint)(&want.common)
 	want.LeaveBuildUpRegistrations = (*LeaveBuildUpRegistrationsEndpoint)(&want.common)
 	want.LeaveRegistrations = (*LeaveRegistrationsEndpoint)(&want.common)
 	want.Schedules = (*SchedulesEndpoint)(&want.common)

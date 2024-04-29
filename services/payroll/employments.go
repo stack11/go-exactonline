@@ -50,10 +50,13 @@ type Employments struct {
 	// EmployeeHID: Numeric number of Employee
 	EmployeeHID *int `json:"EmployeeHID,omitempty"`
 
+	// EmploymentNumber: Employment number
+	EmploymentNumber *int `json:"EmploymentNumber,omitempty"`
+
 	// EndDate: End date of employment
 	EndDate *types.Date `json:"EndDate,omitempty"`
 
-	// HID: Numeric ID of the employment
+	// HID: Obsolete
 	HID *int `json:"HID,omitempty"`
 
 	// Modified: Last modified date

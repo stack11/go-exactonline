@@ -19,20 +19,22 @@ type InventoryService struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// Endpoints available under this service
-	AssemblyOrders                *AssemblyOrdersEndpoint
-	BatchNumbers                  *BatchNumbersEndpoint
-	ItemWarehousePlanningDetails  *ItemWarehousePlanningDetailsEndpoint
-	ItemWarehouses                *ItemWarehousesEndpoint
-	ItemWarehouseStorageLocations *ItemWarehouseStorageLocationsEndpoint
-	SerialNumbers                 *SerialNumbersEndpoint
-	StockBatchNumbers             *StockBatchNumbersEndpoint
-	StockCountLines               *StockCountLinesEndpoint
-	StockCounts                   *StockCountsEndpoint
-	StockSerialNumbers            *StockSerialNumbersEndpoint
-	StorageLocations              *StorageLocationsEndpoint
-	Warehouses                    *WarehousesEndpoint
-	WarehouseTransferLines        *WarehouseTransferLinesEndpoint
-	WarehouseTransfers            *WarehouseTransfersEndpoint
+	AssemblyBillOfMaterialHeader    *AssemblyBillOfMaterialHeaderEndpoint
+	AssemblyBillOfMaterialMaterials *AssemblyBillOfMaterialMaterialsEndpoint
+	AssemblyOrders                  *AssemblyOrdersEndpoint
+	BatchNumbers                    *BatchNumbersEndpoint
+	ItemWarehousePlanningDetails    *ItemWarehousePlanningDetailsEndpoint
+	ItemWarehouses                  *ItemWarehousesEndpoint
+	ItemWarehouseStorageLocations   *ItemWarehouseStorageLocationsEndpoint
+	SerialNumbers                   *SerialNumbersEndpoint
+	StockBatchNumbers               *StockBatchNumbersEndpoint
+	StockCountLines                 *StockCountLinesEndpoint
+	StockCounts                     *StockCountsEndpoint
+	StockSerialNumbers              *StockSerialNumbersEndpoint
+	StorageLocations                *StorageLocationsEndpoint
+	Warehouses                      *WarehousesEndpoint
+	WarehouseTransferLines          *WarehouseTransferLinesEndpoint
+	WarehouseTransfers              *WarehouseTransfersEndpoint
 }
 
 // NewInventoryService creates a new initialized instance of the
@@ -42,6 +44,8 @@ func NewInventoryService(apiClient *api.Client) *InventoryService {
 
 	s.common.client = apiClient
 
+	s.AssemblyBillOfMaterialHeader = (*AssemblyBillOfMaterialHeaderEndpoint)(&s.common)
+	s.AssemblyBillOfMaterialMaterials = (*AssemblyBillOfMaterialMaterialsEndpoint)(&s.common)
 	s.AssemblyOrders = (*AssemblyOrdersEndpoint)(&s.common)
 	s.BatchNumbers = (*BatchNumbersEndpoint)(&s.common)
 	s.ItemWarehousePlanningDetails = (*ItemWarehousePlanningDetailsEndpoint)(&s.common)

@@ -104,6 +104,21 @@ type DocumentsDocuments struct {
 	// InheritShare:
 	InheritShare *bool `json:"InheritShare,omitempty"`
 
+	// Item:
+	Item *types.GUID `json:"Item,omitempty"`
+
+	// ItemCode:
+	ItemCode *string `json:"ItemCode,omitempty"`
+
+	// ItemDescription:
+	ItemDescription *string `json:"ItemDescription,omitempty"`
+
+	// ItemMaterial:
+	ItemMaterial *types.GUID `json:"ItemMaterial,omitempty"`
+
+	// ItemRoutingStep:
+	ItemRoutingStep *types.GUID `json:"ItemRoutingStep,omitempty"`
+
 	// Language:
 	Language *string `json:"Language,omitempty"`
 
@@ -145,6 +160,9 @@ type DocumentsDocuments struct {
 
 	// Subject:
 	Subject *string `json:"Subject,omitempty"`
+
+	// TeamsMeetingId:
+	TeamsMeetingId *string `json:"TeamsMeetingId,omitempty"`
 
 	// Type:
 	Type *int `json:"Type,omitempty"`

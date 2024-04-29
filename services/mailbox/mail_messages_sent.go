@@ -116,6 +116,9 @@ type MailMessagesSent struct {
 	// SenderMailboxID:
 	SenderMailboxID *types.GUID `json:"SenderMailboxID,omitempty"`
 
+	// SkipRecipientMailBoxAddressOverride:
+	SkipRecipientMailBoxAddressOverride *string `json:"SkipRecipientMailBoxAddressOverride,omitempty"`
+
 	// Subject:
 	Subject *string `json:"Subject,omitempty"`
 

@@ -8,6 +8,9 @@ package financialtransaction
 import (
 	"context"
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
 
 	"github.com/stack11/go-exactonline/api"
 	"github.com/stack11/go-exactonline/types"
@@ -23,7 +26,7 @@ type BankEntriesEndpoint service
 // URL: /api/v1/{division}/financialtransaction/BankEntries
 // HasWebhook: true
 // IsInBeta: false
-// Methods: GET POST
+// Methods: GET POST DELETE
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=FinancialTransactionBankEntries
 type BankEntries struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
@@ -50,6 +53,9 @@ type BankEntries struct {
 
 	// Currency:
 	Currency *string `json:"Currency,omitempty"`
+
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
 
 	// Division:
 	Division *int `json:"Division,omitempty"`
@@ -132,4 +138,25 @@ func (s *BankEntriesEndpoint) Create(ctx context.Context, division int, entity *
 		return nil, err
 	}
 	return e, nil
+}
+
+// Delete the BankEntries entity in the provided division.
+func (s *BankEntriesEndpoint) Delete(ctx context.Context, division int, id *types.GUID) error {
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/financialtransaction/BankEntries", division) // #nosec
+	u, err := api.AddOdataKeyToURL(b, id)
+	if err != nil {
+		return err
+	}
+
+	_, r, requestError := s.client.NewRequestAndDo(ctx, "DELETE", u.String(), nil, nil)
+	if requestError != nil {
+		return requestError
+	}
+
+	if r.StatusCode != http.StatusNoContent {
+		body, _ := ioutil.ReadAll(r.Body) // #nosec
+		return fmt.Errorf("Failed with status %v and body %v", r.StatusCode, body)
+	}
+
+	return nil
 }

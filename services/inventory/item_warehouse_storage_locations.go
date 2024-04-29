@@ -71,6 +71,9 @@ type ItemWarehouseStorageLocations struct {
 	// StorageLocationDescription: Description of the storage location of this stock quantity
 	StorageLocationDescription *string `json:"StorageLocationDescription,omitempty"`
 
+	// StorageLocationSequenceNumber: Sequence number of this stock quantity (Premium Only)
+	StorageLocationSequenceNumber *int `json:"StorageLocationSequenceNumber,omitempty"`
+
 	// Warehouse: ID of Warehouse
 	Warehouse *types.GUID `json:"Warehouse,omitempty"`
 

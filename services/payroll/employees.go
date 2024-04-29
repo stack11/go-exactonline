@@ -32,22 +32,22 @@ type Employees struct {
 	// ActiveEmployment: Obsolete
 	ActiveEmployment *byte `json:"ActiveEmployment,omitempty"`
 
-	// AddressLine2: Second address line
+	// AddressLine2: Second address lineNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	AddressLine2 *string `json:"AddressLine2,omitempty"`
 
-	// AddressLine3: Third address line
+	// AddressLine3: Third address lineNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	AddressLine3 *string `json:"AddressLine3,omitempty"`
 
-	// AddressStreet: Street of address
+	// AddressStreet: Street of addressNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	AddressStreet *string `json:"AddressStreet,omitempty"`
 
-	// AddressStreetNumber: Street number of address
+	// AddressStreetNumber: Street number of addressNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	AddressStreetNumber *string `json:"AddressStreetNumber,omitempty"`
 
-	// AddressStreetNumberSuffix: Street number suffix of address
+	// AddressStreetNumberSuffix: Street number suffix of addressNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	AddressStreetNumberSuffix *string `json:"AddressStreetNumberSuffix,omitempty"`
 
-	// BirthDate: Birth date
+	// BirthDate: Birth dateNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	BirthDate *types.Date `json:"BirthDate,omitempty"`
 
 	// BirthName: Birth name
@@ -56,7 +56,7 @@ type Employees struct {
 	// BirthNamePrefix: Birth middle name
 	BirthNamePrefix *string `json:"BirthNamePrefix,omitempty"`
 
-	// BirthPlace: Birth place
+	// BirthPlace: Birth placeNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	BirthPlace *string `json:"BirthPlace,omitempty"`
 
 	// BusinessEmail: Email of the employee at the office
@@ -77,13 +77,13 @@ type Employees struct {
 	// CASONumber: Obsolete
 	CASONumber *string `json:"CASONumber,omitempty"`
 
-	// City: City
+	// City: CityNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	City *string `json:"City,omitempty"`
 
 	// Code: Code of the employee
 	Code *string `json:"Code,omitempty"`
 
-	// Country: Country code
+	// Country: Country codeNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	Country *string `json:"Country,omitempty"`
 
 	// Created: Creation date
@@ -101,7 +101,7 @@ type Employees struct {
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
-	// Email: Email address
+	// Email: Page: User maintenance page; Section: PersonalE-mail address of a user. If employee is linked to a user, the user email is stored in this property.Note:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employeesUsers created in Exact Online can access the company or companies in an administration.
 	Email *string `json:"Email,omitempty"`
 
 	// EmployeeHID: Employee number
@@ -140,19 +140,19 @@ type Employees struct {
 	// LocationDescription: Description of the location of the employee (where am I?)
 	LocationDescription *string `json:"LocationDescription,omitempty"`
 
-	// Manager: Direct manager of the employee
+	// Manager: Direct manager of the employeeNote:  The manager must  be in the same division as the employeeThe manager should not  be subordinate of their employee
 	Manager *types.GUID `json:"Manager,omitempty"`
 
-	// MaritalDate: Date of marriage
+	// MaritalDate: Date of marriageNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	MaritalDate *types.Date `json:"MaritalDate,omitempty"`
 
-	// MaritalStatus: Marital status
+	// MaritalStatus: Marital statusNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	MaritalStatus *int `json:"MaritalStatus,omitempty"`
 
 	// MiddleName: Middle name
 	MiddleName *string `json:"MiddleName,omitempty"`
 
-	// Mobile: Mobile phone
+	// Mobile: Mobile phoneNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	Mobile *string `json:"Mobile,omitempty"`
 
 	// Modified: Last modified date
@@ -164,13 +164,13 @@ type Employees struct {
 	// ModifierFullName: Name of modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// Municipality: Municipality
+	// Municipality: Obsolete
 	Municipality *string `json:"Municipality,omitempty"`
 
 	// NameComposition:
 	NameComposition *int `json:"NameComposition,omitempty"`
 
-	// Nationality: Nationality
+	// Nationality: NationalityNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	Nationality *string `json:"Nationality,omitempty"`
 
 	// NickName: Nick name
@@ -179,40 +179,46 @@ type Employees struct {
 	// Notes: Additional notes
 	Notes *string `json:"Notes,omitempty"`
 
-	// PartnerName: Name of partner
+	// PartnerName: Name of partnerNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	PartnerName *string `json:"PartnerName,omitempty"`
 
-	// PartnerNamePrefix: Middle name of partner
+	// PartnerNamePrefix: Middle name of partnerNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	PartnerNamePrefix *string `json:"PartnerNamePrefix,omitempty"`
 
 	// Person: Reference to the persons table in which the personal data of the employee is stored
 	Person *types.GUID `json:"Person,omitempty"`
 
-	// Phone: Phone number
+	// Phone: Phone numberNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	Phone *string `json:"Phone,omitempty"`
 
-	// PhoneExtension: Phone number extension
+	// PhoneExtension: Phone number extensionNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	PhoneExtension *string `json:"PhoneExtension,omitempty"`
+
+	// Picture: Bytes of the logo image
+	Picture *[]byte `json:"Picture,omitempty"`
 
 	// PictureFileName: Filename of picture
 	PictureFileName *string `json:"PictureFileName,omitempty"`
 
+	// PictureThumbnailUrl: Thumbnail url of the picture
+	PictureThumbnailUrl *string `json:"PictureThumbnailUrl,omitempty"`
+
 	// PictureUrl: Url of picture
 	PictureUrl *string `json:"PictureUrl,omitempty"`
 
-	// Postcode: Postcode
+	// Postcode: PostcodeNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	Postcode *string `json:"Postcode,omitempty"`
 
-	// PrivateEmail: Private email address
+	// PrivateEmail: Section: Personal Personal e-mail address of the employee.Note:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	PrivateEmail *string `json:"PrivateEmail,omitempty"`
 
-	// SocialSecurityNumber: Social security number
+	// SocialSecurityNumber: Social security numberNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	SocialSecurityNumber *string `json:"SocialSecurityNumber,omitempty"`
 
 	// StartDate: Start date of the employee
 	StartDate *types.Date `json:"StartDate,omitempty"`
 
-	// State: State
+	// State: StateNote:  The value is only returned if user has any of the following roles: View userEnter variable payroll mutationsManage employeesAnonymise employee and userView personal information Of employees
 	State *string `json:"State,omitempty"`
 
 	// Title: Title

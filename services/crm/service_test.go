@@ -45,6 +45,7 @@ func TestNewCRMService(t *testing.T) {
 	want.Opportunities = (*OpportunitiesEndpoint)(&want.common)
 	want.OpportunityContacts = (*OpportunityContactsEndpoint)(&want.common)
 	want.QuotationLines = (*QuotationLinesEndpoint)(&want.common)
+	want.QuotationOrderChargeLines = (*QuotationOrderChargeLinesEndpoint)(&want.common)
 	want.Quotations = (*QuotationsEndpoint)(&want.common)
 	want.ReasonCodes = (*ReasonCodesEndpoint)(&want.common)
 

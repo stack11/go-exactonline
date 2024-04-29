@@ -122,6 +122,9 @@ type Opportunities struct {
 	// Notes:
 	Notes *string `json:"Notes,omitempty"`
 
+	// Number:
+	Number *int `json:"Number,omitempty"`
+
 	// OpportunityDepartmentCode:
 	OpportunityDepartmentCode *int `json:"OpportunityDepartmentCode,omitempty"`
 

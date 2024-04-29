@@ -32,7 +32,7 @@ type Costcenters struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Active: Indicates if the cost center is active: 0 = inactive 1 = active
+	// Active: Obsolete
 	Active *bool `json:"Active,omitempty"`
 
 	// Code: Code (user-defined ID)
@@ -46,6 +46,9 @@ type Costcenters struct {
 
 	// CreatorFullName: Name of creator
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
+
+	// CustomField: Custom field endpoint
+	CustomField *string `json:"CustomField,omitempty"`
 
 	// Description: Description (text)
 	Description *string `json:"Description,omitempty"`

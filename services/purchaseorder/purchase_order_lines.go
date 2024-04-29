@@ -7,6 +7,7 @@ package purchaseorder
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -25,7 +26,7 @@ type PurchaseOrderLinesEndpoint service
 // URL: /api/v1/{division}/purchaseorder/PurchaseOrderLines
 // HasWebhook: true
 // IsInBeta: false
-// Methods: GET POST DELETE
+// Methods: GET POST PUT DELETE
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=PurchaseOrderPurchaseOrderLines
 type PurchaseOrderLines struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
@@ -59,6 +60,9 @@ type PurchaseOrderLines struct {
 	// CreatorFullName:
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Description:
 	Description *string `json:"Description,omitempty"`
 
@@ -91,6 +95,9 @@ type PurchaseOrderLines struct {
 
 	// ItemBarcode:
 	ItemBarcode *string `json:"ItemBarcode,omitempty"`
+
+	// ItemBarcodeAdditional:
+	ItemBarcodeAdditional *string `json:"ItemBarcodeAdditional,omitempty"`
 
 	// ItemCode:
 	ItemCode *string `json:"ItemCode,omitempty"`
@@ -160,6 +167,30 @@ type PurchaseOrderLines struct {
 
 	// SalesOrderNumber:
 	SalesOrderNumber *int `json:"SalesOrderNumber,omitempty"`
+
+	// ShopOrder:
+	ShopOrder *types.GUID `json:"ShopOrder,omitempty"`
+
+	// ShopOrderMaterialPlan:
+	ShopOrderMaterialPlan *types.GUID `json:"ShopOrderMaterialPlan,omitempty"`
+
+	// ShopOrderMaterialPlanLineNumber:
+	ShopOrderMaterialPlanLineNumber *int `json:"ShopOrderMaterialPlanLineNumber,omitempty"`
+
+	// ShopOrderMaterialPlans:
+	ShopOrderMaterialPlans *json.RawMessage `json:"ShopOrderMaterialPlans,omitempty"`
+
+	// ShopOrderNumber:
+	ShopOrderNumber *int `json:"ShopOrderNumber,omitempty"`
+
+	// ShopOrderRoutingStepPlan:
+	ShopOrderRoutingStepPlan *types.GUID `json:"ShopOrderRoutingStepPlan,omitempty"`
+
+	// ShopOrderRoutingStepPlanLineNumber:
+	ShopOrderRoutingStepPlanLineNumber *int `json:"ShopOrderRoutingStepPlanLineNumber,omitempty"`
+
+	// ShopOrderRoutingStepPlans:
+	ShopOrderRoutingStepPlans *json.RawMessage `json:"ShopOrderRoutingStepPlans,omitempty"`
 
 	// SupplierItemCode:
 	SupplierItemCode *string `json:"SupplierItemCode,omitempty"`
@@ -239,6 +270,19 @@ func (s *PurchaseOrderLinesEndpoint) Create(ctx context.Context, division int, e
 		return nil, err
 	}
 	return e, nil
+}
+
+// Update the PurchaseOrderLines entity in the provided division.
+func (s *PurchaseOrderLinesEndpoint) Update(ctx context.Context, division int, entity *PurchaseOrderLines) (*PurchaseOrderLines, error) {
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/purchaseorder/PurchaseOrderLines", division) // #nosec
+	u, err := api.AddOdataKeyToURL(b, entity.GetPrimary())
+	if err != nil {
+		return nil, err
+	}
+
+	e := &PurchaseOrderLines{}
+	_, _, requestError := s.client.NewRequestAndDo(ctx, "PUT", u.String(), entity, e)
+	return e, requestError
 }
 
 // Delete the PurchaseOrderLines entity in the provided division.

@@ -44,11 +44,17 @@ type ProjectProjects struct {
 	// AllowAdditionalInvoicing: Indicates if additional invoice is allowed for project
 	AllowAdditionalInvoicing *bool `json:"AllowAdditionalInvoicing,omitempty"`
 
-	// AllowNonMemberEntry: Allow non member to create time or cost entry
-	AllowNonMemberEntry *bool `json:"AllowNonMemberEntry,omitempty"`
+	// AllowMemberEntryOnly: Allow only member to create time or cost entry
+	AllowMemberEntryOnly *bool `json:"AllowMemberEntryOnly,omitempty"`
 
 	// BlockEntry: Block time and cost entries
 	BlockEntry *bool `json:"BlockEntry,omitempty"`
+
+	// BlockInvoicing: Block invoicing
+	BlockInvoicing *bool `json:"BlockInvoicing,omitempty"`
+
+	// BlockPlanning: Block planning and reservations
+	BlockPlanning *bool `json:"BlockPlanning,omitempty"`
 
 	// BlockPurchasing: Block purchasing
 	BlockPurchasing *bool `json:"BlockPurchasing,omitempty"`
@@ -160,6 +166,9 @@ type ProjectProjects struct {
 
 	// Notes: For additional information about projects
 	Notes *string `json:"Notes,omitempty"`
+
+	// PaymentCondition: Payment condition code for this project
+	PaymentCondition *string `json:"PaymentCondition,omitempty"`
 
 	// PrepaidItem: Used only for PSA. This item is used for prepaid invoicing. If left empty, the functionality relies on a setting
 	PrepaidItem *types.GUID `json:"PrepaidItem,omitempty"`

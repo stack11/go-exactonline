@@ -20,6 +20,7 @@ type GeneralService struct {
 
 	// Endpoints available under this service
 	Currencies *CurrenciesEndpoint
+	Layouts    *LayoutsEndpoint
 }
 
 // NewGeneralService creates a new initialized instance of the
@@ -30,6 +31,7 @@ func NewGeneralService(apiClient *api.Client) *GeneralService {
 	s.common.client = apiClient
 
 	s.Currencies = (*CurrenciesEndpoint)(&s.common)
+	s.Layouts = (*LayoutsEndpoint)(&s.common)
 
 	return s
 }

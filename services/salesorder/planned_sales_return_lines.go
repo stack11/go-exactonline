@@ -87,6 +87,9 @@ type PlannedSalesReturnLines struct {
 	// ReceivedQuantity: Actual quantity returned
 	ReceivedQuantity *float64 `json:"ReceivedQuantity,omitempty"`
 
+	// ReturnReasonCodeCode: Code of ReasonCode
+	ReturnReasonCodeCode *string `json:"ReturnReasonCodeCode,omitempty"`
+
 	// ReturnReasonCodeDescription: Description of ReasonCode
 	ReturnReasonCodeDescription *string `json:"ReturnReasonCodeDescription,omitempty"`
 
@@ -113,6 +116,9 @@ type PlannedSalesReturnLines struct {
 
 	// StorageLocationDescription: Storage location description
 	StorageLocationDescription *string `json:"StorageLocationDescription,omitempty"`
+
+	// StorageLocationSequenceNumber: Sequence number of planned sales return (Premium Only)
+	StorageLocationSequenceNumber *int `json:"StorageLocationSequenceNumber,omitempty"`
 
 	// UnitCode: Code of item&#39;s sales unit
 	UnitCode *string `json:"UnitCode,omitempty"`

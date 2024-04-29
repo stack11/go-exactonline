@@ -59,6 +59,9 @@ type StorageLocations struct {
 	// ModifierFullName: Name of modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
+	// PickSequence: Sequence for locations
+	PickSequence *int `json:"PickSequence,omitempty"`
+
 	// Warehouse: Warehouse ID
 	Warehouse *types.GUID `json:"Warehouse,omitempty"`
 

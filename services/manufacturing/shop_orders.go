@@ -144,7 +144,7 @@ type ShopOrders struct {
 	// SalesOrderLines: Collection of Sales order lines
 	SalesOrderLines *json.RawMessage `json:"SalesOrderLines,omitempty"`
 
-	// SelectionCode: ID of selection code. Only supported by the Advanced and Premium editions for Wholesale &amp; Distribution and Manufacturing
+	// SelectionCode: ID of selection code. Only supported by the Plus, Professional and Premium editions for Wholesale &amp; Distribution and Manufacturing
 	SelectionCode *types.GUID `json:"SelectionCode,omitempty"`
 
 	// SelectionCodeCode: Code of Selection code
@@ -173,6 +173,12 @@ type ShopOrders struct {
 
 	// ShopOrderMaterialPlans: Collection of Shop order Material plans
 	ShopOrderMaterialPlans *json.RawMessage `json:"ShopOrderMaterialPlans,omitempty"`
+
+	// ShopOrderMaterialPlansNonIssuedByproductsCount: Count of non-issued shop order material plans related to byproducts
+	ShopOrderMaterialPlansNonIssuedByproductsCount *int `json:"ShopOrderMaterialPlansNonIssuedByproductsCount,omitempty"`
+
+	// ShopOrderMaterialPlansNonIssuedMaterialsCount: Count of non-issued shop order material plans related to materials
+	ShopOrderMaterialPlansNonIssuedMaterialsCount *int `json:"ShopOrderMaterialPlansNonIssuedMaterialsCount,omitempty"`
 
 	// ShopOrderNumber: Unique number to indentify the shop order
 	ShopOrderNumber *int `json:"ShopOrderNumber,omitempty"`

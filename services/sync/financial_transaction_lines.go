@@ -83,6 +83,9 @@ type FinancialTransactionLines struct {
 	// Currency:
 	Currency *string `json:"Currency,omitempty"`
 
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Date:
 	Date *types.Date `json:"Date,omitempty"`
 

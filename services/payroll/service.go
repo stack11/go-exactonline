@@ -30,6 +30,7 @@ type PayrollService struct {
 	EmploymentSalaries              *EmploymentSalariesEndpoint
 	EmploymentTaxAuthoritiesGeneral *EmploymentTaxAuthoritiesGeneralEndpoint
 	TaxEmploymentEndFlexCodes       *TaxEmploymentEndFlexCodesEndpoint
+	VariableMutations               *VariableMutationsEndpoint
 }
 
 // NewPayrollService creates a new initialized instance of the
@@ -50,6 +51,7 @@ func NewPayrollService(apiClient *api.Client) *PayrollService {
 	s.EmploymentSalaries = (*EmploymentSalariesEndpoint)(&s.common)
 	s.EmploymentTaxAuthoritiesGeneral = (*EmploymentTaxAuthoritiesGeneralEndpoint)(&s.common)
 	s.TaxEmploymentEndFlexCodes = (*TaxEmploymentEndFlexCodesEndpoint)(&s.common)
+	s.VariableMutations = (*VariableMutationsEndpoint)(&s.common)
 
 	return s
 }

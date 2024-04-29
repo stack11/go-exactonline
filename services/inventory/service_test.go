@@ -29,6 +29,8 @@ func TestNewInventoryService(t *testing.T) {
 	want := &InventoryService{client: c}
 	want.common.client = c
 
+	want.AssemblyBillOfMaterialHeader = (*AssemblyBillOfMaterialHeaderEndpoint)(&want.common)
+	want.AssemblyBillOfMaterialMaterials = (*AssemblyBillOfMaterialMaterialsEndpoint)(&want.common)
 	want.AssemblyOrders = (*AssemblyOrdersEndpoint)(&want.common)
 	want.BatchNumbers = (*BatchNumbersEndpoint)(&want.common)
 	want.ItemWarehousePlanningDetails = (*ItemWarehousePlanningDetailsEndpoint)(&want.common)

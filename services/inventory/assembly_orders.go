@@ -39,6 +39,9 @@ type AssemblyOrders struct {
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
+	// FinishedAssemblyDate: Latest finished date for assembly of the item
+	FinishedAssemblyDate *types.Date `json:"FinishedAssemblyDate,omitempty"`
+
 	// FinishedQuantity: Quantity of items that have actually been assembled
 	FinishedQuantity *float64 `json:"FinishedQuantity,omitempty"`
 
@@ -77,6 +80,21 @@ type AssemblyOrders struct {
 
 	// StorageLocationDescription: Storage location description
 	StorageLocationDescription *string `json:"StorageLocationDescription,omitempty"`
+
+	// StorageLocationSequenceNumber: Sequence number for assembly order (Premium Only)
+	StorageLocationSequenceNumber *int `json:"StorageLocationSequenceNumber,omitempty"`
+
+	// Type: Assembly order type: 8060 = Assembly, 8061 = Disassemble
+	Type *int `json:"Type,omitempty"`
+
+	// Unit: The standard unit of the assembled item
+	Unit *types.GUID `json:"Unit,omitempty"`
+
+	// UnitCode: Code of Unit
+	UnitCode *string `json:"UnitCode,omitempty"`
+
+	// UnitDescription: Description of Unit
+	UnitDescription *string `json:"UnitDescription,omitempty"`
 
 	// Warehouse: Warehouse
 	Warehouse *types.GUID `json:"Warehouse,omitempty"`

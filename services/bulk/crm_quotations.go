@@ -7,7 +7,6 @@ package bulk
 
 import (
 	"context"
-	"encoding/json"
 
 	"github.com/stack11/go-exactonline/api"
 	"github.com/stack11/go-exactonline/types"
@@ -27,196 +26,196 @@ type CRMQuotationsEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=BulkCRMQuotations
 type CRMQuotations struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// QuotationID:
+	// QuotationID: Identifier of the quotation
 	QuotationID *types.GUID `json:"QuotationID,omitempty"`
 
-	// AmountDC:
+	// AmountDC: Amount in the default currency of the company
 	AmountDC *float64 `json:"AmountDC,omitempty"`
 
-	// AmountDiscount:
+	// AmountDiscount: Discount Amount in the currency of the transaction
 	AmountDiscount *float64 `json:"AmountDiscount,omitempty"`
 
-	// AmountDiscountExclVat:
+	// AmountDiscountExclVat: Discount Amount excluding VAT in the currency of the transaction
 	AmountDiscountExclVat *float64 `json:"AmountDiscountExclVat,omitempty"`
 
-	// AmountFC:
+	// AmountFC: Amount in the currency of the transaction
 	AmountFC *float64 `json:"AmountFC,omitempty"`
 
-	// CloseDate:
+	// CloseDate: Date on which the customer accepted or rejected the quotation version
 	CloseDate *types.Date `json:"CloseDate,omitempty"`
 
-	// ClosingDate:
+	// ClosingDate: Date on which you expect to close/win the deal
 	ClosingDate *types.Date `json:"ClosingDate,omitempty"`
 
-	// Created:
+	// Created: Date and time on which the quotation was created
 	Created *types.Date `json:"Created,omitempty"`
 
-	// Creator:
+	// Creator: User ID of the creator
 	Creator *types.GUID `json:"Creator,omitempty"`
 
-	// CreatorFullName:
+	// CreatorFullName: Name of the creator
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
-	// Currency:
+	// Currency: The currency of the quotation
 	Currency *string `json:"Currency,omitempty"`
 
-	// DeliveryAccount:
+	// DeliveryAccount: The account where the items should delivered
 	DeliveryAccount *types.GUID `json:"DeliveryAccount,omitempty"`
 
-	// DeliveryAccountCode:
+	// DeliveryAccountCode: The code of the delivery account
 	DeliveryAccountCode *string `json:"DeliveryAccountCode,omitempty"`
 
-	// DeliveryAccountContact:
+	// DeliveryAccountContact: The contact person of the delivery account
 	DeliveryAccountContact *types.GUID `json:"DeliveryAccountContact,omitempty"`
 
-	// DeliveryAccountContactFullName:
+	// DeliveryAccountContactFullName: Full name of the delivery account contact person
 	DeliveryAccountContactFullName *string `json:"DeliveryAccountContactFullName,omitempty"`
 
-	// DeliveryAccountName:
+	// DeliveryAccountName: The name of the delivery account
 	DeliveryAccountName *string `json:"DeliveryAccountName,omitempty"`
 
-	// DeliveryAddress:
+	// DeliveryAddress: The id of the delivery address
 	DeliveryAddress *types.GUID `json:"DeliveryAddress,omitempty"`
 
-	// Description:
+	// DeliveryDate: The date of the delivery
+	DeliveryDate *types.Date `json:"DeliveryDate,omitempty"`
+
+	// Description: The description of the quotation
 	Description *string `json:"Description,omitempty"`
 
-	// Division:
+	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
-	// Document:
+	// Document: Document linked to the quotation
 	Document *types.GUID `json:"Document,omitempty"`
 
-	// DocumentSubject:
+	// DocumentSubject: The subject of the document
 	DocumentSubject *string `json:"DocumentSubject,omitempty"`
 
-	// DueDate:
+	// DueDate: Date after which the quotation is no longer valid
 	DueDate *types.Date `json:"DueDate,omitempty"`
 
-	// IncotermAddress:
+	// IncotermAddress: Address of Incoterm
 	IncotermAddress *string `json:"IncotermAddress,omitempty"`
 
-	// IncotermCode:
+	// IncotermCode: Code of Incoterm
 	IncotermCode *string `json:"IncotermCode,omitempty"`
 
-	// IncotermVersion:
+	// IncotermVersion: Version of Incoterm Supported version for Incoterms : 2010, 2020
 	IncotermVersion *int `json:"IncotermVersion,omitempty"`
 
-	// InvoiceAccount:
+	// InvoiceAccount: The account to which the invoice is sent
 	InvoiceAccount *types.GUID `json:"InvoiceAccount,omitempty"`
 
-	// InvoiceAccountCode:
+	// InvoiceAccountCode: The code of the invoice account
 	InvoiceAccountCode *string `json:"InvoiceAccountCode,omitempty"`
 
-	// InvoiceAccountContact:
+	// InvoiceAccountContact: The contact person of the invoice account
 	InvoiceAccountContact *types.GUID `json:"InvoiceAccountContact,omitempty"`
 
-	// InvoiceAccountContactFullName:
+	// InvoiceAccountContactFullName: Full name of the invoice account contact person
 	InvoiceAccountContactFullName *string `json:"InvoiceAccountContactFullName,omitempty"`
 
-	// InvoiceAccountName:
+	// InvoiceAccountName: The name of the invoice account
 	InvoiceAccountName *string `json:"InvoiceAccountName,omitempty"`
 
-	// Modified:
+	// Modified: Date and time on which the quotation was last modified
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// Modifier:
+	// Modifier: User ID of the modifier
 	Modifier *types.GUID `json:"Modifier,omitempty"`
 
-	// ModifierFullName:
+	// ModifierFullName: Name of the modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// Opportunity:
+	// Opportunity: Opportunity linked to the quotation
 	Opportunity *types.GUID `json:"Opportunity,omitempty"`
 
-	// OpportunityName:
+	// OpportunityName: The name of the opportunity
 	OpportunityName *string `json:"OpportunityName,omitempty"`
 
-	// OrderAccount:
+	// OrderAccount: The account that requested the quotation
 	OrderAccount *types.GUID `json:"OrderAccount,omitempty"`
 
-	// OrderAccountCode:
+	// OrderAccountCode: The code of the order account
 	OrderAccountCode *string `json:"OrderAccountCode,omitempty"`
 
-	// OrderAccountContact:
+	// OrderAccountContact: The contact person of the order account
 	OrderAccountContact *types.GUID `json:"OrderAccountContact,omitempty"`
 
-	// OrderAccountContactFullName:
+	// OrderAccountContactFullName: Full name of the order account contact person
 	OrderAccountContactFullName *string `json:"OrderAccountContactFullName,omitempty"`
 
-	// OrderAccountName:
+	// OrderAccountName: The name of the order account
 	OrderAccountName *string `json:"OrderAccountName,omitempty"`
 
-	// PaymentCondition:
+	// PaymentCondition: Payment condition code
 	PaymentCondition *string `json:"PaymentCondition,omitempty"`
 
-	// PaymentConditionDescription:
+	// PaymentConditionDescription: Payment condition description
 	PaymentConditionDescription *string `json:"PaymentConditionDescription,omitempty"`
 
-	// Project:
+	// Project: The project linked to the quotation
 	Project *types.GUID `json:"Project,omitempty"`
 
-	// ProjectCode:
+	// ProjectCode: The code of the project
 	ProjectCode *string `json:"ProjectCode,omitempty"`
 
-	// ProjectDescription:
+	// ProjectDescription: The description of the project
 	ProjectDescription *string `json:"ProjectDescription,omitempty"`
 
-	// QuotationDate:
+	// QuotationDate: Date on which the quotation version is entered or printed. Both during entering and printing this date can be adjusted
 	QuotationDate *types.Date `json:"QuotationDate,omitempty"`
 
-	// QuotationLines:
-	QuotationLines *json.RawMessage `json:"QuotationLines,omitempty"`
-
-	// QuotationNumber:
+	// QuotationNumber: Unique number to indentify the quotation. By default this number is based on the setting for first available number
 	QuotationNumber *int `json:"QuotationNumber,omitempty"`
 
-	// Remarks:
+	// Remarks: Extra text that can be added to the quotation
 	Remarks *string `json:"Remarks,omitempty"`
 
-	// SalesChannel:
+	// SalesChannel: ID of Sales channel.
 	SalesChannel *types.GUID `json:"SalesChannel,omitempty"`
 
-	// SalesChannelCode:
+	// SalesChannelCode: Code of Sales channel.
 	SalesChannelCode *string `json:"SalesChannelCode,omitempty"`
 
-	// SalesChannelDescription:
+	// SalesChannelDescription: Description of Sales channel.
 	SalesChannelDescription *string `json:"SalesChannelDescription,omitempty"`
 
-	// SalesPerson:
+	// SalesPerson: The user that is responsible for the quotation version
 	SalesPerson *types.GUID `json:"SalesPerson,omitempty"`
 
-	// SalesPersonFullName:
+	// SalesPersonFullName: Full name of the sales person
 	SalesPersonFullName *string `json:"SalesPersonFullName,omitempty"`
 
-	// SelectionCode:
+	// SelectionCode: ID of selection code. Only supported by the Plus, Professional and Premium for Wholesale &amp; Distribution and Manufacturing
 	SelectionCode *types.GUID `json:"SelectionCode,omitempty"`
 
-	// SelectionCodeCode:
+	// SelectionCodeCode: Code of selection code
 	SelectionCodeCode *string `json:"SelectionCodeCode,omitempty"`
 
-	// SelectionCodeDescription:
+	// SelectionCodeDescription: Description of selection code
 	SelectionCodeDescription *string `json:"SelectionCodeDescription,omitempty"`
 
-	// ShippingMethod:
+	// ShippingMethod: Shipping method ID
 	ShippingMethod *types.GUID `json:"ShippingMethod,omitempty"`
 
-	// ShippingMethodDescription:
+	// ShippingMethodDescription: Shipping method description
 	ShippingMethodDescription *string `json:"ShippingMethodDescription,omitempty"`
 
-	// Status:
+	// Status: The status of the quotation version. 5 = Rejected, 6 = Reviewed and closed, 10 = Recovery, 20 = Draft, 25 = Open, 35 = Processing... , 40 = Printed, 50 = Accepted
 	Status *int `json:"Status,omitempty"`
 
-	// StatusDescription:
+	// StatusDescription: The description of the status
 	StatusDescription *string `json:"StatusDescription,omitempty"`
 
-	// VATAmountFC:
+	// VATAmountFC: Total VAT amount in the currency of the transaction
 	VATAmountFC *float64 `json:"VATAmountFC,omitempty"`
 
-	// VersionNumber:
+	// VersionNumber: Number indicating the different reviews which are made for the quotation
 	VersionNumber *int `json:"VersionNumber,omitempty"`
 
-	// YourRef:
+	// YourRef: The number by which this quotation is identified by the order account
 	YourRef *string `json:"YourRef,omitempty"`
 }
 

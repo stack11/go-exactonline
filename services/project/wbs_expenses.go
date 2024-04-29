@@ -32,6 +32,9 @@ type WBSExpenses struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
+	// AutoCreateInvoiceTerm: To indicated auto create invoice term when invoice method is Fixed
+	AutoCreateInvoiceTerm *bool `json:"AutoCreateInvoiceTerm,omitempty"`
+
 	// BlockEntry: To indicated if cost entries is blocked
 	BlockEntry *bool `json:"BlockEntry,omitempty"`
 
@@ -44,6 +47,9 @@ type WBSExpenses struct {
 	// BudgetedRevenue: Revenue of the WBS expense
 	BudgetedRevenue *float64 `json:"BudgetedRevenue,omitempty"`
 
+	// Completed: To indicated if the WBS expense is completed
+	Completed *bool `json:"Completed,omitempty"`
+
 	// Created: The date and time when the WBS expense was created
 	Created *types.Date `json:"Created,omitempty"`
 
@@ -52,6 +58,9 @@ type WBSExpenses struct {
 
 	// CreatorFullName: The full name of the user that created the WBS expense
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
+
+	// CustomField: Custom field endpoint. Provided only for the Exact Online Premium users.
+	CustomField *string `json:"CustomField,omitempty"`
 
 	// Description: Description of the WBS expense
 	Description *string `json:"Description,omitempty"`
@@ -62,8 +71,20 @@ type WBSExpenses struct {
 	// EndDate: End date of the WBS expense
 	EndDate *types.Date `json:"EndDate,omitempty"`
 
-	// InvoiceSeparately: To indicated if additional invoice is allowed on this WBS expense. Additional invoice can only be set when the project type is fixed price or prepaid and the project allow additional invoices.
+	// InvoiceDate: The invoice term date of the WBS when set to fixed billing
+	InvoiceDate *types.Date `json:"InvoiceDate,omitempty"`
+
+	// InvoiceMethod: The invoice method of the WBS. E.g: 6 = Fixed, 7 = Rebill, 8 = Non re-billable
+	InvoiceMethod *int `json:"InvoiceMethod,omitempty"`
+
+	// InvoiceSeparately: To indicated if additional invoice is allowed on this WBS expense. Additional invoice can only be set when the project type is fixed price or prepaid and the project allow additional invoices. (Obsolete)
 	InvoiceSeparately *bool `json:"InvoiceSeparately,omitempty"`
+
+	// InvoiceTerm: ID of the invoice term that linked to the WBS
+	InvoiceTerm *types.GUID `json:"InvoiceTerm,omitempty"`
+
+	// Item: Item to used for cost entry
+	Item *types.GUID `json:"Item,omitempty"`
 
 	// MarkupPercentage: Markup percentage
 	MarkupPercentage *float64 `json:"MarkupPercentage,omitempty"`
@@ -92,11 +113,32 @@ type WBSExpenses struct {
 	// ProjectDescription: Project description that is linked to WBS expense
 	ProjectDescription *string `json:"ProjectDescription,omitempty"`
 
+	// ProjectTermAction: Project term action
+	ProjectTermAction *int `json:"ProjectTermAction,omitempty"`
+
+	// PurchasePrice: Purchase price of the item
+	PurchasePrice *float64 `json:"PurchasePrice,omitempty"`
+
+	// Quantity: Quantity of the WBS
+	Quantity *float64 `json:"Quantity,omitempty"`
+
+	// ReleaseInvoiceTerm: Action to release the invoice term. You can only release a WBS expense&#39;s invoice term once and it cannot be undo
+	ReleaseInvoiceTerm *bool `json:"ReleaseInvoiceTerm,omitempty"`
+
+	// ReleaseInvoiceTermDate: Release invoice term date. The linked invoice term date can be updated by using this property. The update will only happen when releasing a WBS expense&#39;s invoice term
+	ReleaseInvoiceTermDate *types.Date `json:"ReleaseInvoiceTermDate,omitempty"`
+
+	// ReleaseInvoiceTermHasSpecifyDate: Release invoice term has specify date
+	ReleaseInvoiceTermHasSpecifyDate *bool `json:"ReleaseInvoiceTermHasSpecifyDate,omitempty"`
+
 	// SequenceNumber: Sequence number of the WBS deliverable. Last sequence will be selected if not specified
 	SequenceNumber *int `json:"SequenceNumber,omitempty"`
 
 	// StartDate: Start date of the WBS expense
 	StartDate *types.Date `json:"StartDate,omitempty"`
+
+	// Supplier: Supplier of the item
+	Supplier *types.GUID `json:"Supplier,omitempty"`
 
 	// Type: The type of project WBS. E.g: 1 = Deliverable, 2 = Activity, 3 = Expense
 	Type *int `json:"Type,omitempty"`

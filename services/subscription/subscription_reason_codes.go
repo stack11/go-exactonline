@@ -44,6 +44,9 @@ type SubscriptionReasonCodes struct {
 	// CreatorFullName: Full name of the user that created the reason of cancellation of the subscription
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// CustomField: Custom field endpoint. Provided only for the Exact Online Premium users.
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Description: The description written for the cancellation of the subscription
 	Description *string `json:"Description,omitempty"`
 

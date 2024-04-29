@@ -41,6 +41,9 @@ type SerialNumbers struct {
 	// CreatorFullName: Name of creator
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// CustomField: Custom field endpoint. Provided only for the Exact Online Premium users.
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 

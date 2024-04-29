@@ -25,7 +25,7 @@ type StockSerialNumbersEndpoint service
 // URL: /api/v1/{division}/inventory/StockSerialNumbers
 // HasWebhook: false
 // IsInBeta: false
-// Methods: GET POST DELETE
+// Methods: GET POST PUT DELETE
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=InventoryStockSerialNumbers
 type StockSerialNumbers struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
@@ -44,16 +44,16 @@ type StockSerialNumbers struct {
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
-	// DraftStockTransactionID: ID representing a group of serial numbers being reserved for use in a subsequent stock transaction
+	// DraftStockTransactionID: ID representing a group of serial or batch number being reserved for use in a subsequent stock transaction
 	DraftStockTransactionID *types.GUID `json:"DraftStockTransactionID,omitempty"`
 
-	// EndDate: End date of effective period for serial number
+	// EndDate: End date of effective period for serial or batch number
 	EndDate *types.Date `json:"EndDate,omitempty"`
 
-	// IsBlocked: Boolean value indicating whether or not the serial number is blocked
+	// IsBlocked: Boolean value indicating whether or not the serial or batch number is blocked
 	IsBlocked *byte `json:"IsBlocked,omitempty"`
 
-	// IsDraft: Boolean value indicating if this serial number is being reserved
+	// IsDraft: Boolean value indicating if this serial or batch number is being reserved
 	IsDraft *byte `json:"IsDraft,omitempty"`
 
 	// Item: Item
@@ -74,13 +74,19 @@ type StockSerialNumbers struct {
 	// ModifierFullName: Name of modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// PickOrderLine: ID of pick order entry in which this serial number was used
+	// ParentID: The main item’s serial number ID, which should be linked to the issued part’s item serial number for the shop order.
+	ParentID *types.GUID `json:"ParentID,omitempty"`
+
+	// PickOrderLine: ID of pick order entry in which this serial or batch number was used.
 	PickOrderLine *types.GUID `json:"PickOrderLine,omitempty"`
 
 	// Remarks: Remarks
 	Remarks *string `json:"Remarks,omitempty"`
 
-	// SalesReturnLine: ID of sales return entry in which this serial number was used
+	// SalesOrderLine: ID of sales order in which this serial or batch number was reserved. Provided only for the Exact Online Premium users.
+	SalesOrderLine *types.GUID `json:"SalesOrderLine,omitempty"`
+
+	// SalesReturnLine: ID of sales return entry in which this serial or batch number was used
 	SalesReturnLine *types.GUID `json:"SalesReturnLine,omitempty"`
 
 	// SerialNumber: Human readable serial number
@@ -95,29 +101,32 @@ type StockSerialNumbers struct {
 	// StockCountLine: ID of stock count entry
 	StockCountLine *types.GUID `json:"StockCountLine,omitempty"`
 
-	// StockTransactionID: ID of the stock transaction in which this serial number was used
+	// StockTransactionID: ID of the stock transaction in which this serial or batch number was used
 	StockTransactionID *types.GUID `json:"StockTransactionID,omitempty"`
 
-	// StockTransactionType: Type of stock transaction associated with this serial number.Available values:10 = Opening balance120 = Goods delivery121 = Sales return122 = Stock out (Drop shipment)123 = Stock in (Drop shipment return)124 = Warehouse transfer delivery125 = Location Transfer Delivery130 = Goods receipt131 = Purchase return132 = Stock in (Drop shipment)133 = Stock out (Drop shipment return)134 = Warehouse transfer receipt135 = Location Transfer Receipt140 = Shop order stock receipt141 = Shop order stock reversal147 = Shop order by-product receipt148 = Shop order by-product reversal150 = Requirement issue151 = Requirement reversal155 = Subcontract issue156 = Subcontract return160 = Receipt (Assembly)161 = Return receipt (Disassembly)165 = Issue (Assembly)166 = Return issue (Disassembly)180 = Stock revaluation181 = Financial revaluation195 = Stock count196 = Adjust stock - out197 = Adjust stock - in200 = Trade-in
+	// StockTransactionType: Type of stock transaction associated with this serial or batch number.Available values:10 = Opening balance120 = Goods delivery121 = Sales return122 = Stock out (Drop shipment)123 = Stock in (Drop shipment return)124 = Warehouse transfer delivery125 = Location Transfer Delivery130 = Goods receipt131 = Purchase return132 = Stock in (Drop shipment)133 = Stock out (Drop shipment return)134 = Warehouse transfer receipt135 = Location Transfer Receipt140 = Shop order stock receipt141 = Shop order stock reversal147 = Shop order by-product receipt148 = Shop order by-product reversal150 = Requirement issue151 = Requirement reversal155 = Subcontract issue156 = Subcontract return160 = Receipt (Assembly)161 = Return receipt (Disassembly)165 = Issue (Assembly)166 = Return issue (Disassembly)180 = Stock revaluation181 = Financial revaluation195 = Stock count196 = Adjust stock - out197 = Adjust stock - in200 = Trade-in
 	StockTransactionType *int `json:"StockTransactionType,omitempty"`
 
-	// StorageLocation: Storage location which this serial number is entering or leaving
+	// StorageLocation: Storage location which this serial or batch number is entering or leaving
 	StorageLocation *types.GUID `json:"StorageLocation,omitempty"`
 
-	// StorageLocationCode: Code of the storage location which this serial number is entering or leaving
+	// StorageLocationCode: Code of the storage location which this serial or batch number is entering or leaving
 	StorageLocationCode *string `json:"StorageLocationCode,omitempty"`
 
-	// StorageLocationDescription: Description of the storage location which this serial number is entering or leaving
+	// StorageLocationDescription: Description of the storage location which this serial or batch number is entering or leaving
 	StorageLocationDescription *string `json:"StorageLocationDescription,omitempty"`
 
-	// Warehouse: Warehouse which this serial number is entering or leaving
+	// Warehouse: Warehouse which this serial or batch number is entering or leaving
 	Warehouse *types.GUID `json:"Warehouse,omitempty"`
 
-	// WarehouseCode: Code of the warehouse which this serial number is entering or leaving
+	// WarehouseCode: Code of the warehouse which this serial or batch number is entering or leaving
 	WarehouseCode *string `json:"WarehouseCode,omitempty"`
 
-	// WarehouseDescription: Description of the warehouse which this serial number is entering or leaving
+	// WarehouseDescription: Description of the warehouse which this serial or batch number is entering or leaving
 	WarehouseDescription *string `json:"WarehouseDescription,omitempty"`
+
+	// WarehouseTransferLine: ID of warehouse transfer associated with this serial or batch number.
+	WarehouseTransferLine *types.GUID `json:"WarehouseTransferLine,omitempty"`
 }
 
 func (e *StockSerialNumbers) GetPrimary() *types.GUID {
@@ -170,6 +179,19 @@ func (s *StockSerialNumbersEndpoint) Create(ctx context.Context, division int, e
 		return nil, err
 	}
 	return e, nil
+}
+
+// Update the StockSerialNumbers entity in the provided division.
+func (s *StockSerialNumbersEndpoint) Update(ctx context.Context, division int, entity *StockSerialNumbers) (*StockSerialNumbers, error) {
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/inventory/StockSerialNumbers", division) // #nosec
+	u, err := api.AddOdataKeyToURL(b, entity.GetPrimary())
+	if err != nil {
+		return nil, err
+	}
+
+	e := &StockSerialNumbers{}
+	_, _, requestError := s.client.NewRequestAndDo(ctx, "PUT", u.String(), entity, e)
+	return e, requestError
 }
 
 // Delete the StockSerialNumbers entity in the provided division.

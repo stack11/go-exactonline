@@ -60,6 +60,9 @@ type SalesEntries struct {
 	// CustomerName:
 	CustomerName *string `json:"CustomerName,omitempty"`
 
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Description:
 	Description *string `json:"Description,omitempty"`
 
@@ -122,6 +125,9 @@ type SalesEntries struct {
 
 	// PaymentConditionDescription:
 	PaymentConditionDescription *string `json:"PaymentConditionDescription,omitempty"`
+
+	// PaymentConditionPaymentMethod:
+	PaymentConditionPaymentMethod *string `json:"PaymentConditionPaymentMethod,omitempty"`
 
 	// PaymentReference:
 	PaymentReference *string `json:"PaymentReference,omitempty"`

@@ -62,7 +62,7 @@ type InventoryStockPositions struct {
 	// ReorderPoint: Quantity of items as an indication of when you need to reorder more stock for the warehouse
 	ReorderPoint *float64 `json:"ReorderPoint,omitempty"`
 
-	// ReservedStock: The quantity in a back to back order process which is already received from the purchase order, but not yet delivered for the sales order.
+	// ReservedStock: Stock stored in the warehouse that is already reserved
 	ReservedStock *float64 `json:"ReservedStock,omitempty"`
 
 	// UnitCode: Code of item unit

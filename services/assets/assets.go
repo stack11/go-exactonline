@@ -7,6 +7,7 @@ package assets
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/stack11/go-exactonline/api"
 	"github.com/stack11/go-exactonline/types"
@@ -53,6 +54,9 @@ type Assets struct {
 	// Code: Code of the asset
 	Code *string `json:"Code,omitempty"`
 
+	// CommercialBuildingValues: Commercial building value. You can have several commercial building value, with start and end dates
+	CommercialBuildingValues *json.RawMessage `json:"CommercialBuildingValues,omitempty"`
+
 	// Costcenter: Assets can be linked to a cost center
 	Costcenter *string `json:"Costcenter,omitempty"`
 
@@ -73,6 +77,9 @@ type Assets struct {
 
 	// CreatorFullName: Name of creator
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
+
+	// CustomField: Custom field endpoint
+	CustomField *string `json:"CustomField,omitempty"`
 
 	// DeductionPercentage: Used for Belgium legislation. Used to produce the official &#39;Investment deduction&#39; report
 	DeductionPercentage *float64 `json:"DeductionPercentage,omitempty"`
@@ -184,6 +191,9 @@ type Assets struct {
 
 	// TransactionEntryNo: Entry number of transaction
 	TransactionEntryNo *int `json:"TransactionEntryNo,omitempty"`
+
+	// Type: Indicate if an asset is commercial building or other asset. (0 = Other Assets, 1 = Commercial Building)
+	Type *string `json:"Type,omitempty"`
 }
 
 func (e *Assets) GetPrimary() *types.GUID {

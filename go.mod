@@ -1,15 +1,15 @@
 module github.com/stack11/go-exactonline
 
-go 1.18
+go 1.21
 
 require (
-	github.com/gofrs/uuid v3.1.0+incompatible
-	golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be
+	github.com/failsafe-go/failsafe-go v0.6.2
+	github.com/gofrs/uuid v4.4.0+incompatible
+	golang.org/x/oauth2 v0.19.0
 )
 
 require (
-	github.com/golang/protobuf v1.2.0 // indirect
-	golang.org/x/net v0.0.0-20210916014120-12bc252f5db8 // indirect
-	golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f // indirect
-	google.golang.org/appengine v1.1.0 // indirect
+	github.com/PuerkitoBio/goquery v1.9.1 // indirect
+	github.com/andybalholm/cascadia v1.3.2 // indirect
+	golang.org/x/net v0.21.0 // indirect
 )

@@ -41,6 +41,9 @@ type ProjectProjectWBS struct {
 	// BudgetedHours: Budget hours of the WBS. Only for activity
 	BudgetedHours *float64 `json:"BudgetedHours,omitempty"`
 
+	// BudgetedQuantity: Budget quantity of the WBS. Only for expense
+	BudgetedQuantity *float64 `json:"BudgetedQuantity,omitempty"`
+
 	// BudgetedRevenue: Revenue of the WBS. Only for activity and expense
 	BudgetedRevenue *float64 `json:"BudgetedRevenue,omitempty"`
 
@@ -59,7 +62,10 @@ type ProjectProjectWBS struct {
 	// CreatorFullName: The full name of the user that created the WBS
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
-	// DefaultItem: Default item to used for time entries
+	// CustomField: Custom field endpoint. Provided only for the Exact Online Premium users.
+	CustomField *string `json:"CustomField,omitempty"`
+
+	// DefaultItem: Default item to used for timecost entry
 	DefaultItem *types.GUID `json:"DefaultItem,omitempty"`
 
 	// DefaultItemIsMandatory: To indicated if only default item is allowed. Only for activity
@@ -77,7 +83,13 @@ type ProjectProjectWBS struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// InvoiceSeparately: To indicated if additional invoice is allowed on this WBS.  // 						Additional invoice can only be set when the project type is fixed price or prepaid and the project allow additional invoices.  // 						Only for activity and expense
+	// InvoiceDate: The invoice date of the WBS when invoice term is generated
+	InvoiceDate *types.Date `json:"InvoiceDate,omitempty"`
+
+	// InvoiceMethod: The invoice method of the WBS. For activity: null = According to parent, 2 = Fixed price, 3 = Time and Material, 4 = Non billable, 5 = Prepaid. For expense: null = According to parent, 6 = Fixed, 7 = Rebill, 8 = Non re-billable
+	InvoiceMethod *int `json:"InvoiceMethod,omitempty"`
+
+	// InvoiceSeparately: To indicated if additional invoice is allowed on this WBS.  // 						Additional invoice can only be set when the project type is fixed price or prepaid and the project allow additional invoices.  // 						Only for activity and expense. (Obsolete)
 	InvoiceSeparately *byte `json:"InvoiceSeparately,omitempty"`
 
 	// MarkupPercentage: Markup percentage for WBS expense
@@ -116,11 +128,17 @@ type ProjectProjectWBS struct {
 	// ProjectTermDescription: Description of invoice term that linked to the WBS deliverable
 	ProjectTermDescription *string `json:"ProjectTermDescription,omitempty"`
 
+	// PurchasePrice: Purchase price of the item. Only for expense
+	PurchasePrice *float64 `json:"PurchasePrice,omitempty"`
+
 	// SequenceNumber: Sequence number of the WBS. Last sequence will be selected if not specified
 	SequenceNumber *int `json:"SequenceNumber,omitempty"`
 
 	// StartDate: Startdate of the WBS. If it is a deliverable then StartDate is the earliest StartDate of its children
 	StartDate *types.Date `json:"StartDate,omitempty"`
+
+	// Supplier: Supplier of the item. Only for expense
+	Supplier *types.GUID `json:"Supplier,omitempty"`
 
 	// TimeQuantityToAlert: Alert when exceeding this time quantity for WBS activity
 	TimeQuantityToAlert *float64 `json:"TimeQuantityToAlert,omitempty"`

@@ -32,6 +32,9 @@ type ShippingMethods struct {
 	// Active: Active
 	Active *bool `json:"Active,omitempty"`
 
+	// Amount: Amount of Shipping Cost
+	Amount *float64 `json:"Amount,omitempty"`
+
 	// Code: Code of the shipping method
 	Code *string `json:"Code,omitempty"`
 
@@ -67,6 +70,15 @@ type ShippingMethods struct {
 
 	// TrackingURL: Tracking URL
 	TrackingURL *string `json:"TrackingURL,omitempty"`
+
+	// VATCode: VAT Code
+	VATCode *string `json:"VATCode,omitempty"`
+
+	// VATCodeDescription: Description of VAT Code
+	VATCodeDescription *string `json:"VATCodeDescription,omitempty"`
+
+	// VATPercentage: The VAT Percentage of the VAT code
+	VATPercentage *float64 `json:"VATPercentage,omitempty"`
 }
 
 func (e *ShippingMethods) GetPrimary() *types.GUID {

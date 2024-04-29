@@ -44,6 +44,15 @@ type InventoryStorageLocationStockPositions struct {
 	// ItemDescription: Description of the item
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
+	// QuantityToPicked: To pick quantity
+	QuantityToPicked *float64 `json:"QuantityToPicked,omitempty"`
+
+	// ReservedPick: To pick quantity with SerialBatch reserved
+	ReservedPick *float64 `json:"ReservedPick,omitempty"`
+
+	// SerialBatchReservedStock: Reserved serial batch stock
+	SerialBatchReservedStock *float64 `json:"SerialBatchReservedStock,omitempty"`
+
 	// Stock: Stock
 	Stock *float64 `json:"Stock,omitempty"`
 

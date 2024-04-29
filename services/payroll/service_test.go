@@ -40,6 +40,7 @@ func TestNewPayrollService(t *testing.T) {
 	want.EmploymentSalaries = (*EmploymentSalariesEndpoint)(&want.common)
 	want.EmploymentTaxAuthoritiesGeneral = (*EmploymentTaxAuthoritiesGeneralEndpoint)(&want.common)
 	want.TaxEmploymentEndFlexCodes = (*TaxEmploymentEndFlexCodesEndpoint)(&want.common)
+	want.VariableMutations = (*VariableMutationsEndpoint)(&want.common)
 
 	if !reflect.DeepEqual(s, want) {
 		t.Error("Clients are supposed to be the same")

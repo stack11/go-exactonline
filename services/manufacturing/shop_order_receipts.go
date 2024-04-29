@@ -38,11 +38,17 @@ type ShopOrderReceipts struct {
 	// CreatedDate: Date of this ShopOrderReceipt
 	CreatedDate *types.Date `json:"CreatedDate,omitempty"`
 
+	// Division: Division code
+	Division *int `json:"Division,omitempty"`
+
 	// DraftStockTransactionID: Serial or batch numbers are reserved prior to a POST to ShopOrderReceipts. This DraftStockTransactionID represents the group of serial or batch numbers to be used in this transaction.
 	DraftStockTransactionID *types.GUID `json:"DraftStockTransactionID,omitempty"`
 
 	// HasReversibleQuantity: Indicates if this ShopOrderReceipt has a quantity eligible to be reversed via ShopOrderReversals
 	HasReversibleQuantity *bool `json:"HasReversibleQuantity,omitempty"`
+
+	// ID: Primary key
+	ID *types.GUID `json:"ID,omitempty"`
 
 	// IsBatch: Does the shop order receipt&#39;s item use batch numbers
 	IsBatch *byte `json:"IsBatch,omitempty"`

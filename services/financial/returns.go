@@ -62,10 +62,10 @@ type Returns struct {
 	// Request: Reference to request
 	Request *types.GUID `json:"Request,omitempty"`
 
-	// Status: The status of the request
+	// Status: The status of the request (-10 - NULL, 0 - Void, 5 - Rejected, 10 - Draft, 20 - Open, 30 - Approved, 40 - Realized, 50 - Processed)
 	Status *int `json:"Status,omitempty"`
 
-	// Subject: The subject of the return documet
+	// Subject: The subject of the return document
 	Subject *string `json:"Subject,omitempty"`
 
 	// Type: Return Type (31 - VAT, 32-EC Sales list, 146-Payroll declaration)

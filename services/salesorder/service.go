@@ -19,14 +19,15 @@ type SalesOrderService struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// Endpoints available under this service
-	DropShipmentLines       *DropShipmentLinesEndpoint
-	DropShipments           *DropShipmentsEndpoint
-	GoodsDeliveries         *GoodsDeliveriesEndpoint
-	GoodsDeliveryLines      *GoodsDeliveryLinesEndpoint
-	PlannedSalesReturnLines *PlannedSalesReturnLinesEndpoint
-	PlannedSalesReturns     *PlannedSalesReturnsEndpoint
-	SalesOrderLines         *SalesOrderLinesEndpoint
-	SalesOrders             *SalesOrdersEndpoint
+	DropShipmentLines          *DropShipmentLinesEndpoint
+	DropShipments              *DropShipmentsEndpoint
+	GoodsDeliveries            *GoodsDeliveriesEndpoint
+	GoodsDeliveryLines         *GoodsDeliveryLinesEndpoint
+	PlannedSalesReturnLines    *PlannedSalesReturnLinesEndpoint
+	PlannedSalesReturns        *PlannedSalesReturnsEndpoint
+	SalesOrderLines            *SalesOrderLinesEndpoint
+	SalesOrderOrderChargeLines *SalesOrderOrderChargeLinesEndpoint
+	SalesOrders                *SalesOrdersEndpoint
 }
 
 // NewSalesOrderService creates a new initialized instance of the
@@ -43,6 +44,7 @@ func NewSalesOrderService(apiClient *api.Client) *SalesOrderService {
 	s.PlannedSalesReturnLines = (*PlannedSalesReturnLinesEndpoint)(&s.common)
 	s.PlannedSalesReturns = (*PlannedSalesReturnsEndpoint)(&s.common)
 	s.SalesOrderLines = (*SalesOrderLinesEndpoint)(&s.common)
+	s.SalesOrderOrderChargeLines = (*SalesOrderOrderChargeLinesEndpoint)(&s.common)
 	s.SalesOrders = (*SalesOrdersEndpoint)(&s.common)
 
 	return s

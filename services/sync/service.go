@@ -23,27 +23,49 @@ type SyncService struct {
 	CRMAccounts                            *CRMAccountsEndpoint
 	CRMAddresses                           *CRMAddressesEndpoint
 	CRMContacts                            *CRMContactsEndpoint
-	CRMQuotations                          *CRMQuotationsEndpoint
+	CRMQuotationHeaders                    *CRMQuotationHeadersEndpoint
+	CRMQuotationLines                      *CRMQuotationLinesEndpoint
 	Deleted                                *DeletedEndpoint
 	DocumentsDocumentAttachments           *DocumentsDocumentAttachmentsEndpoint
 	DocumentsDocuments                     *DocumentsDocumentsEndpoint
 	FinancialGLAccounts                    *FinancialGLAccountsEndpoint
 	FinancialGLClassifications             *FinancialGLClassificationsEndpoint
 	FinancialTransactionLines              *FinancialTransactionLinesEndpoint
+	HRMLeaveAbsenceHoursByDay              *HRMLeaveAbsenceHoursByDayEndpoint
+	HRMScheduleEntries                     *HRMScheduleEntriesEndpoint
+	HRMSchedules                           *HRMSchedulesEndpoint
+	InventoryItemStorageLocations          *InventoryItemStorageLocationsEndpoint
 	InventoryItemWarehouses                *InventoryItemWarehousesEndpoint
+	InventorySerialBatchNumbers            *InventorySerialBatchNumbersEndpoint
 	InventoryStockPositions                *InventoryStockPositionsEndpoint
+	InventoryStockSerialBatchNumbers       *InventoryStockSerialBatchNumbersEndpoint
 	InventoryStorageLocationStockPositions *InventoryStorageLocationStockPositionsEndpoint
 	LogisticsItems                         *LogisticsItemsEndpoint
+	LogisticsPurchaseItemPrices            *LogisticsPurchaseItemPricesEndpoint
 	LogisticsSalesItemPrices               *LogisticsSalesItemPricesEndpoint
+	LogisticsSupplierItem                  *LogisticsSupplierItemEndpoint
+	ManufacturingShopOrderMaterialPlans    *ManufacturingShopOrderMaterialPlansEndpoint
+	ManufacturingShopOrderRoutingStepPlans *ManufacturingShopOrderRoutingStepPlansEndpoint
+	ManufacturingShopOrders                *ManufacturingShopOrdersEndpoint
+	PayrollBankAccounts                    *PayrollBankAccountsEndpoint
+	PayrollEmployees                       *PayrollEmployeesEndpoint
+	PayrollEmploymentCLAs                  *PayrollEmploymentCLAsEndpoint
+	PayrollEmploymentContracts             *PayrollEmploymentContractsEndpoint
+	PayrollEmploymentOrganizations         *PayrollEmploymentOrganizationsEndpoint
+	PayrollEmployments                     *PayrollEmploymentsEndpoint
+	PayrollEmploymentSalaries              *PayrollEmploymentSalariesEndpoint
+	PayrollEmploymentTaxAuthoritiesGeneral *PayrollEmploymentTaxAuthoritiesGeneralEndpoint
 	ProjectProjectPlanning                 *ProjectProjectPlanningEndpoint
 	ProjectProjects                        *ProjectProjectsEndpoint
 	ProjectProjectWBS                      *ProjectProjectWBSEndpoint
 	ProjectTimeCostTransactions            *ProjectTimeCostTransactionsEndpoint
 	PurchaseOrderPurchaseOrders            *PurchaseOrderPurchaseOrdersEndpoint
+	SalesSalesPriceListVolumeDiscounts     *SalesSalesPriceListVolumeDiscountsEndpoint
 	SalesInvoiceSalesInvoices              *SalesInvoiceSalesInvoicesEndpoint
 	SalesOrderGoodsDeliveries              *SalesOrderGoodsDeliveriesEndpoint
 	SalesOrderGoodsDeliveryLines           *SalesOrderGoodsDeliveryLinesEndpoint
-	SalesOrderSalesOrders                  *SalesOrderSalesOrdersEndpoint
+	SalesOrderSalesOrderHeaders            *SalesOrderSalesOrderHeadersEndpoint
+	SalesOrderSalesOrderLines              *SalesOrderSalesOrderLinesEndpoint
 	SubscriptionSubscriptionLines          *SubscriptionSubscriptionLinesEndpoint
 	SubscriptionSubscriptions              *SubscriptionSubscriptionsEndpoint
 }
@@ -59,27 +81,49 @@ func NewSyncService(apiClient *api.Client) *SyncService {
 	s.CRMAccounts = (*CRMAccountsEndpoint)(&s.common)
 	s.CRMAddresses = (*CRMAddressesEndpoint)(&s.common)
 	s.CRMContacts = (*CRMContactsEndpoint)(&s.common)
-	s.CRMQuotations = (*CRMQuotationsEndpoint)(&s.common)
+	s.CRMQuotationHeaders = (*CRMQuotationHeadersEndpoint)(&s.common)
+	s.CRMQuotationLines = (*CRMQuotationLinesEndpoint)(&s.common)
 	s.Deleted = (*DeletedEndpoint)(&s.common)
 	s.DocumentsDocumentAttachments = (*DocumentsDocumentAttachmentsEndpoint)(&s.common)
 	s.DocumentsDocuments = (*DocumentsDocumentsEndpoint)(&s.common)
 	s.FinancialGLAccounts = (*FinancialGLAccountsEndpoint)(&s.common)
 	s.FinancialGLClassifications = (*FinancialGLClassificationsEndpoint)(&s.common)
 	s.FinancialTransactionLines = (*FinancialTransactionLinesEndpoint)(&s.common)
+	s.HRMLeaveAbsenceHoursByDay = (*HRMLeaveAbsenceHoursByDayEndpoint)(&s.common)
+	s.HRMScheduleEntries = (*HRMScheduleEntriesEndpoint)(&s.common)
+	s.HRMSchedules = (*HRMSchedulesEndpoint)(&s.common)
+	s.InventoryItemStorageLocations = (*InventoryItemStorageLocationsEndpoint)(&s.common)
 	s.InventoryItemWarehouses = (*InventoryItemWarehousesEndpoint)(&s.common)
+	s.InventorySerialBatchNumbers = (*InventorySerialBatchNumbersEndpoint)(&s.common)
 	s.InventoryStockPositions = (*InventoryStockPositionsEndpoint)(&s.common)
+	s.InventoryStockSerialBatchNumbers = (*InventoryStockSerialBatchNumbersEndpoint)(&s.common)
 	s.InventoryStorageLocationStockPositions = (*InventoryStorageLocationStockPositionsEndpoint)(&s.common)
 	s.LogisticsItems = (*LogisticsItemsEndpoint)(&s.common)
+	s.LogisticsPurchaseItemPrices = (*LogisticsPurchaseItemPricesEndpoint)(&s.common)
 	s.LogisticsSalesItemPrices = (*LogisticsSalesItemPricesEndpoint)(&s.common)
+	s.LogisticsSupplierItem = (*LogisticsSupplierItemEndpoint)(&s.common)
+	s.ManufacturingShopOrderMaterialPlans = (*ManufacturingShopOrderMaterialPlansEndpoint)(&s.common)
+	s.ManufacturingShopOrderRoutingStepPlans = (*ManufacturingShopOrderRoutingStepPlansEndpoint)(&s.common)
+	s.ManufacturingShopOrders = (*ManufacturingShopOrdersEndpoint)(&s.common)
+	s.PayrollBankAccounts = (*PayrollBankAccountsEndpoint)(&s.common)
+	s.PayrollEmployees = (*PayrollEmployeesEndpoint)(&s.common)
+	s.PayrollEmploymentCLAs = (*PayrollEmploymentCLAsEndpoint)(&s.common)
+	s.PayrollEmploymentContracts = (*PayrollEmploymentContractsEndpoint)(&s.common)
+	s.PayrollEmploymentOrganizations = (*PayrollEmploymentOrganizationsEndpoint)(&s.common)
+	s.PayrollEmployments = (*PayrollEmploymentsEndpoint)(&s.common)
+	s.PayrollEmploymentSalaries = (*PayrollEmploymentSalariesEndpoint)(&s.common)
+	s.PayrollEmploymentTaxAuthoritiesGeneral = (*PayrollEmploymentTaxAuthoritiesGeneralEndpoint)(&s.common)
 	s.ProjectProjectPlanning = (*ProjectProjectPlanningEndpoint)(&s.common)
 	s.ProjectProjects = (*ProjectProjectsEndpoint)(&s.common)
 	s.ProjectProjectWBS = (*ProjectProjectWBSEndpoint)(&s.common)
 	s.ProjectTimeCostTransactions = (*ProjectTimeCostTransactionsEndpoint)(&s.common)
 	s.PurchaseOrderPurchaseOrders = (*PurchaseOrderPurchaseOrdersEndpoint)(&s.common)
+	s.SalesSalesPriceListVolumeDiscounts = (*SalesSalesPriceListVolumeDiscountsEndpoint)(&s.common)
 	s.SalesInvoiceSalesInvoices = (*SalesInvoiceSalesInvoicesEndpoint)(&s.common)
 	s.SalesOrderGoodsDeliveries = (*SalesOrderGoodsDeliveriesEndpoint)(&s.common)
 	s.SalesOrderGoodsDeliveryLines = (*SalesOrderGoodsDeliveryLinesEndpoint)(&s.common)
-	s.SalesOrderSalesOrders = (*SalesOrderSalesOrdersEndpoint)(&s.common)
+	s.SalesOrderSalesOrderHeaders = (*SalesOrderSalesOrderHeadersEndpoint)(&s.common)
+	s.SalesOrderSalesOrderLines = (*SalesOrderSalesOrderLinesEndpoint)(&s.common)
 	s.SubscriptionSubscriptionLines = (*SubscriptionSubscriptionLinesEndpoint)(&s.common)
 	s.SubscriptionSubscriptions = (*SubscriptionSubscriptionsEndpoint)(&s.common)
 

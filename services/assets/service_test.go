@@ -31,6 +31,7 @@ func TestNewAssetsService(t *testing.T) {
 
 	want.AssetGroups = (*AssetGroupsEndpoint)(&want.common)
 	want.Assets = (*AssetsEndpoint)(&want.common)
+	want.CommercialBuildingValues = (*CommercialBuildingValuesEndpoint)(&want.common)
 	want.DepreciationMethods = (*DepreciationMethodsEndpoint)(&want.common)
 
 	if !reflect.DeepEqual(s, want) {

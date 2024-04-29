@@ -32,6 +32,15 @@ type TimeAndBillingEntryRecentActivitiesAndExpenses struct {
 	// DateLastUsed: Date last used
 	DateLastUsed *types.Date `json:"DateLastUsed,omitempty"`
 
+	// DefaultItem: ID of the defaultItem
+	DefaultItem *types.GUID `json:"DefaultItem,omitempty"`
+
+	// DefaultItemCode: Item code of the defaultItem
+	DefaultItemCode *string `json:"DefaultItemCode,omitempty"`
+
+	// DefaultItemDescription: Description of the defaultItem
+	DefaultItemDescription *string `json:"DefaultItemDescription,omitempty"`
+
 	// Description: Description
 	Description *string `json:"Description,omitempty"`
 

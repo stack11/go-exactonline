@@ -8,6 +8,9 @@ package system
 import (
 	"context"
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
 
 	"github.com/stack11/go-exactonline/api"
 	"github.com/stack11/go-exactonline/types"
@@ -23,7 +26,7 @@ type DivisionsEndpoint service
 // URL: /api/v1/{division}/system/Divisions
 // HasWebhook: false
 // IsInBeta: false
-// Methods: GET
+// Methods: GET DELETE
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=SystemSystemDivisions
 type Divisions struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
@@ -117,6 +120,9 @@ type Divisions struct {
 	// Description: Description
 	Description *string `json:"Description,omitempty"`
 
+	// DivisionHRLinkUnlinkDate: Date when the division was linked or unlinked to Exact Online HR. Please resync all data when this value changes because value of Timestamp is regenerated.
+	DivisionHRLinkUnlinkDate *types.Date `json:"DivisionHRLinkUnlinkDate,omitempty"`
+
 	// DivisionMoveDate: Date when the division was moved. Please resync all data when this value changes because value of Timestamp is regenerated.
 	DivisionMoveDate *types.Date `json:"DivisionMoveDate,omitempty"`
 
@@ -131,6 +137,9 @@ type Divisions struct {
 
 	// IsDossierDivision: True if the division is a dossier division
 	IsDossierDivision *bool `json:"IsDossierDivision,omitempty"`
+
+	// IsHRDivision: True if the division is linked to Exact Online HR
+	IsHRDivision *bool `json:"IsHRDivision,omitempty"`
 
 	// IsMainDivision: True if the division is the main division
 	IsMainDivision *bool `json:"IsMainDivision,omitempty"`
@@ -242,4 +251,25 @@ func (s *DivisionsEndpoint) Get(ctx context.Context, division int, id *int) (*Di
 	e := &Divisions{}
 	_, _, requestError := s.client.NewRequestAndDo(ctx, "GET", u.String(), nil, e)
 	return e, requestError
+}
+
+// Delete the Divisions entity in the provided division.
+func (s *DivisionsEndpoint) Delete(ctx context.Context, division int, id *int) error {
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/system/Divisions", division) // #nosec
+	u, err := api.AddOdataKeyToURL(b, id)
+	if err != nil {
+		return err
+	}
+
+	_, r, requestError := s.client.NewRequestAndDo(ctx, "DELETE", u.String(), nil, nil)
+	if requestError != nil {
+		return requestError
+	}
+
+	if r.StatusCode != http.StatusNoContent {
+		body, _ := ioutil.ReadAll(r.Body) // #nosec
+		return fmt.Errorf("Failed with status %v and body %v", r.StatusCode, body)
+	}
+
+	return nil
 }

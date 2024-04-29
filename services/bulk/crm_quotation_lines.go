@@ -35,8 +35,23 @@ type CRMQuotationLines struct {
 	// AmountFC:
 	AmountFC *float64 `json:"AmountFC,omitempty"`
 
+	// CostCenter:
+	CostCenter *string `json:"CostCenter,omitempty"`
+
+	// CostCenterDescription:
+	CostCenterDescription *string `json:"CostCenterDescription,omitempty"`
+
+	// CostUnit:
+	CostUnit *string `json:"CostUnit,omitempty"`
+
+	// CostUnitDescription:
+	CostUnitDescription *string `json:"CostUnitDescription,omitempty"`
+
 	// CustomerItemCode:
 	CustomerItemCode *string `json:"CustomerItemCode,omitempty"`
+
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
 
 	// Description:
 	Description *string `json:"Description,omitempty"`
@@ -61,6 +76,9 @@ type CRMQuotationLines struct {
 
 	// Notes:
 	Notes *string `json:"Notes,omitempty"`
+
+	// Optional:
+	Optional *bool `json:"Optional,omitempty"`
 
 	// Quantity:
 	Quantity *float64 `json:"Quantity,omitempty"`

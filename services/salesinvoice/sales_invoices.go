@@ -192,6 +192,9 @@ type SalesInvoices struct {
 	// SalesInvoiceLines:
 	SalesInvoiceLines *json.RawMessage `json:"SalesInvoiceLines,omitempty"`
 
+	// SalesInvoiceOrderChargeLines:
+	SalesInvoiceOrderChargeLines *json.RawMessage `json:"SalesInvoiceOrderChargeLines,omitempty"`
+
 	// Salesperson:
 	Salesperson *types.GUID `json:"Salesperson,omitempty"`
 
@@ -206,6 +209,15 @@ type SalesInvoices struct {
 
 	// SelectionCodeDescription:
 	SelectionCodeDescription *string `json:"SelectionCodeDescription,omitempty"`
+
+	// ShippingMethod:
+	ShippingMethod *types.GUID `json:"ShippingMethod,omitempty"`
+
+	// ShippingMethodCode:
+	ShippingMethodCode *string `json:"ShippingMethodCode,omitempty"`
+
+	// ShippingMethodDescription:
+	ShippingMethodDescription *string `json:"ShippingMethodDescription,omitempty"`
 
 	// StarterSalesInvoiceStatus:
 	StarterSalesInvoiceStatus *int `json:"StarterSalesInvoiceStatus,omitempty"`

@@ -53,6 +53,9 @@ type ProjectPlanningRecurring struct {
 	// CreatorFullName: Name of creator
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// CustomField: Custom field endpoint. Provided only for the Exact Online Premium users.
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// DayOrThe: Indicates whether the recurring planning is day of the month or weekday of the month
 	DayOrThe *int `json:"DayOrThe,omitempty"`
 

@@ -39,6 +39,9 @@ type GeneralJournalEntries struct {
 	// Currency:
 	Currency *string `json:"Currency,omitempty"`
 
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Division:
 	Division *int `json:"Division,omitempty"`
 

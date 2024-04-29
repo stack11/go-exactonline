@@ -26,7 +26,7 @@ type PurchaseOrdersEndpoint service
 // URL: /api/v1/{division}/purchaseorder/PurchaseOrders
 // HasWebhook: true
 // IsInBeta: false
-// Methods: GET POST DELETE
+// Methods: GET POST PUT DELETE
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=PurchaseOrderPurchaseOrders
 type PurchaseOrders struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
@@ -36,8 +36,17 @@ type PurchaseOrders struct {
 	// AmountDC:
 	AmountDC *float64 `json:"AmountDC,omitempty"`
 
+	// AmountDiscount:
+	AmountDiscount *float64 `json:"AmountDiscount,omitempty"`
+
+	// AmountDiscountExclVat:
+	AmountDiscountExclVat *float64 `json:"AmountDiscountExclVat,omitempty"`
+
 	// AmountFC:
 	AmountFC *float64 `json:"AmountFC,omitempty"`
+
+	// AmountFCExclVat:
+	AmountFCExclVat *float64 `json:"AmountFCExclVat,omitempty"`
 
 	// ApprovalStatus:
 	ApprovalStatus *int `json:"ApprovalStatus,omitempty"`
@@ -86,6 +95,9 @@ type PurchaseOrders struct {
 
 	// Description:
 	Description *string `json:"Description,omitempty"`
+
+	// Discount:
+	Discount *float64 `json:"Discount,omitempty"`
 
 	// Division:
 	Division *int `json:"Division,omitempty"`
@@ -267,6 +279,19 @@ func (s *PurchaseOrdersEndpoint) Create(ctx context.Context, division int, entit
 		return nil, err
 	}
 	return e, nil
+}
+
+// Update the PurchaseOrders entity in the provided division.
+func (s *PurchaseOrdersEndpoint) Update(ctx context.Context, division int, entity *PurchaseOrders) (*PurchaseOrders, error) {
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/purchaseorder/PurchaseOrders", division) // #nosec
+	u, err := api.AddOdataKeyToURL(b, entity.GetPrimary())
+	if err != nil {
+		return nil, err
+	}
+
+	e := &PurchaseOrders{}
+	_, _, requestError := s.client.NewRequestAndDo(ctx, "PUT", u.String(), entity, e)
+	return e, requestError
 }
 
 // Delete the PurchaseOrders entity in the provided division.

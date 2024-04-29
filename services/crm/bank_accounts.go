@@ -56,6 +56,9 @@ type BankAccounts struct {
 	// BICCode:
 	BICCode *string `json:"BICCode,omitempty"`
 
+	// Blocked:
+	Blocked *bool `json:"Blocked,omitempty"`
+
 	// Created:
 	Created *types.Date `json:"Created,omitempty"`
 

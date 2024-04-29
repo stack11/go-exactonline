@@ -204,6 +204,15 @@ type SalesInvoiceSalesInvoices struct {
 	// SelectionCodeDescription:
 	SelectionCodeDescription *string `json:"SelectionCodeDescription,omitempty"`
 
+	// ShippingMethod:
+	ShippingMethod *types.GUID `json:"ShippingMethod,omitempty"`
+
+	// ShippingMethodCode:
+	ShippingMethodCode *string `json:"ShippingMethodCode,omitempty"`
+
+	// ShippingMethodDescription:
+	ShippingMethodDescription *string `json:"ShippingMethodDescription,omitempty"`
+
 	// StarterSalesInvoiceStatus:
 	StarterSalesInvoiceStatus *int `json:"StarterSalesInvoiceStatus,omitempty"`
 

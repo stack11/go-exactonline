@@ -81,6 +81,9 @@ type Quotations struct {
 	// DeliveryAddress:
 	DeliveryAddress *types.GUID `json:"DeliveryAddress,omitempty"`
 
+	// DeliveryDate:
+	DeliveryDate *types.Date `json:"DeliveryDate,omitempty"`
+
 	// Description:
 	Description *string `json:"Description,omitempty"`
 
@@ -173,6 +176,9 @@ type Quotations struct {
 
 	// QuotationNumber:
 	QuotationNumber *int `json:"QuotationNumber,omitempty"`
+
+	// QuotationOrderChargeLines:
+	QuotationOrderChargeLines *json.RawMessage `json:"QuotationOrderChargeLines,omitempty"`
 
 	// Remarks:
 	Remarks *string `json:"Remarks,omitempty"`

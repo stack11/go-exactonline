@@ -71,11 +71,14 @@ type EmploymentOrganizations struct {
 	// EmployeeHID: Numeric ID of the employee
 	EmployeeHID *int `json:"EmployeeHID,omitempty"`
 
-	// Employment: Employement ID
+	// Employment: Employment ID
 	Employment *types.GUID `json:"Employment,omitempty"`
 
-	// EmploymentHID: Numeric ID of the employment
+	// EmploymentHID: Obsolete
 	EmploymentHID *int `json:"EmploymentHID,omitempty"`
+
+	// EmploymentNumber: Employment number
+	EmploymentNumber *int `json:"EmploymentNumber,omitempty"`
 
 	// EndDate: Organization end date
 	EndDate *types.Date `json:"EndDate,omitempty"`
@@ -98,7 +101,7 @@ type EmploymentOrganizations struct {
 	// ModifierFullName: Name of modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// Notes: Explanation or extra information can be stored in the notes
+	// Notes: Obsolete
 	Notes *string `json:"Notes,omitempty"`
 
 	// StartDate: Organization start date

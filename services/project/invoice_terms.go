@@ -62,6 +62,12 @@ type InvoiceTerms struct {
 	// InvoiceDate: Invoice date of invoice term
 	InvoiceDate *types.Date `json:"InvoiceDate,omitempty"`
 
+	// InvoiceId: ID of sales invoice
+	InvoiceId *types.GUID `json:"InvoiceId,omitempty"`
+
+	// InvoiceStatus: The invoice status of the invoice term. E.g: 10 = Draft, 20 = Open, 30 = Processing..., 50 = Processed
+	InvoiceStatus *int `json:"InvoiceStatus,omitempty"`
+
 	// Item: Item that linked to the invoice term
 	Item *types.GUID `json:"Item,omitempty"`
 
