@@ -29,9 +29,8 @@ func TestNewSalesService(t *testing.T) {
 	want := &SalesService{client: c}
 	want.common.client = c
 
-	want.PriceLists = (*PriceListsEndpoint)(&want.common)
+	want.OrderCharges = (*OrderChargesEndpoint)(&want.common)
 	want.SalesChannels = (*SalesChannelsEndpoint)(&want.common)
-	want.SalesPriceListDetails = (*SalesPriceListDetailsEndpoint)(&want.common)
 	want.SalesPriceListLinkedAccounts = (*SalesPriceListLinkedAccountsEndpoint)(&want.common)
 	want.SalesPriceListPeriods = (*SalesPriceListPeriodsEndpoint)(&want.common)
 	want.SalesPriceLists = (*SalesPriceListsEndpoint)(&want.common)

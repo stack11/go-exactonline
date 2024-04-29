@@ -35,6 +35,7 @@ type CRMService struct {
 	Opportunities              *OpportunitiesEndpoint
 	OpportunityContacts        *OpportunityContactsEndpoint
 	QuotationLines             *QuotationLinesEndpoint
+	QuotationOrderChargeLines  *QuotationOrderChargeLinesEndpoint
 	Quotations                 *QuotationsEndpoint
 	ReasonCodes                *ReasonCodesEndpoint
 }
@@ -62,6 +63,7 @@ func NewCRMService(apiClient *api.Client) *CRMService {
 	s.Opportunities = (*OpportunitiesEndpoint)(&s.common)
 	s.OpportunityContacts = (*OpportunityContactsEndpoint)(&s.common)
 	s.QuotationLines = (*QuotationLinesEndpoint)(&s.common)
+	s.QuotationOrderChargeLines = (*QuotationOrderChargeLinesEndpoint)(&s.common)
 	s.Quotations = (*QuotationsEndpoint)(&s.common)
 	s.ReasonCodes = (*ReasonCodesEndpoint)(&s.common)
 

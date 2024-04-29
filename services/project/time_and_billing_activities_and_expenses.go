@@ -29,6 +29,15 @@ type TimeAndBillingActivitiesAndExpenses struct {
 	// ID: ID of activity or expense
 	ID *types.GUID `json:"ID,omitempty"`
 
+	// DefaultItem: ID of the defaultItem
+	DefaultItem *types.GUID `json:"DefaultItem,omitempty"`
+
+	// DefaultItemCode: Item code of the defaultItem
+	DefaultItemCode *string `json:"DefaultItemCode,omitempty"`
+
+	// DefaultItemDescription: Description of the defaultItem
+	DefaultItemDescription *string `json:"DefaultItemDescription,omitempty"`
+
 	// Description: Description of activity or expense
 	Description *string `json:"Description,omitempty"`
 

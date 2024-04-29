@@ -92,6 +92,9 @@ type Journals struct {
 	// CurrencyDescription: Description of Currency
 	CurrencyDescription *string `json:"CurrencyDescription,omitempty"`
 
+	// CustomField: Custom field endpoint
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Description: Name of the Journal
 	Description *string `json:"Description,omitempty"`
 

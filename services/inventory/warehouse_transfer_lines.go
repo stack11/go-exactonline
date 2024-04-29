@@ -72,13 +72,16 @@ type WarehouseTransferLines struct {
 	// ModifierFullName: Name of modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
+	// PickedBy: Picked by
+	PickedBy *types.GUID `json:"PickedBy,omitempty"`
+
 	// Quantity: Quantity of transfer
 	Quantity *float64 `json:"Quantity,omitempty"`
 
 	// SerialNumbers: The collection of serial numbers that belong to the items included in this warehouse transfer
 	SerialNumbers *json.RawMessage `json:"SerialNumbers,omitempty"`
 
-	// StorageLocationFrom: ID of storage location to transfer item from (Premium Only)
+	// StorageLocationFrom: ID of storage location to transfer item from (Professional and Premium Only)
 	StorageLocationFrom *types.GUID `json:"StorageLocationFrom,omitempty"`
 
 	// StorageLocationFromCode: Code of storage location to transfer item from
@@ -87,7 +90,10 @@ type WarehouseTransferLines struct {
 	// StorageLocationFromDescription: Description of storage location to transfer item from
 	StorageLocationFromDescription *string `json:"StorageLocationFromDescription,omitempty"`
 
-	// StorageLocationTo: ID of storage location to transfer item to (Premium Only)
+	// StorageLocationFromLocationSequence: Location sequence of storage location to transfer item from (Premium Only)
+	StorageLocationFromLocationSequence *int `json:"StorageLocationFromLocationSequence,omitempty"`
+
+	// StorageLocationTo: ID of storage location to transfer item to (Professional and Premium Only)
 	StorageLocationTo *types.GUID `json:"StorageLocationTo,omitempty"`
 
 	// StorageLocationToCode: Code of storage location to transfer item to
@@ -96,8 +102,14 @@ type WarehouseTransferLines struct {
 	// StorageLocationToDescription: Description of storage location to transfer item to
 	StorageLocationToDescription *string `json:"StorageLocationToDescription,omitempty"`
 
+	// StorageLocationToLocationSequence: Location sequence of storage location to transfer item to (Premium Only)
+	StorageLocationToLocationSequence *int `json:"StorageLocationToLocationSequence,omitempty"`
+
 	// TransferID: Entry number of the stock transaction
 	TransferID *types.GUID `json:"TransferID,omitempty"`
+
+	// TransferredBy: Transferred by
+	TransferredBy *types.GUID `json:"TransferredBy,omitempty"`
 
 	// UnitCode: The standard unit code of this item
 	UnitCode *string `json:"UnitCode,omitempty"`

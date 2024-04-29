@@ -120,6 +120,9 @@ type ShopOrderMaterialPlanDetails struct {
 	// RemainingQuantity: Material plan remaining quantity
 	RemainingQuantity *float64 `json:"RemainingQuantity,omitempty"`
 
+	// RoutingStepID: ID of the routing step.
+	RoutingStepID *types.GUID `json:"RoutingStepID,omitempty"`
+
 	// ShopOrder: Reference to ShopOrders table
 	ShopOrder *types.GUID `json:"ShopOrder,omitempty"`
 
@@ -156,7 +159,7 @@ type ShopOrderMaterialPlanDetails struct {
 	// Warehouse: Shop order warehouse
 	Warehouse *types.GUID `json:"Warehouse,omitempty"`
 
-	// WastePercentage: Waste percentage must be null or integer from 1 to 9999 (only available in Manufacturing Premium)
+	// WastePercentage: Waste percentage must be null or integer from 1 to 9999 (only available in Manufacturing Professional and Premium)
 	WastePercentage *float64 `json:"WastePercentage,omitempty"`
 }
 

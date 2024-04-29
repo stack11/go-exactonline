@@ -29,8 +29,11 @@ type PurchaseInvoiceLines struct {
 	// ID: A guid that uniquely identifies the purchase invoice line.
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Amount: In a GET request the line amount is always returned excluding VAT.In a POST request the line amount has to be submitted either including or excluding the VAT amount. This depends on the type (including or excluding) of the VAT code.
+	// Amount: In a GET request the line amount is always returned excluding VAT in foreign currency.In a POST request the line amount has to be submitted either including or excluding the VAT amount. This depends on the type (including or excluding) of the VAT code.
 	Amount *float64 `json:"Amount,omitempty"`
+
+	// AmountDC: Amount excluding VAT in default currency.
+	AmountDC *float64 `json:"AmountDC,omitempty"`
 
 	// CostCenter: The code of the cost center that is linked to this invoice line.
 	CostCenter *string `json:"CostCenter,omitempty"`
@@ -40,6 +43,9 @@ type PurchaseInvoiceLines struct {
 
 	// Currency: The currency of the line amount. The total invoice amount and all individual line amounts are in the same currency.
 	Currency *string `json:"Currency,omitempty"`
+
+	// CustomField: Custom field endpoint. Provided only for the Exact Online Premium users.
+	CustomField *string `json:"CustomField,omitempty"`
 
 	// Description: Description of the invoice line.
 	Description *string `json:"Description,omitempty"`

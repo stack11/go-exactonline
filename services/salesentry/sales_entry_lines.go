@@ -56,6 +56,9 @@ type SalesEntryLines struct {
 	// CostUnitDescription:
 	CostUnitDescription *string `json:"CostUnitDescription,omitempty"`
 
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Description:
 	Description *string `json:"Description,omitempty"`
 

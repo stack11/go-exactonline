@@ -56,6 +56,9 @@ type ProjectPlanning struct {
 	// CreatorFullName:
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Description:
 	Description *string `json:"Description,omitempty"`
 

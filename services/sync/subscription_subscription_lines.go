@@ -26,88 +26,91 @@ type SubscriptionSubscriptionLinesEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=SyncSubscriptionSubscriptionLines
 type SubscriptionSubscriptionLines struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// Timestamp: Timestamp
+	// Timestamp:
 	Timestamp *int64 `json:"Timestamp,omitempty"`
 
-	// AmountDC: Amount in the default currency of the company
+	// AmountDC:
 	AmountDC *float64 `json:"AmountDC,omitempty"`
 
-	// AmountFC: Amount in the currency of the transaction
+	// AmountFC:
 	AmountFC *float64 `json:"AmountFC,omitempty"`
 
-	// Costcenter: Cost center linked to the subscription line
+	// Costcenter:
 	Costcenter *string `json:"Costcenter,omitempty"`
 
-	// Costunit: Cost unit linked to the subscription line
+	// Costunit:
 	Costunit *string `json:"Costunit,omitempty"`
 
-	// Description: Description of the subscription line
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
+	// Description:
 	Description *string `json:"Description,omitempty"`
 
-	// Discount: Discount percentage of the subscription line
+	// Discount:
 	Discount *float64 `json:"Discount,omitempty"`
 
-	// Division: Code of division the subscription line is made
+	// Division:
 	Division *int `json:"Division,omitempty"`
 
-	// EntryID: Entry ID referencing to the subscription
+	// EntryID:
 	EntryID *types.GUID `json:"EntryID,omitempty"`
 
-	// FromDate: The date which the subscription line starts
+	// FromDate:
 	FromDate *types.Date `json:"FromDate,omitempty"`
 
-	// ID: Primary key
+	// ID:
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Item: The item that is used by the subscription line for sales details. Reference to Item
+	// Item:
 	Item *types.GUID `json:"Item,omitempty"`
 
-	// ItemDescription: Description of Item used by the subscription line
+	// ItemDescription:
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
-	// LineNumber: Line number of the subscription line per subscription
+	// LineNumber:
 	LineNumber *int `json:"LineNumber,omitempty"`
 
-	// LineType: Reference to LineType endpoint
+	// LineType:
 	LineType *int `json:"LineType,omitempty"`
 
-	// LineTypeDescription: Description of LineType
+	// LineTypeDescription:
 	LineTypeDescription *string `json:"LineTypeDescription,omitempty"`
 
-	// Modified: Date and time when the subscription line has been modified
+	// Modified:
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// NetPrice: Net price in the currency of the transaction
+	// NetPrice:
 	NetPrice *float64 `json:"NetPrice,omitempty"`
 
-	// Notes: To add or retrieve additional information in the subscription line
+	// Notes:
 	Notes *string `json:"Notes,omitempty"`
 
-	// Quantity: Quantity of item used in the subscription line
+	// Quantity:
 	Quantity *float64 `json:"Quantity,omitempty"`
 
-	// SubscriptionNumber: Subscription number of the subscription line per subscription
+	// SubscriptionNumber:
 	SubscriptionNumber *int `json:"SubscriptionNumber,omitempty"`
 
-	// ToDate: The date the subscription line ends
+	// ToDate:
 	ToDate *types.Date `json:"ToDate,omitempty"`
 
-	// UnitCode: The code of the unit used in the subscription line. E.g: kg, meter
+	// UnitCode:
 	UnitCode *string `json:"UnitCode,omitempty"`
 
-	// UnitDescription: Description of Unit used in the subscription line
+	// UnitDescription:
 	UnitDescription *string `json:"UnitDescription,omitempty"`
 
-	// UnitPrice: Unit price in the currency of the transaction (price * unit factor)
+	// UnitPrice:
 	UnitPrice *float64 `json:"UnitPrice,omitempty"`
 
-	// VATAmountFC: Vat Amount in the currency of the transaction
+	// VATAmountFC:
 	VATAmountFC *float64 `json:"VATAmountFC,omitempty"`
 
-	// VATCode: VAT code that is used in the subscription line
+	// VATCode:
 	VATCode *string `json:"VATCode,omitempty"`
 
-	// VATCodeDescription: Description of VAT code that is used in the subscription line
+	// VATCodeDescription:
 	VATCodeDescription *string `json:"VATCodeDescription,omitempty"`
 }
 

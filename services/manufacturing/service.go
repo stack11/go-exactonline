@@ -20,6 +20,7 @@ type ManufacturingService struct {
 
 	// Endpoints available under this service
 	BillOfMaterialMaterials                  *BillOfMaterialMaterialsEndpoint
+	BillOfMaterialRoutings                   *BillOfMaterialRoutingsEndpoint
 	BillOfMaterialVersions                   *BillOfMaterialVersionsEndpoint
 	ByProductReceipts                        *ByProductReceiptsEndpoint
 	ByProductReversals                       *ByProductReversalsEndpoint
@@ -56,6 +57,7 @@ func NewManufacturingService(apiClient *api.Client) *ManufacturingService {
 	s.common.client = apiClient
 
 	s.BillOfMaterialMaterials = (*BillOfMaterialMaterialsEndpoint)(&s.common)
+	s.BillOfMaterialRoutings = (*BillOfMaterialRoutingsEndpoint)(&s.common)
 	s.BillOfMaterialVersions = (*BillOfMaterialVersionsEndpoint)(&s.common)
 	s.ByProductReceipts = (*ByProductReceiptsEndpoint)(&s.common)
 	s.ByProductReversals = (*ByProductReversalsEndpoint)(&s.common)

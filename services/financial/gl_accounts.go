@@ -33,6 +33,9 @@ type GLAccounts struct {
 	// ID:
 	ID *types.GUID `json:"ID,omitempty"`
 
+	// AllowCostsInSales:
+	AllowCostsInSales *byte `json:"AllowCostsInSales,omitempty"`
+
 	// AssimilatedVATBox:
 	AssimilatedVATBox *int `json:"AssimilatedVATBox,omitempty"`
 
@@ -71,6 +74,9 @@ type GLAccounts struct {
 
 	// CreatorFullName:
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
+
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
 
 	// DeductibilityPercentages:
 	DeductibilityPercentages *json.RawMessage `json:"DeductibilityPercentages,omitempty"`

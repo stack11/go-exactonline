@@ -29,6 +29,9 @@ type InventoryItemWarehouses struct {
 	// Timestamp: Timestamp
 	Timestamp *int64 `json:"Timestamp,omitempty"`
 
+	// CountingCycle: Indicates the number of days for next cycle count.
+	CountingCycle *int `json:"CountingCycle,omitempty"`
+
 	// Created: Creation date
 	Created *types.Date `json:"Created,omitempty"`
 
@@ -94,6 +97,9 @@ type InventoryItemWarehouses struct {
 
 	// SafetyStock: Minimum quantity of items you must have in stock
 	SafetyStock *float64 `json:"SafetyStock,omitempty"`
+
+	// StorageLocationSequenceNumber: Sequence number of the item (Premium Only)
+	StorageLocationSequenceNumber *int `json:"StorageLocationSequenceNumber,omitempty"`
 
 	// Warehouse: Warehouse ID
 	Warehouse *types.GUID `json:"Warehouse,omitempty"`

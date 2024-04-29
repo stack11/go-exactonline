@@ -83,7 +83,7 @@ type PaymentConditions struct {
 	// PaymentEndOfMonths: Number of month endings to be included in the due date calculation
 	PaymentEndOfMonths *int `json:"PaymentEndOfMonths,omitempty"`
 
-	// PaymentMethod: Method of payment. Values: B = On credit, I = Collection, K = Cash
+	// PaymentMethod: Method of payment. Values: B = On credit, I = Collection, K = Cash, Q = PSP Collection
 	PaymentMethod *string `json:"PaymentMethod,omitempty"`
 
 	// Percentage: Percentage (stored as fraction) of total invoice amount

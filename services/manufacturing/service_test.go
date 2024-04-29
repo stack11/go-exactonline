@@ -30,6 +30,7 @@ func TestNewManufacturingService(t *testing.T) {
 	want.common.client = c
 
 	want.BillOfMaterialMaterials = (*BillOfMaterialMaterialsEndpoint)(&want.common)
+	want.BillOfMaterialRoutings = (*BillOfMaterialRoutingsEndpoint)(&want.common)
 	want.BillOfMaterialVersions = (*BillOfMaterialVersionsEndpoint)(&want.common)
 	want.ByProductReceipts = (*ByProductReceiptsEndpoint)(&want.common)
 	want.ByProductReversals = (*ByProductReversalsEndpoint)(&want.common)

@@ -24,142 +24,142 @@ type SubscriptionsEndpoint service
 // Service: Subscription
 // Entity: Subscriptions
 // URL: /api/v1/{division}/subscription/Subscriptions
-// HasWebhook: false
+// HasWebhook: true
 // IsInBeta: false
 // Methods: GET POST PUT DELETE
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=SubscriptionSubscriptions
 type Subscriptions struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// EntryID: Primary key
+	// EntryID:
 	EntryID *types.GUID `json:"EntryID,omitempty"`
 
-	// BlockEntry: Indicates if subscription is blocked for time cost entry
+	// BlockEntry:
 	BlockEntry *bool `json:"BlockEntry,omitempty"`
 
-	// CancellationDate: Date of cancellation
+	// CancellationDate:
 	CancellationDate *types.Date `json:"CancellationDate,omitempty"`
 
-	// Classification: Guid ID of classification, to filter the report based on the classification of a subscription
+	// Classification:
 	Classification *types.GUID `json:"Classification,omitempty"`
 
-	// ClassificationCode: Code of classification, to filter the report based on the classification of a subscription
+	// ClassificationCode:
 	ClassificationCode *string `json:"ClassificationCode,omitempty"`
 
-	// ClassificationDescription: Description of classification, to filter the report based on the classification of a subscription
+	// ClassificationDescription:
 	ClassificationDescription *string `json:"ClassificationDescription,omitempty"`
 
-	// Created: Date when the subscription was created
+	// Created:
 	Created *types.Date `json:"Created,omitempty"`
 
-	// Creator: The Guid ID of the user that created the subscription
+	// Creator:
 	Creator *types.GUID `json:"Creator,omitempty"`
 
-	// CreatorFullName: The full name of the user that created the subscription
+	// CreatorFullName:
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
-	// Currency: Currency code used in the transactions
+	// Currency:
 	Currency *string `json:"Currency,omitempty"`
 
-	// CustomerPONumber: Purchase order number of that is linked to customer
+	// CustomerPONumber:
 	CustomerPONumber *string `json:"CustomerPONumber,omitempty"`
 
-	// Description: Description of the subscription
+	// Description:
 	Description *string `json:"Description,omitempty"`
 
-	// Division: Division number of the company that the subscription is linked to
+	// Division:
 	Division *int `json:"Division,omitempty"`
 
-	// EndDate: The date and time when the subscription ends
+	// EndDate:
 	EndDate *types.Date `json:"EndDate,omitempty"`
 
-	// InvoiceDay: For monthly, quaterly, half-year and yearly invoice period, the day number of the month when the invoice of the subscription is sent. // 												 // 						While for weekly invoice period, the weekday number of the week when the invoice of the subscription is sent:  // 						0=Monday  // 						1=Tuesday  // 						2=Wednesday  // 						3=Thursday // 						4=Friday  // 						5=Saturday  // 						6=Sunday
+	// InvoiceDay:
 	InvoiceDay *byte `json:"InvoiceDay,omitempty"`
 
-	// InvoicedTo: The date when the invoice of the subscription is sent
+	// InvoicedTo:
 	InvoicedTo *types.Date `json:"InvoicedTo,omitempty"`
 
-	// InvoiceTo: The account which the subsciption is invoiced to
+	// InvoiceTo:
 	InvoiceTo *types.GUID `json:"InvoiceTo,omitempty"`
 
-	// InvoiceToContactPerson: The ID of the contact person that is linked to the account the subscription is invoice to
+	// InvoiceToContactPerson:
 	InvoiceToContactPerson *types.GUID `json:"InvoiceToContactPerson,omitempty"`
 
-	// InvoiceToContactPersonFullName: The name of the contact person that is linked to the account the subscription is invoice to
+	// InvoiceToContactPersonFullName:
 	InvoiceToContactPersonFullName *string `json:"InvoiceToContactPersonFullName,omitempty"`
 
-	// InvoiceToName: Name of the account to invoice to
+	// InvoiceToName:
 	InvoiceToName *string `json:"InvoiceToName,omitempty"`
 
-	// InvoicingStartDate: Date to start invoicing the account
+	// InvoicingStartDate:
 	InvoicingStartDate *types.Date `json:"InvoicingStartDate,omitempty"`
 
-	// Modified: Date and time when the subscription has been modified
+	// Modified:
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// Modifier: The ID of the user that modified the subscription
+	// Modifier:
 	Modifier *types.GUID `json:"Modifier,omitempty"`
 
-	// ModifierFullName: The name of the user that modified the subscription
+	// ModifierFullName:
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// Notes: For additional information regarding the subscription
+	// Notes:
 	Notes *string `json:"Notes,omitempty"`
 
-	// Number: Subscription number of the company
+	// Number:
 	Number *int `json:"Number,omitempty"`
 
-	// OrderedBy: Reference to order account, GUID ID of the subscriber
+	// OrderedBy:
 	OrderedBy *types.GUID `json:"OrderedBy,omitempty"`
 
-	// OrderedByContactPerson: Reference of contact person of order account, displays the contact name of the subscriber
+	// OrderedByContactPerson:
 	OrderedByContactPerson *types.GUID `json:"OrderedByContactPerson,omitempty"`
 
-	// OrderedByContactPersonFullName: Name of contact person of order account, displays the full contact name of the subscriber
+	// OrderedByContactPersonFullName:
 	OrderedByContactPersonFullName *string `json:"OrderedByContactPersonFullName,omitempty"`
 
-	// OrderedByName: Name of order account, displays the name of the subscriber
+	// OrderedByName:
 	OrderedByName *string `json:"OrderedByName,omitempty"`
 
-	// PaymentCondition: Code of subscriptions payment condition
+	// PaymentCondition:
 	PaymentCondition *string `json:"PaymentCondition,omitempty"`
 
-	// PaymentConditionDescription: Description of subscriptions payment condition
+	// PaymentConditionDescription:
 	PaymentConditionDescription *string `json:"PaymentConditionDescription,omitempty"`
 
-	// Printed: Indicates if subscription has been printed
+	// Printed:
 	Printed *bool `json:"Printed,omitempty"`
 
-	// Project: The Guid ID of the project, reference to Project endpoint
+	// Project:
 	Project *types.GUID `json:"Project,omitempty"`
 
-	// ReasonCancelled: Guid ID of the reason of cancellation record linked to the subscription
+	// ReasonCancelled:
 	ReasonCancelled *types.GUID `json:"ReasonCancelled,omitempty"`
 
-	// ReasonCancelledCode: Code of the reason of cancellation record linked to the subscription
+	// ReasonCancelledCode:
 	ReasonCancelledCode *string `json:"ReasonCancelledCode,omitempty"`
 
-	// ReasonCancelledDescription: Description of the reason of cancellation record linked to the subscription
+	// ReasonCancelledDescription:
 	ReasonCancelledDescription *string `json:"ReasonCancelledDescription,omitempty"`
 
-	// StartDate: Start date of the subscription
+	// StartDate:
 	StartDate *types.Date `json:"StartDate,omitempty"`
 
-	// SubscriptionLines: Collection of subscription lines linked to the subscription link, can be referenced to SubscriptionLines endpoint
+	// SubscriptionLines:
 	SubscriptionLines *json.RawMessage `json:"SubscriptionLines,omitempty"`
 
-	// SubscriptionRestrictionEmployees: Collection of employee&#39;s restriction, can be referenced to SubscriptionRestrictionEmployees endpoint
+	// SubscriptionRestrictionEmployees:
 	SubscriptionRestrictionEmployees *json.RawMessage `json:"SubscriptionRestrictionEmployees,omitempty"`
 
-	// SubscriptionRestrictionItems: Collection of restriction items linked to the subscription, can be referenced to SubscriptionRestrictionItems endpoint
+	// SubscriptionRestrictionItems:
 	SubscriptionRestrictionItems *json.RawMessage `json:"SubscriptionRestrictionItems,omitempty"`
 
-	// SubscriptionType: The GUID ID of the subscription condition, reference to SubscriptionType endpoint
+	// SubscriptionType:
 	SubscriptionType *types.GUID `json:"SubscriptionType,omitempty"`
 
-	// SubscriptionTypeCode: The code of the subscription condition record
+	// SubscriptionTypeCode:
 	SubscriptionTypeCode *string `json:"SubscriptionTypeCode,omitempty"`
 
-	// SubscriptionTypeDescription: The code of the subscription condition description
+	// SubscriptionTypeDescription:
 	SubscriptionTypeDescription *string `json:"SubscriptionTypeDescription,omitempty"`
 }
 

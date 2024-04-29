@@ -53,6 +53,12 @@ type SubscriptionTypes struct {
 	// AutomaticSendInvoiceType: Type of automatic send invoice: 1=Never, 2=When available.  // 						Company settings need to be enabled before subscription invoice sent automatically
 	AutomaticSendInvoiceType *int `json:"AutomaticSendInvoiceType,omitempty"`
 
+	// CancellationPeriod: Cancellation period of subscription type
+	CancellationPeriod *int `json:"CancellationPeriod,omitempty"`
+
+	// CancellationPeriodUnit: Unit of cancellation period: wk=Week, mm=Month, yy=Year, hy=Half-year, qt=Quarter
+	CancellationPeriodUnit *string `json:"CancellationPeriodUnit,omitempty"`
+
 	// Code: Code
 	Code *string `json:"Code,omitempty"`
 
@@ -65,14 +71,29 @@ type SubscriptionTypes struct {
 	// CreatorFullName: Full name of user that created the subscription type
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// CustomField: Custom field endpoint. Provided only for the Exact Online Premium users.
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Description: Description of subscription type
 	Description *string `json:"Description,omitempty"`
 
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
+	// EnablePaymentLink: Enable payment link: 0=Never, 1=Always, 2=Based on account
+	EnablePaymentLink *int `json:"EnablePaymentLink,omitempty"`
+
 	// InvoiceCorrectionMethod: Invoice correction method: 1=Ratio based, 2=Zero Invoice, 3=Never invoiced
 	InvoiceCorrectionMethod *int `json:"InvoiceCorrectionMethod,omitempty"`
+
+	// InvoicePeriod: Invoice period of subscription type
+	InvoicePeriod *int `json:"InvoicePeriod,omitempty"`
+
+	// InvoicePeriodUnit: Unit of invoice period: wk=Week, mm=Month, yy=Year, hy=Half-year, qt=Quarter
+	InvoicePeriodUnit *string `json:"InvoicePeriodUnit,omitempty"`
+
+	// ManualRenewalMethod: Manual renewal method: 1=Use item prices, 2=Use current subscription prices
+	ManualRenewalMethod *int `json:"ManualRenewalMethod,omitempty"`
 
 	// Modified: Last modified date of subscription type
 	Modified *types.Date `json:"Modified,omitempty"`
@@ -82,6 +103,30 @@ type SubscriptionTypes struct {
 
 	// ModifierFullName: Full name of user that modified the subscription type
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
+
+	// Notes: Additional information about subscription type
+	Notes *string `json:"Notes,omitempty"`
+
+	// ProlongationType: Prolongation type: 0=No, 1=Manual, 2=Automatic
+	ProlongationType *byte `json:"ProlongationType,omitempty"`
+
+	// RenewalCancellationPeriod: Renewal cancellation period of subscription type
+	RenewalCancellationPeriod *int `json:"RenewalCancellationPeriod,omitempty"`
+
+	// RenewalCancellationPeriodUnit: Unit of renewal cancellation period: wk=Week, mm=Month, yy=Year, hy=Half-year, qt=Quarter
+	RenewalCancellationPeriodUnit *string `json:"RenewalCancellationPeriodUnit,omitempty"`
+
+	// RenewalPeriod: Renewal period of subscription type
+	RenewalPeriod *int `json:"RenewalPeriod,omitempty"`
+
+	// RenewalPeriodUnit: Unit of renewal period: wk=Week, mm=Month, yy=Year, hy=Half-year, qt=Quarter
+	RenewalPeriodUnit *string `json:"RenewalPeriodUnit,omitempty"`
+
+	// SubscriptionPeriod: Subscription period of subscription type
+	SubscriptionPeriod *int `json:"SubscriptionPeriod,omitempty"`
+
+	// SubscriptionPeriodUnit: Unit of subscription period: wk=Week, mm=Month, yy=Year, hy=Half-year, qt=Quarter
+	SubscriptionPeriodUnit *string `json:"SubscriptionPeriodUnit,omitempty"`
 }
 
 func (e *SubscriptionTypes) GetPrimary() *types.GUID {

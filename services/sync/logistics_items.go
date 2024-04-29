@@ -29,11 +29,17 @@ type LogisticsItems struct {
 	// Timestamp:
 	Timestamp *int64 `json:"Timestamp,omitempty"`
 
+	// AssembledLeadDays:
+	AssembledLeadDays *int `json:"AssembledLeadDays,omitempty"`
+
 	// AverageCost:
 	AverageCost *float64 `json:"AverageCost,omitempty"`
 
 	// Barcode:
 	Barcode *string `json:"Barcode,omitempty"`
+
+	// BatchQuantity:
+	BatchQuantity *float64 `json:"BatchQuantity,omitempty"`
 
 	// Class_01:
 	Class_01 *string `json:"Class_01,omitempty"`
@@ -293,6 +299,9 @@ type LogisticsItems struct {
 	// Notes:
 	Notes *string `json:"Notes,omitempty"`
 
+	// Picture:
+	Picture *[]byte `json:"Picture,omitempty"`
+
 	// PictureName:
 	PictureName *string `json:"PictureName,omitempty"`
 
@@ -340,6 +349,9 @@ type LogisticsItems struct {
 
 	// UnitType:
 	UnitType *string `json:"UnitType,omitempty"`
+
+	// UseExplosion:
+	UseExplosion *byte `json:"UseExplosion,omitempty"`
 }
 
 func (e *LogisticsItems) GetPrimary() *int64 {

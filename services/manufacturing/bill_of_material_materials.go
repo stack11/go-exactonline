@@ -101,6 +101,9 @@ type BillOfMaterialMaterials struct {
 	// QuantityBatch: Quantity of the material needed to produce the batch including the waste
 	QuantityBatch *float64 `json:"QuantityBatch,omitempty"`
 
+	// RoutingStepID: ID of the routing step
+	RoutingStepID *types.GUID `json:"RoutingStepID,omitempty"`
+
 	// Syscreated: Creation date
 	Syscreated *types.Date `json:"syscreated,omitempty"`
 
@@ -116,7 +119,7 @@ type BillOfMaterialMaterials struct {
 	// Type: Material type 1 indicates material, 2 indicates byproduct
 	Type *int `json:"Type,omitempty"`
 
-	// WastePercentage: Waste percentage must be null or integer from 1 to 9999 (only available in Manufacturing Premium)
+	// WastePercentage: Waste percentage must be null or integer from 1 to 9999 (only available in Manufacturing Professional and Premium)
 	WastePercentage *float64 `json:"WastePercentage,omitempty"`
 }
 

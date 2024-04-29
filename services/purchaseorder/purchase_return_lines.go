@@ -51,6 +51,12 @@ type PurchaseReturnLines struct {
 	// EntryID: EntryID identifies the purchase return. All the lines of purchase return have the same Entry ID
 	EntryID *types.GUID `json:"EntryID,omitempty"`
 
+	// Expense: Expense related to the Work Breakdown Structure of the selected project. Only available with a professional service license
+	Expense *types.GUID `json:"Expense,omitempty"`
+
+	// ExpenseDescription: Description of expense. Only available with a professional service license
+	ExpenseDescription *string `json:"ExpenseDescription,omitempty"`
+
 	// GoodsReceiptLineID: ID of the goods receipts line
 	GoodsReceiptLineID *types.GUID `json:"GoodsReceiptLineID,omitempty"`
 
@@ -87,11 +93,23 @@ type PurchaseReturnLines struct {
 	// Notes: Notes related to the return
 	Notes *string `json:"Notes,omitempty"`
 
+	// Project: Reference to project. Only available with a professional service license
+	Project *types.GUID `json:"Project,omitempty"`
+
+	// ProjectCode: Project code. Only available with a professional service license
+	ProjectCode *string `json:"ProjectCode,omitempty"`
+
+	// ProjectDescription: Description of the project. Only available with a professional service license
+	ProjectDescription *string `json:"ProjectDescription,omitempty"`
+
 	// PurchaseOrderLineID: ID of the purchase order line that is returned
 	PurchaseOrderLineID *types.GUID `json:"PurchaseOrderLineID,omitempty"`
 
 	// PurchaseOrderNumber: Order number of the purchase order that is returned
 	PurchaseOrderNumber *int `json:"PurchaseOrderNumber,omitempty"`
+
+	// Rebill: Indicates whether the purchase order line needs to be rebilled. Only available with a professional service license
+	Rebill *bool `json:"Rebill,omitempty"`
 
 	// ReceiptNumber: Receipt number of the return
 	ReceiptNumber *int `json:"ReceiptNumber,omitempty"`

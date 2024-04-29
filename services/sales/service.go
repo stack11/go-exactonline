@@ -19,9 +19,8 @@ type SalesService struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// Endpoints available under this service
-	PriceLists                    *PriceListsEndpoint
+	OrderCharges                  *OrderChargesEndpoint
 	SalesChannels                 *SalesChannelsEndpoint
-	SalesPriceListDetails         *SalesPriceListDetailsEndpoint
 	SalesPriceListLinkedAccounts  *SalesPriceListLinkedAccountsEndpoint
 	SalesPriceListPeriods         *SalesPriceListPeriodsEndpoint
 	SalesPriceLists               *SalesPriceListsEndpoint
@@ -36,9 +35,8 @@ func NewSalesService(apiClient *api.Client) *SalesService {
 
 	s.common.client = apiClient
 
-	s.PriceLists = (*PriceListsEndpoint)(&s.common)
+	s.OrderCharges = (*OrderChargesEndpoint)(&s.common)
 	s.SalesChannels = (*SalesChannelsEndpoint)(&s.common)
-	s.SalesPriceListDetails = (*SalesPriceListDetailsEndpoint)(&s.common)
 	s.SalesPriceListLinkedAccounts = (*SalesPriceListLinkedAccountsEndpoint)(&s.common)
 	s.SalesPriceListPeriods = (*SalesPriceListPeriodsEndpoint)(&s.common)
 	s.SalesPriceLists = (*SalesPriceListsEndpoint)(&s.common)

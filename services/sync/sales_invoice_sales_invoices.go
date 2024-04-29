@@ -71,6 +71,9 @@ type SalesInvoiceSalesInvoices struct {
 	// CustomerItemCode:
 	CustomerItemCode *string `json:"CustomerItemCode,omitempty"`
 
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// DeliverTo:
 	DeliverTo *types.GUID `json:"DeliverTo,omitempty"`
 

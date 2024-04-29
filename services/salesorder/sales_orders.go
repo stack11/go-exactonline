@@ -195,6 +195,9 @@ type SalesOrders struct {
 	// SalesOrderLines:
 	SalesOrderLines *json.RawMessage `json:"SalesOrderLines,omitempty"`
 
+	// SalesOrderOrderChargeLines:
+	SalesOrderOrderChargeLines *json.RawMessage `json:"SalesOrderOrderChargeLines,omitempty"`
+
 	// Salesperson:
 	Salesperson *types.GUID `json:"Salesperson,omitempty"`
 

@@ -74,10 +74,19 @@ type SupplierItem struct {
 	// ItemDescription: Description of Item
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
+	// ItemUnit: Item Unit
+	ItemUnit *types.GUID `json:"ItemUnit,omitempty"`
+
+	// ItemUnitCode: Item Unit Code
+	ItemUnitCode *string `json:"ItemUnitCode,omitempty"`
+
+	// ItemUnitDescription: Item Unit Description
+	ItemUnitDescription *string `json:"ItemUnitDescription,omitempty"`
+
 	// MainSupplier: Indicates this is a main supplier
 	MainSupplier *bool `json:"MainSupplier,omitempty"`
 
-	// MinimumQuantity: Minimum quantity of the item for purchase, only available for Wholesale &amp; Distribution (Premium only)
+	// MinimumQuantity: Minimum quantity of the item for purchase, only available for Wholesale &amp; Distribution (Professional and Premium only)
 	MinimumQuantity *float64 `json:"MinimumQuantity,omitempty"`
 
 	// Modified: Last modified date
@@ -95,7 +104,7 @@ type SupplierItem struct {
 	// PurchaseLeadTime: The number of days between placing an order with a supplier and receiving items from the supplier
 	PurchaseLeadTime *int `json:"PurchaseLeadTime,omitempty"`
 
-	// PurchaseLotSize: Lot size of the item for purchase
+	// PurchaseLotSize: Lot size of the item for purchase, only available for Wholesale &amp; Distribution (Premium only)
 	PurchaseLotSize *int `json:"PurchaseLotSize,omitempty"`
 
 	// PurchasePrice: Purchase price. If neither active nor future price exists, it shows 0 when GET
@@ -128,7 +137,7 @@ type SupplierItem struct {
 	// SupplierDescription: Description of supplier
 	SupplierDescription *string `json:"SupplierDescription,omitempty"`
 
-	// SupplierItemCode: Supplier’s item code
+	// SupplierItemCode: Supplier&#39;s item code
 	SupplierItemCode *string `json:"SupplierItemCode,omitempty"`
 }
 

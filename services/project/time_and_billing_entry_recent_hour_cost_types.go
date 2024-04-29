@@ -32,6 +32,12 @@ type TimeAndBillingEntryRecentHourCostTypes struct {
 	// DateLastUsed: The last date that the item has been used for hour entry
 	DateLastUsed *types.Date `json:"DateLastUsed,omitempty"`
 
+	// IsValid: Optional property indicating if the type is still valid for new entries. Can be used to show valid defaults
+	IsValid *bool `json:"IsValid,omitempty"`
+
+	// ItemCode: Code of the item
+	ItemCode *string `json:"ItemCode,omitempty"`
+
 	// ItemDescription: Description of item
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 }

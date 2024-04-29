@@ -33,8 +33,11 @@ type PurchaseInvoices struct {
 	// ID: A guid that is the unique identifier of the purchase invoice.
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// Amount: The amount including VAT in the currency of the invoice.
+	// Amount: The amount including VAT in the foreign currency.
 	Amount *float64 `json:"Amount,omitempty"`
+
+	// AmountDC: The amount including VAT in the default currency.
+	AmountDC *float64 `json:"AmountDC,omitempty"`
 
 	// ContactPerson: Guid identifying the contact person of the supplier.
 	ContactPerson *types.GUID `json:"ContactPerson,omitempty"`
@@ -99,7 +102,7 @@ type PurchaseInvoices struct {
 	// VATAmount: The total VAT amount of the purchase invoice.
 	VATAmount *float64 `json:"VATAmount,omitempty"`
 
-	// Warehouse: Guid that identifies the warehouse that will receive the purchased goods. This is mandatory for creating a direct purchase invoice.
+	// Warehouse: Guid that identifies the warehouse that will receive the purchased goods. This is mandatory for creating a direct purchase invoice except for Exact Online Projects.
 	Warehouse *types.GUID `json:"Warehouse,omitempty"`
 
 	// YourRef: The invoice number provided by the supplier.

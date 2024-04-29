@@ -30,6 +30,7 @@ type HRMService struct {
 	Divisions                       *DivisionsEndpoint
 	JobGroups                       *JobGroupsEndpoint
 	JobTitles                       *JobTitlesEndpoint
+	LeaveAbsenceHoursByDay          *LeaveAbsenceHoursByDayEndpoint
 	LeaveBuildUpRegistrations       *LeaveBuildUpRegistrationsEndpoint
 	LeaveRegistrations              *LeaveRegistrationsEndpoint
 	Schedules                       *SchedulesEndpoint
@@ -53,6 +54,7 @@ func NewHRMService(apiClient *api.Client) *HRMService {
 	s.Divisions = (*DivisionsEndpoint)(&s.common)
 	s.JobGroups = (*JobGroupsEndpoint)(&s.common)
 	s.JobTitles = (*JobTitlesEndpoint)(&s.common)
+	s.LeaveAbsenceHoursByDay = (*LeaveAbsenceHoursByDayEndpoint)(&s.common)
 	s.LeaveBuildUpRegistrations = (*LeaveBuildUpRegistrationsEndpoint)(&s.common)
 	s.LeaveRegistrations = (*LeaveRegistrationsEndpoint)(&s.common)
 	s.Schedules = (*SchedulesEndpoint)(&s.common)

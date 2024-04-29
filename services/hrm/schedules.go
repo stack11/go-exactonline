@@ -35,6 +35,9 @@ type Schedules struct {
 	// AverageHours: Average hours per week in a schedule
 	AverageHours *float64 `json:"AverageHours,omitempty"`
 
+	// BillabilityTarget: Billability target
+	BillabilityTarget *float64 `json:"BillabilityTarget,omitempty"`
+
 	// Code: Schedule code
 	Code *string `json:"Code,omitempty"`
 

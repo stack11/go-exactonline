@@ -60,6 +60,9 @@ type WarehouseTransfers struct {
 	// ModifierFullName: Name of modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
+	// PickedBy: Warehouse pick/Location pick user
+	PickedBy *types.GUID `json:"PickedBy,omitempty"`
+
 	// PlannedDeliveryDate: Planned delivery date / Planned transfer date It shows the date the items will be sent for transfer delivery.
 	PlannedDeliveryDate *types.Date `json:"PlannedDeliveryDate,omitempty"`
 
@@ -80,6 +83,9 @@ type WarehouseTransfers struct {
 
 	// TransferNumber: Transfer Number
 	TransferNumber *int `json:"TransferNumber,omitempty"`
+
+	// TransferredBy: Warehouse transfer/Location transfer user
+	TransferredBy *types.GUID `json:"TransferredBy,omitempty"`
 
 	// WarehouseFrom: ID of warehouse to transfer item from
 	WarehouseFrom *types.GUID `json:"WarehouseFrom,omitempty"`

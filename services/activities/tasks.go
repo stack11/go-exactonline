@@ -72,6 +72,9 @@ type Tasks struct {
 	// DocumentSubject: The subject of the document
 	DocumentSubject *string `json:"DocumentSubject,omitempty"`
 
+	// Employee: The employee that is linked to the task.Note:For POST/PUT: This field value is only used when the &#34;Employees&#34; featureset is enabled. For GET: To see the field value required &#34;Employee&#34; featureset. Otherwise, the field always return NULL value.
+	Employee *types.GUID `json:"Employee,omitempty"`
+
 	// HID: The human readable key
 	HID *int `json:"HID,omitempty"`
 

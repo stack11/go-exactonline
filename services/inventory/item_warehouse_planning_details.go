@@ -59,7 +59,7 @@ type ItemWarehousePlanningDetails struct {
 	// PlanningSourceUrl: REST API URL of this specific PlanningSource and PlanningSourceID (Assembly orders and warehouse transfers not supported over REST)
 	PlanningSourceUrl *string `json:"PlanningSourceUrl,omitempty"`
 
-	// PlanningType: Type of the PlanningSource - 120=GoodsDelivery, 124=WarehouseTransferDelivery, 130=GoodsReceipt, 134=WarehouseTransferReceipt, 140=ShopOrderStockReceipt, 147=ShopOrderByProductReceipt, 150=ShopOrderRequirement, 160=AssemblyOrderReceipt, 165=AssemblyOrderIssue, 200=Trade-in
+	// PlanningType: Type of the PlanningSource - 120=GoodsDelivery, 124=WarehouseTransferDelivery, 130=GoodsReceipt, 134=WarehouseTransferReceipt, 140=ShopOrderStockReceipt, 147=ShopOrderByProductReceipt, 150=ShopOrderRequirement, 160=AssemblyOrderReceipt, 161=DisassemblyReturnReceipt, 165=AssemblyOrderIssue, 166=DisassemblyReturnIssue, 200=Trade-in
 	PlanningType *int `json:"PlanningType,omitempty"`
 
 	// PlanningTypeDescription: Human readable description of the PlanningSourceType (translated to user&#39;s language) - Examples: &#39;Shop order stock receipt&#39; or &#39;Goods delivery&#39;

@@ -26,292 +26,319 @@ type PurchaseOrderPurchaseOrdersEndpoint service
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=SyncPurchaseOrderPurchaseOrders
 type PurchaseOrderPurchaseOrders struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
-	// Timestamp: Timestamp
+	// Timestamp:
 	Timestamp *int64 `json:"Timestamp,omitempty"`
 
-	// AmountDC: Amount in the default currency of the company
+	// AmountDC:
 	AmountDC *float64 `json:"AmountDC,omitempty"`
 
-	// AmountFC: Amount in the currency of the transaction
+	// AmountDiscount:
+	AmountDiscount *float64 `json:"AmountDiscount,omitempty"`
+
+	// AmountDiscountExclVat:
+	AmountDiscountExclVat *float64 `json:"AmountDiscountExclVat,omitempty"`
+
+	// AmountFC:
 	AmountFC *float64 `json:"AmountFC,omitempty"`
 
-	// CostCenter: Reference to Cost center
+	// AmountFCExclVat:
+	AmountFCExclVat *float64 `json:"AmountFCExclVat,omitempty"`
+
+	// ApprovalStatus:
+	ApprovalStatus *int `json:"ApprovalStatus,omitempty"`
+
+	// ApprovalStatusDescription:
+	ApprovalStatusDescription *string `json:"ApprovalStatusDescription,omitempty"`
+
+	// Approved:
+	Approved *types.Date `json:"Approved,omitempty"`
+
+	// Approver:
+	Approver *types.GUID `json:"Approver,omitempty"`
+
+	// ApproverFullName:
+	ApproverFullName *string `json:"ApproverFullName,omitempty"`
+
+	// CostCenter:
 	CostCenter *types.GUID `json:"CostCenter,omitempty"`
 
-	// CostCenterCode: Code of Cost Center (user-defined ID)
+	// CostCenterCode:
 	CostCenterCode *string `json:"CostCenterCode,omitempty"`
 
-	// CostCenterDescription: Description of Cost Center
+	// CostCenterDescription:
 	CostCenterDescription *string `json:"CostCenterDescription,omitempty"`
 
-	// CostUnit: Reference to Cost Unit
+	// CostUnit:
 	CostUnit *types.GUID `json:"CostUnit,omitempty"`
 
-	// CostUnitCode: Code of Cost Unit (user-defined ID)
+	// CostUnitCode:
 	CostUnitCode *string `json:"CostUnitCode,omitempty"`
 
-	// CostUnitDescription: Description of Cost Unit
+	// CostUnitDescription:
 	CostUnitDescription *string `json:"CostUnitDescription,omitempty"`
 
-	// Created: Creation date
+	// Created:
 	Created *types.Date `json:"Created,omitempty"`
 
-	// Creator: User ID of creator
+	// Creator:
 	Creator *types.GUID `json:"Creator,omitempty"`
 
-	// CreatorFullName: Name of creator
+	// CreatorFullName:
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
-	// Currency: Currency code
+	// Currency:
 	Currency *string `json:"Currency,omitempty"`
 
-	// DeliveryAccount: Reference to account for delivery
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
+	// DeliveryAccount:
 	DeliveryAccount *types.GUID `json:"DeliveryAccount,omitempty"`
 
-	// DeliveryAccountCode: Delivery account code
+	// DeliveryAccountCode:
 	DeliveryAccountCode *string `json:"DeliveryAccountCode,omitempty"`
 
-	// DeliveryAccountName: Account name
+	// DeliveryAccountName:
 	DeliveryAccountName *string `json:"DeliveryAccountName,omitempty"`
 
-	// DeliveryAddress: Reference to shipping address
+	// DeliveryAddress:
 	DeliveryAddress *types.GUID `json:"DeliveryAddress,omitempty"`
 
-	// DeliveryContact: Reference to contact for delivery
+	// DeliveryContact:
 	DeliveryContact *types.GUID `json:"DeliveryContact,omitempty"`
 
-	// DeliveryContactPersonFullName: Name of the contact person of the customer who will receive delivered goods
+	// DeliveryContactPersonFullName:
 	DeliveryContactPersonFullName *string `json:"DeliveryContactPersonFullName,omitempty"`
 
-	// Description: Description
+	// Description:
 	Description *string `json:"Description,omitempty"`
 
-	// Discount: Discount in percentage for item
+	// Discount:
 	Discount *float64 `json:"Discount,omitempty"`
 
-	// Division: Division code
+	// Division:
 	Division *int `json:"Division,omitempty"`
 
-	// Document: Document that is manually linked to the purchase order
+	// Document:
 	Document *types.GUID `json:"Document,omitempty"`
 
-	// DocumentNumber: Number of the document
+	// DocumentNumber:
 	DocumentNumber *int `json:"DocumentNumber,omitempty"`
 
-	// DocumentSubject: Subject of the document
+	// DocumentSubject:
 	DocumentSubject *string `json:"DocumentSubject,omitempty"`
 
-	// DropShipment: Shows if it is a drop shipment purchase order
+	// DropShipment:
 	DropShipment *bool `json:"DropShipment,omitempty"`
 
-	// ExchangeRate: The exchange rate between the invoice currency and the default currency of the division.
+	// ExchangeRate:
 	ExchangeRate *float64 `json:"ExchangeRate,omitempty"`
 
-	// Expense: Expense related to the Work Breakdown Structure of the selected project. Only available with a professional service license
+	// Expense:
 	Expense *types.GUID `json:"Expense,omitempty"`
 
-	// ExpenseDescription: Description of expense. Only available with a professional service license
+	// ExpenseDescription:
 	ExpenseDescription *string `json:"ExpenseDescription,omitempty"`
 
-	// ID: Primary key
+	// ID:
 	ID *types.GUID `json:"ID,omitempty"`
 
-	// IncotermAddress: Address of Incoterm
+	// IncotermAddress:
 	IncotermAddress *string `json:"IncotermAddress,omitempty"`
 
-	// IncotermCode: Code of Incoterm
+	// IncotermCode:
 	IncotermCode *string `json:"IncotermCode,omitempty"`
 
-	// IncotermVersion: Version of Incoterm Supported version for Incoterms : 2010, 2020
+	// IncotermVersion:
 	IncotermVersion *int `json:"IncotermVersion,omitempty"`
 
-	// InvoicedQuantity: Quantity of item that has been invoiced
+	// InvoicedQuantity:
 	InvoicedQuantity *float64 `json:"InvoicedQuantity,omitempty"`
 
-	// InvoiceStatus: Invoice status of purchase order: 10-Open, 20-Partial, 30-Complete, 40-Canceled
+	// InvoiceStatus:
 	InvoiceStatus *int `json:"InvoiceStatus,omitempty"`
 
-	// IsBatchNumberItem: Indicates that an Item is an batch item
+	// IsBatchNumberItem:
 	IsBatchNumberItem *byte `json:"IsBatchNumberItem,omitempty"`
 
-	// IsSerialNumberItem: Indicates that an Item is an serial item
+	// IsSerialNumberItem:
 	IsSerialNumberItem *byte `json:"IsSerialNumberItem,omitempty"`
 
-	// Item: Reference to the item for purchase order
+	// Item:
 	Item *types.GUID `json:"Item,omitempty"`
 
-	// ItemBarcode: Barcode of the item (numeric string)
+	// ItemBarcode:
 	ItemBarcode *string `json:"ItemBarcode,omitempty"`
 
-	// ItemCode: Item code
+	// ItemCode:
 	ItemCode *string `json:"ItemCode,omitempty"`
 
-	// ItemDescription: Description of item
+	// ItemDescription:
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 
-	// ItemDivisable: Indicates if fractional quantities of the item can be used, for example quantity = 0.4
+	// ItemDivisable:
 	ItemDivisable *bool `json:"ItemDivisable,omitempty"`
 
-	// LineNumber: Line number
+	// LineNumber:
 	LineNumber *int `json:"LineNumber,omitempty"`
 
-	// Modified: Last modified date
+	// Modified:
 	Modified *types.Date `json:"Modified,omitempty"`
 
-	// Modifier: User ID of modifier
+	// Modifier:
 	Modifier *types.GUID `json:"Modifier,omitempty"`
 
-	// ModifierFullName: Name of modifier
+	// ModifierFullName:
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
 
-	// NetPrice: The net price is the unit price (VAT code taken into account) with any discount applied
+	// NetPrice:
 	NetPrice *float64 `json:"NetPrice,omitempty"`
 
-	// Notes: Notes
+	// Notes:
 	Notes *string `json:"Notes,omitempty"`
 
-	// OrderDate: Order date
+	// OrderDate:
 	OrderDate *types.Date `json:"OrderDate,omitempty"`
 
-	// OrderNumber: Human readable id of the purchase order
+	// OrderNumber:
 	OrderNumber *int `json:"OrderNumber,omitempty"`
 
-	// OrderStatus: Purchase order status: 10-Open, 20-Partial, 30-Complete, 40-Canceled
+	// OrderStatus:
 	OrderStatus *int `json:"OrderStatus,omitempty"`
 
-	// PaymentCondition: The payment condition code used for due date and discount calculation
+	// PaymentCondition:
 	PaymentCondition *string `json:"PaymentCondition,omitempty"`
 
-	// PaymentConditionDescription: Description of payment condition
+	// PaymentConditionDescription:
 	PaymentConditionDescription *string `json:"PaymentConditionDescription,omitempty"`
 
-	// Project: Reference to project. Only available with a professional service license
+	// Project:
 	Project *types.GUID `json:"Project,omitempty"`
 
-	// ProjectCode: Project code. Only available with a professional service license
+	// ProjectCode:
 	ProjectCode *string `json:"ProjectCode,omitempty"`
 
-	// ProjectDescription: Description of the project. Only available with a professional service license
+	// ProjectDescription:
 	ProjectDescription *string `json:"ProjectDescription,omitempty"`
 
-	// PurchaseAgent: Purchase agent
+	// PurchaseAgent:
 	PurchaseAgent *types.GUID `json:"PurchaseAgent,omitempty"`
 
-	// PurchaseAgentFullName: Name of purchase agent
+	// PurchaseAgentFullName:
 	PurchaseAgentFullName *string `json:"PurchaseAgentFullName,omitempty"`
 
-	// PurchaseOrderID: The Purchase OrderID identifies the purchase order. All the lines of a purchase order have the same Purchase Order ID
+	// PurchaseOrderID:
 	PurchaseOrderID *types.GUID `json:"PurchaseOrderID,omitempty"`
 
-	// Quantity: Quantity in item units
+	// Quantity:
 	Quantity *float64 `json:"Quantity,omitempty"`
 
-	// QuantityInPurchaseUnits: Quantity in purchase units. Use this field when creating a purchase order
+	// QuantityInPurchaseUnits:
 	QuantityInPurchaseUnits *float64 `json:"QuantityInPurchaseUnits,omitempty"`
 
-	// Rebill: Indicates whether the purchase order line needs to be rebilled. Only available with a professional service license
+	// Rebill:
 	Rebill *bool `json:"Rebill,omitempty"`
 
-	// ReceiptDate: This field shows the date the goods are expected to be received.
+	// ReceiptDate:
 	ReceiptDate *types.Date `json:"ReceiptDate,omitempty"`
 
-	// ReceiptStatus: Receipt status of purchase order: 10-Open, 20-Partial, 30-Complete, 40-Canceled
+	// ReceiptStatus:
 	ReceiptStatus *int `json:"ReceiptStatus,omitempty"`
 
-	// ReceivedQuantity: Quantity of goods received
+	// ReceivedQuantity:
 	ReceivedQuantity *float64 `json:"ReceivedQuantity,omitempty"`
 
-	// Remarks: Include any relevant remarks regarding the purchase order.
+	// Remarks:
 	Remarks *string `json:"Remarks,omitempty"`
 
-	// SalesOrder: Reference to sales order when purchase order generated via back to back sales order. Show NULL if more than one sales order is linked to the purchase order.
+	// SalesOrder:
 	SalesOrder *types.GUID `json:"SalesOrder,omitempty"`
 
-	// SalesOrderLine: Sales order line of the sales order that Is linked to a back to back sales order in purchase order. Show NULL if more than one sales order is linked to the purchase order line.
+	// SalesOrderLine:
 	SalesOrderLine *types.GUID `json:"SalesOrderLine,omitempty"`
 
-	// SalesOrderLineNumber: Number of the sales order line. Show NULL if more than one sales order is linked to the purchase order line.
+	// SalesOrderLineNumber:
 	SalesOrderLineNumber *int `json:"SalesOrderLineNumber,omitempty"`
 
-	// SalesOrderNumber: Number of the sales order. Show NULL if more than one sales order is linked to the purchase order line.
+	// SalesOrderNumber:
 	SalesOrderNumber *int `json:"SalesOrderNumber,omitempty"`
 
-	// SelectionCode: ID of selection code. Only supported by the Advanced and Premium editions for Wholesale &amp; Distribution and Manufacturing
+	// SelectionCode:
 	SelectionCode *types.GUID `json:"SelectionCode,omitempty"`
 
-	// SelectionCodeCode: Code of selection code
+	// SelectionCodeCode:
 	SelectionCodeCode *string `json:"SelectionCodeCode,omitempty"`
 
-	// SelectionCodeDescription: Description of selection code
+	// SelectionCodeDescription:
 	SelectionCodeDescription *string `json:"SelectionCodeDescription,omitempty"`
 
-	// SendingMethod: SendingMethod
+	// SendingMethod:
 	SendingMethod *int `json:"SendingMethod,omitempty"`
 
-	// ShippingMethod: Shipping Method
+	// ShippingMethod:
 	ShippingMethod *types.GUID `json:"ShippingMethod,omitempty"`
 
-	// ShippingMethodCode: Code of Shipping Method
+	// ShippingMethodCode:
 	ShippingMethodCode *string `json:"ShippingMethodCode,omitempty"`
 
-	// ShippingMethodDescription: Description of Shipping Method
+	// ShippingMethodDescription:
 	ShippingMethodDescription *string `json:"ShippingMethodDescription,omitempty"`
 
-	// Source: This shows how the purchase order was created: 1-Manual entry, 2-Import, 3-Other, 4-Purchase order, 5-Sales order, 6-Supplier&#39;s items, 7-Subcontract, 8-Purchase order advice, 9-Shop order, 10-MRP calculation, 11-Rest API, 12-Merge purchase orders
+	// Source:
 	Source *int `json:"Source,omitempty"`
 
-	// Supplier: Reference to supplier account
+	// Supplier:
 	Supplier *types.GUID `json:"Supplier,omitempty"`
 
-	// SupplierCode: Code of supplier
+	// SupplierCode:
 	SupplierCode *string `json:"SupplierCode,omitempty"`
 
-	// SupplierContact: Contact of supplier
+	// SupplierContact:
 	SupplierContact *types.GUID `json:"SupplierContact,omitempty"`
 
-	// SupplierContactPersonFullName: Contact person full name of supplier
+	// SupplierContactPersonFullName:
 	SupplierContactPersonFullName *string `json:"SupplierContactPersonFullName,omitempty"`
 
-	// SupplierItemCode: Code the supplier uses for this item
+	// SupplierItemCode:
 	SupplierItemCode *string `json:"SupplierItemCode,omitempty"`
 
-	// SupplierItemCopyRemarks: Indicate if the notes content should be copied from SupplierItem&#39;s remarks. The default follows the CopyRemarks value from SupplierItem. Values: 0 = Do not copy remark, 1 = Copy remark
+	// SupplierItemCopyRemarks:
 	SupplierItemCopyRemarks *byte `json:"SupplierItemCopyRemarks,omitempty"`
 
-	// SupplierName: Name of supplier
+	// SupplierName:
 	SupplierName *string `json:"SupplierName,omitempty"`
 
-	// Unit: Code of item unit
+	// Unit:
 	Unit *string `json:"Unit,omitempty"`
 
-	// UnitDescription: Description of unit
+	// UnitDescription:
 	UnitDescription *string `json:"UnitDescription,omitempty"`
 
-	// UnitPrice: Item price per purchase unit
+	// UnitPrice:
 	UnitPrice *float64 `json:"UnitPrice,omitempty"`
 
-	// VATAmount: Total VAT amount in the currency of the transaction
+	// VATAmount:
 	VATAmount *float64 `json:"VATAmount,omitempty"`
 
-	// VATCode: The VAT code used when the invoice was registered
+	// VATCode:
 	VATCode *string `json:"VATCode,omitempty"`
 
-	// VATDescription: Description of vat code
+	// VATDescription:
 	VATDescription *string `json:"VATDescription,omitempty"`
 
-	// VATPercentage: The VAT percentage of the VAT code. This is the percentage at the moment the invoice is created. It&#39;s also used by the default calculation of VAT amounts and VAT base amounts
+	// VATPercentage:
 	VATPercentage *float64 `json:"VATPercentage,omitempty"`
 
-	// Warehouse: Warehouse
+	// Warehouse:
 	Warehouse *types.GUID `json:"Warehouse,omitempty"`
 
-	// WarehouseCode: Code of Warehouse
+	// WarehouseCode:
 	WarehouseCode *string `json:"WarehouseCode,omitempty"`
 
-	// WarehouseDescription: Description of Warehouse
+	// WarehouseDescription:
 	WarehouseDescription *string `json:"WarehouseDescription,omitempty"`
 
-	// YourRef: The reference number of the customer
+	// YourRef:
 	YourRef *string `json:"YourRef,omitempty"`
 }
 

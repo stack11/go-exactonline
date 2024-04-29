@@ -53,6 +53,9 @@ type SalesInvoiceLines struct {
 	// CustomerItemCode:
 	CustomerItemCode *string `json:"CustomerItemCode,omitempty"`
 
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// DeliveryDate:
 	DeliveryDate *types.Date `json:"DeliveryDate,omitempty"`
 

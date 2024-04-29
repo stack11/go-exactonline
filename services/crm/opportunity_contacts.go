@@ -235,6 +235,12 @@ type OpportunityContacts struct {
 
 	// Title:
 	Title *string `json:"Title,omitempty"`
+
+	// TitleAbbreviation:
+	TitleAbbreviation *string `json:"TitleAbbreviation,omitempty"`
+
+	// TitleDescription:
+	TitleDescription *string `json:"TitleDescription,omitempty"`
 }
 
 func (e *OpportunityContacts) GetPrimary() *types.GUID {

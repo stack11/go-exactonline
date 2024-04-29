@@ -98,6 +98,9 @@ type ShopOrderMaterialPlans struct {
 	// PlannedQuantityFactor: Intended quantity of the material per unit excluding waste
 	PlannedQuantityFactor *float64 `json:"PlannedQuantityFactor,omitempty"`
 
+	// RoutingStepID: ID of the routing step.
+	RoutingStepID *types.GUID `json:"RoutingStepID,omitempty"`
+
 	// ShopOrder: Reference to ShopOrders table
 	ShopOrder *types.GUID `json:"ShopOrder,omitempty"`
 
@@ -116,7 +119,7 @@ type ShopOrderMaterialPlans struct {
 	// UnitDescription: Unit description
 	UnitDescription *string `json:"UnitDescription,omitempty"`
 
-	// WastePercentage: Waste percentage must be null or integer from 1 to 9999 (only available in Manufacturing Premium)
+	// WastePercentage: Waste percentage must be null or integer from 1 to 9999 (only available in Manufacturing Professional and Premium)
 	WastePercentage *float64 `json:"WastePercentage,omitempty"`
 }
 

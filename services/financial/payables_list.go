@@ -7,6 +7,7 @@ package financial
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/stack11/go-exactonline/api"
 	"github.com/stack11/go-exactonline/types"
@@ -73,6 +74,9 @@ type PayablesList struct {
 
 	// JournalDescription: Description of Journal
 	JournalDescription *string `json:"JournalDescription,omitempty"`
+
+	// Notes: Notes collection
+	Notes *json.RawMessage `json:"Notes,omitempty"`
 
 	// YourRef: Purchase invoice Your Reference number. Will be null if it is a cashflow entry
 	YourRef *string `json:"YourRef,omitempty"`

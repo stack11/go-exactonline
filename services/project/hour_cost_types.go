@@ -29,6 +29,9 @@ type HourCostTypes struct {
 	// ItemId: GUID id of the item that is linked to the project
 	ItemId *types.GUID `json:"ItemId,omitempty"`
 
+	// ItemCode: Code of the item that is linked to the project
+	ItemCode *string `json:"ItemCode,omitempty"`
+
 	// ItemDescription: Description of the item that is linked to the project
 	ItemDescription *string `json:"ItemDescription,omitempty"`
 }

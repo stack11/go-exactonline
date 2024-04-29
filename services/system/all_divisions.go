@@ -117,6 +117,9 @@ type AllDivisions struct {
 	// Description: Description
 	Description *string `json:"Description,omitempty"`
 
+	// DivisionHRLinkUnlinkDate: Date when the division was linked or unlinked to Exact Online HR. Please resync all data when this value changes because value of Timestamp is regenerated.
+	DivisionHRLinkUnlinkDate *types.Date `json:"DivisionHRLinkUnlinkDate,omitempty"`
+
 	// DivisionMoveDate: Date when the division was moved. Please resync all data when this value changes because value of Timestamp is regenerated.
 	DivisionMoveDate *types.Date `json:"DivisionMoveDate,omitempty"`
 
@@ -131,6 +134,9 @@ type AllDivisions struct {
 
 	// IsDossierDivision: True if the division is a dossier division
 	IsDossierDivision *bool `json:"IsDossierDivision,omitempty"`
+
+	// IsHRDivision: True if the division is linked to Exact Online HR
+	IsHRDivision *bool `json:"IsHRDivision,omitempty"`
 
 	// IsMainDivision: True if the division is the main division
 	IsMainDivision *bool `json:"IsMainDivision,omitempty"`

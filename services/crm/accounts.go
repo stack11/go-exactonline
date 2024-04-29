@@ -60,6 +60,12 @@ type Accounts struct {
 	// AddressLine3:
 	AddressLine3 *string `json:"AddressLine3,omitempty"`
 
+	// AddressSource:
+	AddressSource *byte `json:"AddressSource,omitempty"`
+
+	// AutomaticProcessProposedEntry:
+	AutomaticProcessProposedEntry *byte `json:"AutomaticProcessProposedEntry,omitempty"`
+
 	// BankAccounts:
 	BankAccounts *json.RawMessage `json:"BankAccounts,omitempty"`
 
@@ -194,6 +200,9 @@ type Accounts struct {
 
 	// Email:
 	Email *string `json:"Email,omitempty"`
+
+	// EnableSalesPaymentLink:
+	EnableSalesPaymentLink *bool `json:"EnableSalesPaymentLink,omitempty"`
 
 	// EndDate:
 	EndDate *types.Date `json:"EndDate,omitempty"`
@@ -384,6 +393,12 @@ type Accounts struct {
 	// PaymentConditionSalesDescription:
 	PaymentConditionSalesDescription *string `json:"PaymentConditionSalesDescription,omitempty"`
 
+	// PeppolIdentifier:
+	PeppolIdentifier *string `json:"PeppolIdentifier,omitempty"`
+
+	// PeppolIdentifierType:
+	PeppolIdentifierType *int `json:"PeppolIdentifierType,omitempty"`
+
 	// Phone:
 	Phone *string `json:"Phone,omitempty"`
 
@@ -470,6 +485,9 @@ type Accounts struct {
 
 	// ShowRemarkForSales:
 	ShowRemarkForSales *bool `json:"ShowRemarkForSales,omitempty"`
+
+	// Source:
+	Source *byte `json:"Source,omitempty"`
 
 	// StartDate:
 	StartDate *types.Date `json:"StartDate,omitempty"`

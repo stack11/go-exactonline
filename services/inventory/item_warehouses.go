@@ -137,6 +137,9 @@ type ItemWarehouses struct {
 	// SafetyStock: Minimum quantity of items you must have in stock
 	SafetyStock *float64 `json:"SafetyStock,omitempty"`
 
+	// StorageLocationSequenceNumber: Sequence number of the item (Premium Only)
+	StorageLocationSequenceNumber *int `json:"StorageLocationSequenceNumber,omitempty"`
+
 	// StorageLocationUrl: URL pointing to details of which storage locations this ItemWarehouse&#39;s stock is located
 	StorageLocationUrl *string `json:"StorageLocationUrl,omitempty"`
 

@@ -29,11 +29,20 @@ type EmploymentSalaries struct {
 	// ID: Primary key
 	ID *types.GUID `json:"ID,omitempty"`
 
+	// AmountType: Salary Section: Salary typeValue: 0 - Gross, 1 - Net.
+	AmountType *int `json:"AmountType,omitempty"`
+
+	// AmountTypeDescription: Salary Section: Salary type descriptionWhen AmountType value is 0, return &#39;Gross&#39;When AmountType value 1, return &#39;Net&#39;
+	AmountTypeDescription *string `json:"AmountTypeDescription,omitempty"`
+
 	// AverageDaysPerWeek: The average number of contract days that an employee works per week
 	AverageDaysPerWeek *float64 `json:"AverageDaysPerWeek,omitempty"`
 
 	// AverageHoursPerWeek: The average number of contract hours that an employee works per week
 	AverageHoursPerWeek *float64 `json:"AverageHoursPerWeek,omitempty"`
+
+	// BillabilityTarget: Schedule Section: Billability target
+	BillabilityTarget *float64 `json:"BillabilityTarget,omitempty"`
 
 	// Created: Creation date
 	Created *types.Date `json:"Created,omitempty"`
@@ -43,6 +52,9 @@ type EmploymentSalaries struct {
 
 	// CreatorFullName: Name of creator
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
+
+	// Description: General section: Custom description
+	Description *string `json:"Description,omitempty"`
 
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
@@ -59,8 +71,11 @@ type EmploymentSalaries struct {
 	// Employment: Employment
 	Employment *types.GUID `json:"Employment,omitempty"`
 
-	// EmploymentHID: Employment number
+	// EmploymentHID: Obsolete
 	EmploymentHID *int `json:"EmploymentHID,omitempty"`
+
+	// EmploymentNumber: Employment number
+	EmploymentNumber *int `json:"EmploymentNumber,omitempty"`
 
 	// EmploymentSalaryType: Salary type of employment. 1 - Periodical (fixed), 2 - Per hour (variable)
 	EmploymentSalaryType *int `json:"EmploymentSalaryType,omitempty"`
@@ -71,14 +86,23 @@ type EmploymentSalaries struct {
 	// EndDate: Salary record end date
 	EndDate *types.Date `json:"EndDate,omitempty"`
 
+	// ExternalRate: Rate Section: External rate
+	ExternalRate *float64 `json:"ExternalRate,omitempty"`
+
 	// Frequency: Frequency: 1 - Yearly, 2 - Quarterly, 3 - Monthly, 4 - 4-weekly, 5 - Weekly, 11 - Yearly (Pro forma), 12 - Quarterly (Pro forma), 13 - Monthly (Pro forma), 14 - 4-Weekly (Pro forma), 15 - Weekly (Pro forma)
 	Frequency *int `json:"Frequency,omitempty"`
+
+	// FrequencyDescription: Payroll period frequency description
+	FrequencyDescription *string `json:"FrequencyDescription,omitempty"`
 
 	// FulltimeAmount: Salary when working fulltime
 	FulltimeAmount *float64 `json:"FulltimeAmount,omitempty"`
 
 	// HourlyWage: Hourly wage
 	HourlyWage *float64 `json:"HourlyWage,omitempty"`
+
+	// IntercompanyRate: Rate Section: Intercompany rate
+	IntercompanyRate *float64 `json:"IntercompanyRate,omitempty"`
 
 	// InternalRate: Internal rate for time &amp; billing or professional service user
 	InternalRate *float64 `json:"InternalRate,omitempty"`
@@ -101,6 +125,12 @@ type EmploymentSalaries struct {
 	// ParttimeFactor: Contract hours / Fulltime contract hours
 	ParttimeFactor *float64 `json:"ParttimeFactor,omitempty"`
 
+	// SalaryBasedType: Salary Section: Salary based on.Value: 0 - Manual entry, 1 - Wagescale, 2 - Minimum wage, 3 - Minimum hourly wage
+	SalaryBasedType *int `json:"SalaryBasedType,omitempty"`
+
+	// SalaryBasedTypeDescription: When SalaryBasedType value is 0, return &#39;Manual entry&#39;When SalaryBasedType value 1, return &#39;Wage scale&#39;When SalaryBasedType value 2, return &#39;Minimum wage&#39;When SalaryBasedType value 3, return &#39;Minimum hourly wage&#39;
+	SalaryBasedTypeDescription *string `json:"SalaryBasedTypeDescription,omitempty"`
+
 	// Scale: Employee wage scale
 	Scale *string `json:"Scale,omitempty"`
 
@@ -115,6 +145,15 @@ type EmploymentSalaries struct {
 
 	// StartDate: Salary record start date
 	StartDate *types.Date `json:"StartDate,omitempty"`
+
+	// WageScale: Salary Section: Wagescale ID
+	WageScale *types.GUID `json:"WageScale,omitempty"`
+
+	// WageScalePeriod: Salary Section: Period for automatic step increase
+	WageScalePeriod *int `json:"WageScalePeriod,omitempty"`
+
+	// WageScaleStep: Salary Section: Wagescale Step Code
+	WageScaleStep *string `json:"WageScaleStep,omitempty"`
 }
 
 func (e *EmploymentSalaries) GetPrimary() *types.GUID {

@@ -126,6 +126,9 @@ type StockCountLines struct {
 	// StorageLocationDescription: Storage location description
 	StorageLocationDescription *string `json:"StorageLocationDescription,omitempty"`
 
+	// StorageLocationSequenceNumber: Sequence number for stock count (Premium Only)
+	StorageLocationSequenceNumber *int `json:"StorageLocationSequenceNumber,omitempty"`
+
 	// Warehouse: Warehouse
 	Warehouse *types.GUID `json:"Warehouse,omitempty"`
 }

@@ -48,6 +48,12 @@ type GoodsReceiptLines struct {
 	// Division: Division code
 	Division *int `json:"Division,omitempty"`
 
+	// Expense: Expense related to the Work Breakdown Structure of the selected project. Only available with a professional service license
+	Expense *types.GUID `json:"Expense,omitempty"`
+
+	// ExpenseDescription: Description of expense. Only available with a professional service license
+	ExpenseDescription *string `json:"ExpenseDescription,omitempty"`
+
 	// GoodsReceiptID: All the lines of a goods receipt have the same GoodsReceiptID
 	GoodsReceiptID *types.GUID `json:"GoodsReceiptID,omitempty"`
 
@@ -110,6 +116,9 @@ type GoodsReceiptLines struct {
 
 	// QuantityReceived: Quantity received
 	QuantityReceived *float64 `json:"QuantityReceived,omitempty"`
+
+	// Rebill: Indicates whether the purchase order line needs to be rebilled. Only available with a professional service license
+	Rebill *bool `json:"Rebill,omitempty"`
 
 	// SerialNumbers: Collection of serial numbers
 	SerialNumbers *json.RawMessage `json:"SerialNumbers,omitempty"`

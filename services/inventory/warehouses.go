@@ -44,7 +44,7 @@ type Warehouses struct {
 	// CreatorFullName: Name of creator
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
-	// DefaultStorageLocation: The default storage location of this warehouse. Warehouses can have a default storage location in packages Manufacturing Premium or Wholesale Premium
+	// DefaultStorageLocation: The default storage location of this warehouse. Warehouses can have a default storage location in packages Manufacturing Professional &amp; Premium or Wholesale Professional &amp; Premium
 	DefaultStorageLocation *types.GUID `json:"DefaultStorageLocation,omitempty"`
 
 	// DefaultStorageLocationCode: Default storage location&#39;s code

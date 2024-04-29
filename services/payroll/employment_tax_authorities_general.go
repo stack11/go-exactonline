@@ -56,8 +56,11 @@ type EmploymentTaxAuthoritiesGeneral struct {
 	// Employment: Employment
 	Employment *types.GUID `json:"Employment,omitempty"`
 
-	// EmploymentHID: Employment number
+	// EmploymentHID: Obsolete
 	EmploymentHID *int `json:"EmploymentHID,omitempty"`
+
+	// EmploymentNumber: Employment number
+	EmploymentNumber *int `json:"EmploymentNumber,omitempty"`
 
 	// EndDate: End date of employment agencies
 	EndDate *types.Date `json:"EndDate,omitempty"`

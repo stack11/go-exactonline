@@ -77,6 +77,9 @@ type BankEntryLines struct {
 	// CreatorFullName:
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// CustomField:
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Date:
 	Date *types.Date `json:"Date,omitempty"`
 

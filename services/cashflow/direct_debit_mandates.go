@@ -35,6 +35,12 @@ type DirectDebitMandates struct {
 	// Account: Account to which the mandate belongs.
 	Account *types.GUID `json:"Account,omitempty"`
 
+	// Attachment: Contain attachment (Format: Base64 encoded) of the mandate belongs. Binaries are not sent in the response.
+	Attachment *[]byte `json:"Attachment,omitempty"`
+
+	// AttachmentFileName: Filename of the attachment to which the mandate belongs.
+	AttachmentFileName *string `json:"AttachmentFileName,omitempty"`
+
 	// BankAccount: Bank account to which the mandate belongs.
 	BankAccount *types.GUID `json:"BankAccount,omitempty"`
 

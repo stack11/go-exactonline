@@ -7,6 +7,9 @@ package logistics
 
 import (
 	"context"
+	"fmt"
+	"io/ioutil"
+	"net/http"
 
 	"github.com/stack11/go-exactonline/api"
 	"github.com/stack11/go-exactonline/types"
@@ -22,7 +25,7 @@ type CustomerItemsEndpoint service
 // URL: /api/v1/{division}/logistics/CustomerItems
 // HasWebhook: false
 // IsInBeta: false
-// Methods: GET
+// Methods: GET POST PUT DELETE
 // Endpoint docs: https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=LogisticsCustomerItems
 type CustomerItems struct {
 	MetaData *api.MetaData `json:"__metadata,omitempty"`
@@ -70,6 +73,9 @@ type CustomerItems struct {
 
 	// ModifierFullName: Name of modifier
 	ModifierFullName *string `json:"ModifierFullName,omitempty"`
+
+	// Type: Type
+	Type *string `json:"Type,omitempty"`
 }
 
 func (e *CustomerItems) GetPrimary() *types.GUID {
@@ -106,4 +112,54 @@ func (s *CustomerItemsEndpoint) Get(ctx context.Context, division int, id *types
 	e := &CustomerItems{}
 	_, _, requestError := s.client.NewRequestAndDo(ctx, "GET", u.String(), nil, e)
 	return e, requestError
+}
+
+// New returns an empty CustomerItems entity
+func (s *CustomerItemsEndpoint) New() *CustomerItems {
+	return &CustomerItems{}
+}
+
+// Create the CustomerItems entity in the provided division.
+func (s *CustomerItemsEndpoint) Create(ctx context.Context, division int, entity *CustomerItems) (*CustomerItems, error) {
+	u, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/logistics/CustomerItems", division) // #nosec
+	e := &CustomerItems{}
+	_, _, err := s.client.NewRequestAndDo(ctx, "POST", u.String(), entity, e)
+	if err != nil {
+		return nil, err
+	}
+	return e, nil
+}
+
+// Update the CustomerItems entity in the provided division.
+func (s *CustomerItemsEndpoint) Update(ctx context.Context, division int, entity *CustomerItems) (*CustomerItems, error) {
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/logistics/CustomerItems", division) // #nosec
+	u, err := api.AddOdataKeyToURL(b, entity.GetPrimary())
+	if err != nil {
+		return nil, err
+	}
+
+	e := &CustomerItems{}
+	_, _, requestError := s.client.NewRequestAndDo(ctx, "PUT", u.String(), entity, e)
+	return e, requestError
+}
+
+// Delete the CustomerItems entity in the provided division.
+func (s *CustomerItemsEndpoint) Delete(ctx context.Context, division int, id *types.GUID) error {
+	b, _ := s.client.ResolvePathWithDivision("/api/v1/{division}/logistics/CustomerItems", division) // #nosec
+	u, err := api.AddOdataKeyToURL(b, id)
+	if err != nil {
+		return err
+	}
+
+	_, r, requestError := s.client.NewRequestAndDo(ctx, "DELETE", u.String(), nil, nil)
+	if requestError != nil {
+		return requestError
+	}
+
+	if r.StatusCode != http.StatusNoContent {
+		body, _ := ioutil.ReadAll(r.Body) // #nosec
+		return fmt.Errorf("Failed with status %v and body %v", r.StatusCode, body)
+	}
+
+	return nil
 }

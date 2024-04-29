@@ -19,9 +19,10 @@ type AssetsService struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// Endpoints available under this service
-	AssetGroups         *AssetGroupsEndpoint
-	Assets              *AssetsEndpoint
-	DepreciationMethods *DepreciationMethodsEndpoint
+	AssetGroups              *AssetGroupsEndpoint
+	Assets                   *AssetsEndpoint
+	CommercialBuildingValues *CommercialBuildingValuesEndpoint
+	DepreciationMethods      *DepreciationMethodsEndpoint
 }
 
 // NewAssetsService creates a new initialized instance of the
@@ -33,6 +34,7 @@ func NewAssetsService(apiClient *api.Client) *AssetsService {
 
 	s.AssetGroups = (*AssetGroupsEndpoint)(&s.common)
 	s.Assets = (*AssetsEndpoint)(&s.common)
+	s.CommercialBuildingValues = (*CommercialBuildingValuesEndpoint)(&s.common)
 	s.DepreciationMethods = (*DepreciationMethodsEndpoint)(&s.common)
 
 	return s

@@ -288,6 +288,63 @@ func TestStockSerialNumbersEndpoint_Create(t *testing.T) {
 	}
 }
 
+func TestStockSerialNumbersEndpoint_Update(t *testing.T) {
+	acceptHeaders := []string{"application/json"}
+	type args struct {
+		ctx      context.Context
+		division int
+		entity   *StockSerialNumbers
+	}
+	s1 := StockSerialNumbersPrimaryPropertySample()
+	tests := []struct {
+		name    string
+		args    args
+		want    *StockSerialNumbers
+		wantErr bool
+	}{
+		{
+			"1",
+			args{context.Background(), 0, &StockSerialNumbers{ID: s1, MetaData: &api.MetaData{URI: &types.URL{URL: &url.URL{Scheme: "https", Host: "start.exactonline.nl"}}}}},
+			&StockSerialNumbers{ID: s1, MetaData: &api.MetaData{URI: &types.URL{URL: &url.URL{Scheme: "https", Host: "start.exactonline.nl"}}}},
+			false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			s, mux, _, teardown := setup()
+			defer teardown()
+
+			b, e := s.client.ResolvePathWithDivision("/api/v1/{division}/inventory/StockSerialNumbers", 0)
+			if e != nil {
+				t.Errorf("s.client.ResolvePathWithDivision in StockSerialNumbersEndpoint.Update returned error: %v, with url /api/v1/{division}/inventory/StockSerialNumbers", e)
+			}
+
+			u, e2 := api.AddOdataKeyToURL(b, tt.args.entity.GetPrimary())
+			if e2 != nil {
+				t.Errorf("api.AddOdataKeyToURL in StockSerialNumbersEndpoint.Update returned error: %v", e2)
+			}
+
+			mux.HandleFunc(u.Path, func(w http.ResponseWriter, r *http.Request) {
+				testMethod(t, r, "PUT")
+				testHeader(t, r, "Accept", strings.Join(acceptHeaders, ", "))
+				testHeader(t, r, "Content-Type", strings.Join(acceptHeaders, ", "))
+				b, _ := json.Marshal(tt.args.entity)
+				testBody(t, r, string(b)+"\n")
+				fmt.Fprint(w, `{"d":`+string(b)+`}`)
+			})
+
+			got, err := s.StockSerialNumbers.Update(tt.args.ctx, tt.args.division, tt.args.entity)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("StockSerialNumbersEndpoint.Update() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("StockSerialNumbersEndpoint.Update() = %v, want %v", *got, *tt.want)
+			}
+		})
+	}
+}
+
 func TestStockSerialNumbersEndpoint_Delete(t *testing.T) {
 	acceptHeaders := []string{"application/json"}
 	type args struct {

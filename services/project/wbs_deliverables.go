@@ -44,6 +44,9 @@ type WBSDeliverables struct {
 	// CreatorFullName: The full name of the user that created the WBS deliverable
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// CustomField: Custom field endpoint. Provided only for the Exact Online Premium users.
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Description: Description of the WBS deliverable
 	Description *string `json:"Description,omitempty"`
 

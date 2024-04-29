@@ -77,11 +77,17 @@ type Me struct {
 	// IsClientUser: Client user of an accountant: either a portal user or a non-accountant user with his own license (internal use)
 	IsClientUser *bool `json:"IsClientUser,omitempty"`
 
+	// IsEmployeeSelfServiceUser: Employee user with limited access and specific start page
+	IsEmployeeSelfServiceUser *bool `json:"IsEmployeeSelfServiceUser,omitempty"`
+
 	// IsMyFirmLiteUser: MyFirm lite user of accountant with limited access and specific start page (internal use)
 	IsMyFirmLiteUser *bool `json:"IsMyFirmLiteUser,omitempty"`
 
 	// IsMyFirmPortalUser: MyFirm user of accountant with limited access and specific start page (internal use)
 	IsMyFirmPortalUser *bool `json:"IsMyFirmPortalUser,omitempty"`
+
+	// IsStarterUser: Starter user with limited access and specific start page (internal use)
+	IsStarterUser *bool `json:"IsStarterUser,omitempty"`
 
 	// Language: Language spoken by this user
 	Language *string `json:"Language,omitempty"`
@@ -103,6 +109,9 @@ type Me struct {
 
 	// Nationality: Nationality
 	Nationality *string `json:"Nationality,omitempty"`
+
+	// PackageCode: Package code used in the customers license
+	PackageCode *string `json:"PackageCode,omitempty"`
 
 	// Phone: Phone number
 	Phone *string `json:"Phone,omitempty"`
@@ -128,7 +137,7 @@ type Me struct {
 	// Title: Title
 	Title *string `json:"Title,omitempty"`
 
-	// UserName: Login name of the user
+	// UserName: Login name of the user. If the user logs in with One Exact Identity, the login name is in the email address field
 	UserName *string `json:"UserName,omitempty"`
 }
 

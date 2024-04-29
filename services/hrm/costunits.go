@@ -44,6 +44,9 @@ type Costunits struct {
 	// CreatorFullName: Name of creator
 	CreatorFullName *string `json:"CreatorFullName,omitempty"`
 
+	// CustomField: Custom field endpoint
+	CustomField *string `json:"CustomField,omitempty"`
+
 	// Description: Description (text)
 	Description *string `json:"Description,omitempty"`
 

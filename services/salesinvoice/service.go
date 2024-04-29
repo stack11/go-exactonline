@@ -19,9 +19,10 @@ type SalesInvoiceService struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// Endpoints available under this service
-	Layouts           *LayoutsEndpoint
-	SalesInvoiceLines *SalesInvoiceLinesEndpoint
-	SalesInvoices     *SalesInvoicesEndpoint
+	Layouts                      *LayoutsEndpoint
+	SalesInvoiceLines            *SalesInvoiceLinesEndpoint
+	SalesInvoiceOrderChargeLines *SalesInvoiceOrderChargeLinesEndpoint
+	SalesInvoices                *SalesInvoicesEndpoint
 }
 
 // NewSalesInvoiceService creates a new initialized instance of the
@@ -33,6 +34,7 @@ func NewSalesInvoiceService(apiClient *api.Client) *SalesInvoiceService {
 
 	s.Layouts = (*LayoutsEndpoint)(&s.common)
 	s.SalesInvoiceLines = (*SalesInvoiceLinesEndpoint)(&s.common)
+	s.SalesInvoiceOrderChargeLines = (*SalesInvoiceOrderChargeLinesEndpoint)(&s.common)
 	s.SalesInvoices = (*SalesInvoicesEndpoint)(&s.common)
 
 	return s
