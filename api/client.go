@@ -19,6 +19,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/failsafe-go/failsafe-go/ratelimiter"
 	"github.com/stack11/go-exactonline/types"
 )
 
@@ -31,7 +32,8 @@ const (
 
 // A Client manages communication with the Exact Online API.
 type Client struct {
-	client *http.Client
+	client      *http.Client
+	rateLimiter ratelimiter.RateLimiter[any]
 
 	// BaseURL for API requests. Defaults to the Dutch API. See more available base urls in the API documentation. @TODO
 	BaseURL *url.URL
@@ -49,9 +51,20 @@ func NewClient(httpClient *http.Client) *Client {
 	}
 
 	baseURL, _ := url.Parse(defaultBaseURL) // #nosec
+	return &Client{
+		client:    httpClient,
+		BaseURL:   baseURL,
+		UserAgent: userAgent,
+	}
+}
 
-	c := &Client{client: httpClient, BaseURL: baseURL, UserAgent: userAgent}
-	return c
+// WithRateLimiter adds a rate limiter to the Client. The rate limiter will be
+// used to limit the number of requests send to the API.
+// A rate limiter can be created using:
+//
+//	r := ratelimiter.Bursty[any](60, time.Minute).Build()
+func (c *Client) WithRateLimiter(r ratelimiter.RateLimiter[any]) {
+	c.rateLimiter = r
 }
 
 // ResolveURL will either return either a resolved path or a valid absolute URI
@@ -110,6 +123,10 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 // interface, the raw response body will be written to v, without attempting to
 // first decode it.
 func (c *Client) Do(ctx context.Context, req *http.Request, v interface{}) (*Response, error) {
+	if c.rateLimiter != nil && !c.rateLimiter.TryAcquirePermit() {
+		return nil, ratelimiter.ErrExceeded
+	}
+
 	req = req.WithContext(ctx)
 	res, err := c.client.Do(req) // #nosec G107
 	if err != nil {

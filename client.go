@@ -15,6 +15,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/failsafe-go/failsafe-go/ratelimiter"
 	"github.com/gofrs/uuid"
 	"github.com/stack11/go-exactonline/api"
 	"github.com/stack11/go-exactonline/services/accountancy"
@@ -151,17 +152,27 @@ func NewClientFromTokenSource(ctx context.Context, tokenSource oauth2.TokenSourc
 	return NewClient(httpClient)
 }
 
+// WithRateLimiter adds a rate limiter to the Client. The rate limiter will be
+// used to limit the number of requests send to the API.
+// A rate limiter can be created using:
+//
+//	r := ratelimiter.Bursty[any](60, time.Minute).Build()
+func (c *Client) WithRateLimiter(r ratelimiter.RateLimiter[any]) {
+	c.client.WithRateLimiter(r)
+}
+
 // SetBaseURL sets the base URL for communicating with the Exact Online API.
 // If the URL does not have a trailing slash, one is added automatically.
 // For each country, the Exact Online solution is deployed on a separate site.
 // Because of this, the Exact Online server URL is country dependent.
 // The Exact Online server URLs are:
-//     - The Netherlands: https://start.exactonline.nl (default)
-//     - Belgium: https://start.exactonline.be
-//     - Germany: https://start.exactonline.de
-//     - United Kingdom: https://start.exactonline.co.uk
-//     - United States of America: https://start.exactonline.com
-//     - Spain: https://start.exactonline.es
+//   - The Netherlands: https://start.exactonline.nl (default)
+//   - Belgium: https://start.exactonline.be
+//   - Germany: https://start.exactonline.de
+//   - United Kingdom: https://start.exactonline.co.uk
+//   - United States of America: https://start.exactonline.com
+//   - Spain: https://start.exactonline.es
+//
 // Docs: https://support.exactonline.com/community/s/knowledge-base#All-All-DNO-Content-exact-online-sites
 func (c *Client) SetBaseURL(baseURL string) error {
 	baseEndpoint, err := url.Parse(baseURL)
