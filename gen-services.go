@@ -3,7 +3,7 @@
 // Use of this source code is governed by a MIT
 // license that can be found in the LICENSE file.
 
-// +build ignore
+//go:build ignore
 
 // This program generates Exact Online API endpoints. It can be invoked by running
 // go generate
@@ -308,7 +308,12 @@ func main() {
 		p := path.Join("./services/", s.Package)
 		os.MkdirAll(p, os.ModePerm)
 
-		writeFile(serviceTmpl, s, path.Join(p, "service.go"))
+		fp := path.Join(p, "service.go")
+		if year := readCopyrightYearFromFile(fp); year != "" {
+			s.Year = year
+		}
+
+		writeFile(serviceTmpl, s, fp)
 		writeFile(serviceTestTmpl, s, path.Join(p, "service_test.go"))
 
 		for _, e := range s.Endpoints {
@@ -324,6 +329,19 @@ func main() {
 	printCopyPasteDeclarations(services)
 
 	// @TODO print copy paste declarations?
+}
+
+func readCopyrightYearFromFile(filePath string) string {
+	f, err := os.Open(filePath)
+	if err != nil {
+		return ""
+	}
+
+	buf := make([]byte, 17)
+	if n, err := f.Read(buf); err != nil || n != 17 {
+		return ""
+	}
+	return string(buf[13:])
 }
 
 func writeFile(tpl *template.Template, data interface{}, filePath string) {
