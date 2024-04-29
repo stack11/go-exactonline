@@ -1,8 +1,8 @@
 # go-exactonline #
 
-[![GoDoc](https://godoc.org/github.com/stack11/go-exactonline?status.svg)](https://godoc.org/github.com/stack11/go-exactonline) [![Build Status](https://travis-ci.org/stack11/go-exactonline.svg?branch=master)](https://travis-ci.org/stack11/go-exactonline) [![Test Coverage](https://coveralls.io/repos/github/stack11/go-exactonline/badge.svg?branch=master)](https://coveralls.io/github/stack11/go-exactonline?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/a2ca34f94cb3bc58e6a1/maintainability)](https://codeclimate.com/github/stack11/go-exactonline/maintainability) [![go report](https://goreportcard.com/badge/github.com/stack11/go-exactonline)](https://goreportcard.com/report/github.com/stack11/go-exactonline)
+[![GoDoc](https://godoc.org/github.com/stack11/go-exactonline?status.svg)](https://godoc.org/github.com/stack11/go-exactonline) [![Build Status](https://travis-ci.org/stack11/go-exactonline.svg?branch=master)](https://travis-ci.org/stack11/go-exactonline) [![Test Coverage](https://coveralls.io/repos/github/stack11/go-exactonline/badge.svg?branch=master)](https://coveralls.io/github/stack11/go-exactonline?branch=master) [![go report](https://goreportcard.com/badge/github.com/stack11/go-exactonline)](https://goreportcard.com/report/github.com/stack11/go-exactonline)
 
-go-exactonline is a Go client library for accessing the Exact Online API. This library is tested for Go v1.10 and above.
+go-exactonline is a Go client library for accessing the Exact Online API. This library is tested for Go v1.21 and above.
 
 ## Usage ##
 
@@ -10,7 +10,7 @@ go-exactonline is a Go client library for accessing the Exact Online API. This l
 import "github.com/stack11/go-exactonline"
 ```
 
-We first contstruct a client and then access the various API endpoints. Note that this library doens't directly handle authentication, see [Authentication](#authentication).
+We first contstruct a client and then access the various API endpoints. Note that this library doesn't directly handle authentication, see [Authentication](#authentication).
 
 ```go
 client := exactonline.NewClient(nil)
